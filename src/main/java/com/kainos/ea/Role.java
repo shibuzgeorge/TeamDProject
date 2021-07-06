@@ -21,8 +21,14 @@ public class Role {
         return roleID;
     }
 
-    public void setId(Integer roleID) {
-        this.roleID = roleID;
+    public void setId(Integer roleID) throws IllegalArgumentException{
+        if (roleID < 1) {
+            throw new IllegalArgumentException("Given integer must be greater than 1");
+        } else if (roleID > 16777215) {
+            throw new IllegalArgumentException("Given integer must be not greater than 16777215");
+        } else {
+            this.roleID = roleID;
+        }
     }
 
     public String getRole() {
