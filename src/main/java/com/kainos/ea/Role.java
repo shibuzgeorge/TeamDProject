@@ -21,7 +21,7 @@ public class Role {
         return roleID;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer roleID) {
         this.roleID = roleID;
     }
 
