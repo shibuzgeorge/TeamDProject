@@ -44,6 +44,26 @@ CREATE TABLE `Role`(
     FOREIGN KEY(`jobFamilyID`) REFERENCES JobFamily(`jobFamilyID`)
 );
 
+CREATE VIEW `RoleListWithID` AS
+    SELECT R.roleID, R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
+    FROM `Role` R
+    LEFT JOIN `Capability` C
+        ON R.capabilityID = C.capabilityID
+    LEFT JOIN `Band` B
+        ON R.bandID = B.bandID
+    LEFT JOIN `JobFamily` JF
+        ON R.jobFamilyID = JF.jobFamilyID;
+
+CREATE VIEW `RoleListWithoutID` AS
+    SELECT R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
+    FROM `Role` R
+    LEFT JOIN `Capability` C
+        ON R.capabilityID = C.capabilityID
+    LEFT JOIN `Band` B
+        ON R.bandID = B.bandID
+    LEFT JOIN `JobFamily` JF
+        ON R.jobFamilyID = JF.jobFamilyID;
+
 INSERT INTO Band (`bandName`) VALUES ("Trainee");
 
 INSERT INTO Employee (employeeName) VALUES ("Peter");
