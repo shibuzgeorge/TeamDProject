@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class RoleMapper implements RowMapper<Role> {
     private static final String ID = "roleID";
     private static final String ROLE = "roleName";
-    private static final String CAPABILITY = "capability";
+    private static final String CAPABILITY = "capabilityID";
 
     @Override
     public Role map(ResultSet rs, StatementContext ctx) throws SQLException {
