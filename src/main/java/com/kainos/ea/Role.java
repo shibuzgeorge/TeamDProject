@@ -22,11 +22,11 @@ public class Role {
         this.capabilityID = capabilityID;
     }
 
-    public Integer getId() {
+    public Integer getRoleID() {
         return roleID;
     }
 
-    public void setId(Integer roleID) throws IllegalArgumentException{
+    public void setRoleID(Integer roleID) throws IllegalArgumentException{
             if (roleID < 1) {
                 throw new IllegalArgumentException("Given integer must be greater than 1");
             } else if (roleID > 16777215) {
@@ -36,11 +36,11 @@ public class Role {
             }
     }
 
-    public String getRole() {
+    public String getRoleName() {
         return roleName;
     }
 
-    public void setRole(String roleName) {
+    public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
 
@@ -62,9 +62,9 @@ public class Role {
     @Override
     public String toString() {
         return "Role{" +
-                "id=" + roleID +
-                ", role='" + roleName + '\'' +
-                ", capability='" + capabilityID + '\'' +
+                "roleId=" + roleID +
+                ", roleName='" + roleName + '\'' +
+                ", capabilityID='" + capabilityID + '\'' +
                 '}';
     }
 
