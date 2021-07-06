@@ -16,7 +16,7 @@ public class RoleTest {
     public void roleGetRolePositveCase(String validRole, Integer validCapabilityID){
         Role validRoleInstance = new Role(validRole, validCapabilityID);
 
-        Assertions.assertEquals(validRoleInstance.getRole(), validRole);
+        Assertions.assertEquals(validRoleInstance.getRoleName(), validRole);
     }
 
 
@@ -74,9 +74,9 @@ public class RoleTest {
     })
     public void roleSetIDPositveCase(Integer validID){
         Role validRoleInstance = new Role("Software Engineer", 1);
-        validRoleInstance.setId(validID);
+        validRoleInstance.setRoleID(validID);
 
-        Assertions.assertEquals(validRoleInstance.getId(), validID);
+        Assertions.assertEquals(validRoleInstance.getRoleID(), validID);
     }
 
 
@@ -91,7 +91,7 @@ public class RoleTest {
         Role validRoleInstance = new Role("Software Engineer", 1);
 
         Assertions.assertThrows(IllegalArgumentException.class, ()->{
-            validRoleInstance.setId(invalidID);
+            validRoleInstance.setRoleID(invalidID);
         });
     }
 
@@ -102,7 +102,7 @@ public class RoleTest {
     })
     public void roleToStringPositiveCase(String validRole, Integer validCapabilityID, Integer validID){
         Role validRoleInstance = new Role(validRole, validCapabilityID);
-        validRoleInstance.setId(validID);
+        validRoleInstance.setRoleID(validID);
 
         String expectedReturn = "Role{" +
                 "id=" + validID +

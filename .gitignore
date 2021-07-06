@@ -252,4 +252,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+usage-data-config.json
+
 # End of https://www.toptal.com/developers/gitignore/api/node,maven,java,intellij+all
