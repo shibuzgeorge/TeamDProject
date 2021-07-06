@@ -1,7 +1,5 @@
 package com.kainos;
 import com.kainos.ea.Role;
-import junit.framework.AssertionFailedError;
-import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.api.Assertions;
