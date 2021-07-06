@@ -4,6 +4,11 @@ cache:
   directories: $HOME/.m2 
 notifications: 
   email: 
-    recipients: dean.catterson@kainos.com 
+    recipients:
+    - dean.catterson@kainos.com
+    - pgilfedder943@gmail.com
+    - conor.martin@kainos.com
+    - seweryn.majewski@kainos.com
+    - shibu.george@kainos.com
     on_failure: always 
     on_success: never
