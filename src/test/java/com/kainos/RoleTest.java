@@ -60,11 +60,9 @@ public class RoleTest {
     public void roleSetIDWhenIDIsIllegalExceptIAE(Integer invalidID){
         Role validRoleInstance = new Role("Software Engineer", "Engineering");
 
-        IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, ()->{
+        Assertions.assertThrows(IllegalArgumentException.class, ()->{
             validRoleInstance.setId(invalidID);
         });
-
-        assertEquals(IllegalArgumentException.class, thrown.getClass());
     }
 
 }
