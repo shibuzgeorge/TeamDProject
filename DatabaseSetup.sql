@@ -64,12 +64,12 @@ CREATE VIEW `RoleListWithoutID` AS
     LEFT JOIN `JobFamily` JF
         ON R.jobFamilyID = JF.jobFamilyID;
 
-INSERT INTO Band (`bandName`) VALUES ("Trainee");
+INSERT INTO Band (`bandName`) VALUES ("Associate");
 
-INSERT INTO Employee (employeeName) VALUES ("Peter");
+INSERT INTO Employee (employeeName) VALUES ("Dean");
 
 INSERT INTO Capability (capabilityName, capabilityLeadID) VALUES ("Engineering", 1);
 
-INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, "Testing and Quality Assurance", 1);
+INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, "Engineering", 2);
 
-INSERT INTO Role (roleName, capabilityID, jobFamilyID, bandID, specification) VALUES ("Trainee Test Engineer", 1, 1, 1, "Spec goes here");
+INSERT INTO Role (roleName, capabilityID, jobFamilyID, bandID, specification) VALUES ("Software Engineer", 1, 2, 2, "Spec goes here");

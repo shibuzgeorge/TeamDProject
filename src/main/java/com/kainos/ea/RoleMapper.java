@@ -13,7 +13,8 @@ public class RoleMapper implements RowMapper<Role> {
     @Override
     public Role map(ResultSet rs, StatementContext ctx) throws SQLException {
         Role role = new Role(rs.getString(ROLE), rs.getInt(CAPABILITY));
-        role.setId(rs.getInt(ID));
+        role.setRoleID(rs.getInt(ID));
+        System.out.println(role);
         return role;
     }
 }
