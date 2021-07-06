@@ -5,48 +5,48 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Role {
 
     @JsonProperty
-    private Integer id;
+    private Integer roleID; //id
     @JsonProperty
-    private String role;
+    private String roleName; //role
     @JsonProperty
-    private String capability;
+    private String capabilityID; //capability
 
 
-    public Role(String role, String capability) {
-        this.role = role;
-        this.capability = capability;
+    public Role(String roleName, String capabilityID) {
+        this.roleName = roleName;
+        this.capabilityID = capabilityID;
     }
 
     public Integer getId() {
-        return id;
+        return roleID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer roleID) {
+        this.roleID = roleID;
     }
 
     public String getRole() {
-        return role;
+        return roleName;
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.roleName = roleName;
     }
 
     public String getCapability() {
-        return capability;
+        return capabilityID;
     }
 
     public void setCapability(String capability) {
-        this.capability = capability;
+        this.capabilityID = capabilityID;
     }
 
     @Override
     public String toString() {
         return "Role{" +
-                "id=" + id +
-                ", role='" + role + '\'' +
-                ", capability='" + capability + '\'' +
+                "id=" + roleID +
+                ", role='" + roleName + '\'' +
+                ", capability='" + capabilityID + '\'' +
                 '}';
     }
 
