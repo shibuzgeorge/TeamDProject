@@ -5,7 +5,7 @@ import org.junit.Test;
 public class APITest extends SetUp {
 
     @Test
-    public void OpenAPILocalhost() {
-        driver.get("http://localhost:8080");
+    public void goToBrowser() {
+        driver.get("http://www.google.com");
     }
 }
