@@ -1,8 +1,8 @@
-package SeleniumTest;
+package node.SeleniumTest;
 
 import org.junit.jupiter.api.Test;
 
-public class APITest extends SetUp {
+public class DummyTest extends BaseIntegrationTest {
 
     @Test
     public void goToBrowser() {

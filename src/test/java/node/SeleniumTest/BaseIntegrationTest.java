@@ -1,4 +1,4 @@
-package SeleniumTest;
+package node.SeleniumTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.remote.CapabilityType.BROWSER_VERSION;
 
-public class SetUp {
+public class BaseIntegrationTest {
 
     protected static WebDriver driver;
     protected final static String browserVersion = System.getProperty(BROWSER_VERSION);
