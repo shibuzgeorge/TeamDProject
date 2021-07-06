@@ -2,7 +2,7 @@ package node.SeleniumTest;
 
 import org.junit.jupiter.api.Test;
 
-public class DummyTest extends BaseIntegrationTest {
+class DummyTest extends BaseIntegrationTest {
 
     @Test
     public void goToBrowser() {
