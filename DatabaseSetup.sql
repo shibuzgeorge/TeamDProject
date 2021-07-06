@@ -23,7 +23,7 @@ CREATE TABLE `Band`(
 
 CREATE TABLE `JobFamily`(
     `jobFamilyID` mediumint NOT NULL AUTO_INCREMENT,
-    `jobFamilyName` varchar NOT NULL,
+    `jobFamilyName` varchar(255) NOT NULL,
     `disciplineLeadID` mediumint NOT NULL,
     PRIMARY KEY(`jobFamilyID`),
     FOREIGN KEY(`disciplineLeadID`) REFERENCES Employee(`employeeID`)
@@ -38,5 +38,6 @@ CREATE TABLE `Role`(
     `specification` text NOT NULL,
     PRIMARY KEY(`roleID`),
     FOREIGN KEY(`capabilityID`) REFERENCES Capability(capabilityID),
-    FOREIGN KEY(`bandID`) REFERENCES Band(bandID)
+    FOREIGN KEY(`bandID`) REFERENCES Band(bandID),
+    FOREIGN KEY(`jobFamilyID`) REFERENCES JobFamily(`jobFamilyID`)
 );
