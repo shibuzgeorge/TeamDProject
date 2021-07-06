@@ -11,7 +11,7 @@ public class Role {
     @JsonProperty
     private Integer capabilityID; //capability
 
-    public Role(){
+    public Role(){}
       
     public Role(String roleName){
         this.roleName = roleName;
