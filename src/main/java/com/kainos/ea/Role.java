@@ -9,10 +9,10 @@ public class Role {
     @JsonProperty
     private String roleName; //role
     @JsonProperty
-    private String capabilityID; //capability
+    private Integer capabilityID; //capability
 
 
-    public Role(String roleName, String capabilityID) {
+    public Role(String roleName, Integer capabilityID) {
         this.roleName = roleName;
         this.capabilityID = capabilityID;
     }
@@ -29,15 +29,15 @@ public class Role {
         return roleName;
     }
 
-    public void setRole(String role) {
+    public void setRole(String roleName) {
         this.roleName = roleName;
     }
 
-    public String getCapability() {
+    public Integer getCapabilityID() {
         return capabilityID;
     }
 
-    public void setCapability(String capability) {
+    public void setCapabilityID(Integer capabilityID) {
         this.capabilityID = capabilityID;
     }
 
