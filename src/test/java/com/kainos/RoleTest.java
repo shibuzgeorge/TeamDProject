@@ -4,8 +4,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.api.Assertions;
 
-import static junit.framework.TestCase.*;
-
 
 public class RoleTest {
     @ParameterizedTest
@@ -18,7 +16,7 @@ public class RoleTest {
     public void roleGetRolePositveCase(String validRole, Integer validCapabilityID){
         Role validRoleInstance = new Role(validRole, validCapabilityID);
 
-        assertEquals(validRoleInstance.getRole(), validRole);
+        Assertions.assertEquals(validRoleInstance.getRole(), validRole);
     }
 
 
@@ -33,7 +31,7 @@ public class RoleTest {
         Role validRoleInstance = new Role("Software Engineer");
         validRoleInstance.setCapabilityID(validCapabilityID);
 
-        assertEquals(validRoleInstance.getCapabilityID(), validCapabilityID);
+        Assertions.assertEquals(validRoleInstance.getCapabilityID(), validCapabilityID);
     }
 
 
@@ -63,7 +61,7 @@ public class RoleTest {
     public void roleGetCapabilityIDPositveCase(String validRole, Integer validCapabilityID){
         Role validRoleInstance = new Role(validRole, validCapabilityID);
 
-        assertEquals(validRoleInstance.getCapabilityID(), validCapabilityID);
+        Assertions.assertEquals(validRoleInstance.getCapabilityID(), validCapabilityID);
     }
 
 
@@ -78,7 +76,7 @@ public class RoleTest {
         Role validRoleInstance = new Role("Software Engineer", 1);
         validRoleInstance.setId(validID);
 
-        assertEquals(validRoleInstance.getId(), validID);
+        Assertions.assertEquals(validRoleInstance.getId(), validID);
     }
 
 
@@ -112,6 +110,6 @@ public class RoleTest {
                 ", capability='" + validCapabilityID + '\'' +
                 '}';
 
-        assertEquals(validRoleInstance.toString(), expectedReturn);
+        Assertions.assertEquals(validRoleInstance.toString(), expectedReturn);
     }
 }
