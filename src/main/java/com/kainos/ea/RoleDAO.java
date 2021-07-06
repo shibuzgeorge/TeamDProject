@@ -5,9 +5,9 @@ import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
 import java.util.List;
 
-@RegisterRowMapper(JobMapper.class)
-public interface JobDAO {
+@RegisterRowMapper(RoleMapper.class)
+public interface RoleDAO {
 
-    @SqlQuery("select * from job;")
-        public List<Job> getJobs();
+    @SqlQuery("select * from Role;")
+    public List<Role> getRoles();
 }

@@ -27,8 +27,8 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
                     final Environment environment) {
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
-        final JobDAO dao = jdbi.onDemand(JobDAO.class);
-        environment.jersey().register(new JobResource(dao));
+        final RoleDAO dao = jdbi.onDemand(RoleDAO.class);
+        environment.jersey().register(new RoleResource(dao));
     }
 
 }

@@ -2,7 +2,7 @@ package com.kainos.ea;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Job {
+public class Role {
 
     @JsonProperty
     private Integer id;
@@ -12,7 +12,7 @@ public class Job {
     private String capability;
 
 
-    public Job(String role, String capability) {
+    public Role(String role, String capability) {
         this.role = role;
         this.capability = capability;
     }
@@ -43,7 +43,7 @@ public class Job {
 
     @Override
     public String toString() {
-        return "Job{" +
+        return "Role{" +
                 "id=" + id +
                 ", role='" + role + '\'' +
                 ", capability='" + capability + '\'' +

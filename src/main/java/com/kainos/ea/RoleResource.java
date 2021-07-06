@@ -7,18 +7,18 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/api")
-public class JobResource {
+public class RoleResource {
 
-    private final JobDAO jobDAO;
+    private final RoleDAO roleDAO;
 
-    public JobResource(JobDAO cityDAO) {
-        this.jobDAO = cityDAO;
+    public RoleResource(RoleDAO cityDAO) {
+        this.roleDAO = cityDAO;
     }
 
     @GET
-    @Path("/job/getJobs")
+    @Path("/role/getRoles")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Job> getJobs() {
-        return jobDAO.getJobs();
+    public List<Role> getRoles() {
+        return roleDAO.getRoles();
     }
 }
