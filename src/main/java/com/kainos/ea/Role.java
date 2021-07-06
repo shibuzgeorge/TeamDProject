@@ -11,9 +11,14 @@ public class Role {
     @JsonProperty
     private Integer capabilityID; //capability
 
+    public Role(){
+      
+    public Role(String roleName){
+        this.roleName = roleName;
+    }
 
     public Role(String roleName, Integer capabilityID) {
-        this.roleName = roleName;
+        this(roleName);
         this.capabilityID = capabilityID;
     }
 
@@ -21,8 +26,14 @@ public class Role {
         return roleID;
     }
 
-    public void setId(Integer roleID) {
-        this.roleID = roleID;
+    public void setId(Integer roleID) throws IllegalArgumentException{
+            if (roleID < 1) {
+                throw new IllegalArgumentException("Given integer must be greater than 1");
+            } else if (roleID > 16777215) {
+                throw new IllegalArgumentException("Given integer must be not greater than 16777215");
+            } else {
+                this.roleID = roleID;
+            }
     }
 
     public String getRole() {
@@ -37,8 +48,15 @@ public class Role {
         return capabilityID;
     }
 
-    public void setCapabilityID(Integer capabilityID) {
-        this.capabilityID = capabilityID;
+
+    public void setCapabilityID(Integer capabilityID) throws IllegalArgumentException{
+        if (capabilityID < 1) {
+            throw new IllegalArgumentException("Given integer must be greater than 1");
+        } else if (capabilityID > 16777215) {
+            throw new IllegalArgumentException("Given integer must be not greater than 16777215");
+        } else {
+            this.capabilityID = capabilityID;
+        }
     }
 
     @Override
