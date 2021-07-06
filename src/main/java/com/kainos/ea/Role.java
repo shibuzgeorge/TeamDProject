@@ -9,11 +9,18 @@ public class Role {
     @JsonProperty
     private String roleName; //role
     @JsonProperty
-    private String capabilityID; //capability
+    private Integer capabilityID; //capability
 
+    public Role(){
 
-    public Role(String roleName, String capabilityID) {
+    }
+
+    public Role(String roleName){
         this.roleName = roleName;
+    }
+
+    public Role(String roleName, Integer capabilityID) {
+        this(roleName);
         this.capabilityID = capabilityID;
     }
 
@@ -35,16 +42,22 @@ public class Role {
         return roleName;
     }
 
-    public void setRole(String role) {
+    public void setRole(String roleName) {
         this.roleName = roleName;
     }
 
-    public String getCapability() {
+    public Integer getCapabilityID() {
         return capabilityID;
     }
 
-    public void setCapability(String capability) {
-        this.capabilityID = capabilityID;
+    public void setCapabilityID(Integer capabilityID) throws IllegalArgumentException{
+        if (capabilityID < 1) {
+            throw new IllegalArgumentException("Given integer must be greater than 1");
+        } else if (capabilityID > 16777215) {
+            throw new IllegalArgumentException("Given integer must be not greater than 16777215");
+        } else {
+            this.capabilityID = capabilityID;
+        }
     }
 
     @Override
