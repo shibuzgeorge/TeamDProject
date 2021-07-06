@@ -7,4 +7,8 @@ router.get('/', (req, res) => {
     res.render('home')
 })
 
+router.get('/testjobroles', (req, res) => {
+    res.render('testjobroles')
+})
+
 module.exports = router
