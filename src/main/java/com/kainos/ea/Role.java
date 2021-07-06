@@ -12,9 +12,7 @@ public class Role {
     private Integer capabilityID; //capability
 
     public Role(){
-
-    }
-
+      
     public Role(String roleName){
         this.roleName = roleName;
     }
@@ -49,6 +47,7 @@ public class Role {
     public Integer getCapabilityID() {
         return capabilityID;
     }
+
 
     public void setCapabilityID(Integer capabilityID) throws IllegalArgumentException{
         if (capabilityID < 1) {
