@@ -105,9 +105,9 @@ public class RoleTest {
         validRoleInstance.setRoleID(validID);
 
         String expectedReturn = "Role{" +
-                "id=" + validID +
-                ", role='" + validRole + '\'' +
-                ", capability='" + validCapabilityID + '\'' +
+                "roleId=" + validID +
+                ", roleName='" + validRole + '\'' +
+                ", capabilityID='" + validCapabilityID + '\'' +
                 '}';
 
         Assertions.assertEquals(validRoleInstance.toString(), expectedReturn);
