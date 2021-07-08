@@ -1,5 +1,7 @@
 package com.kainos.ea;
 
+import com.kainos.ea.capabilitylead.CapabilityLeadDAO;
+import com.kainos.ea.capabilitylead.CapabilityLeadResource;
 import io.dropwizard.Application;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
@@ -27,8 +29,10 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
                     final Environment environment) {
         final JdbiFactory factory = new JdbiFactory();
         final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
-        final RoleDAO dao = jdbi.onDemand(RoleDAO.class);
-        environment.jersey().register(new RoleResource(dao));
-    }
+        final RoleDAO roleDAO = jdbi.onDemand(RoleDAO.class);
+        final CapabilityLeadDAO capabilityLeadDAO = jdbi.onDemand(CapabilityLeadDAO.class);
+        environment.jersey().register(new RoleResource(roleDAO));
+        environment.jersey().register(new CapabilityLeadResource(capabilityLeadDAO));
 
+    }
 }
