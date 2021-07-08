@@ -1,4 +1,4 @@
-package com.kainos.ea;
+package com.kainos.ea.RoleFiles;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -9,7 +9,7 @@ public class Role {
     @JsonProperty
     private String roleName; //role
     @JsonProperty
-    private Integer capabilityID; //capability
+    private String capability; //capability
 
     public Role(){}
       
@@ -17,9 +17,9 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public Role(String roleName, Integer capabilityID) {
+    public Role(String roleName, String capability) {
         this(roleName);
-        this.capabilityID = capabilityID;
+        this.capability = capability;
     }
 
     public Integer getRoleID() {
@@ -44,19 +44,13 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public Integer getCapabilityID() {
-        return capabilityID;
+    public String getCapability() {
+        return capability;
     }
 
 
-    public void setCapabilityID(Integer capabilityID) throws IllegalArgumentException{
-        if (capabilityID < 1) {
-            throw new IllegalArgumentException("Given integer must be greater than 1");
-        } else if (capabilityID > 16777215) {
-            throw new IllegalArgumentException("Given integer must be not greater than 16777215");
-        } else {
-            this.capabilityID = capabilityID;
-        }
+    public void setCapability(String capability) throws IllegalArgumentException{
+        this.capability = capability;
     }
 
     @Override
@@ -64,7 +58,7 @@ public class Role {
         return "Role{" +
                 "roleId=" + roleID +
                 ", roleName='" + roleName + '\'' +
-                ", capabilityID='" + capabilityID + '\'' +
+                ", capability='" + capability + '\'' +
                 '}';
     }
 

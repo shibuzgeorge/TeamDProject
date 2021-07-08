@@ -1,5 +1,5 @@
 package com.kainos;
-import com.kainos.ea.Role;
+import com.kainos.ea.RoleFiles.Role;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.api.Assertions;
@@ -8,13 +8,13 @@ import org.junit.jupiter.api.Assertions;
 public class RoleTest {
     @ParameterizedTest
     @CsvSource({
-            "Software Engineer, 10",
-            "Software Engineer, 12",
-            "Software Engineer, 13",
-            "Software Engineer, 14"
+            "Software Engineer, Engineering",
+            "Software Engineer, People",
+            "Security Engineer, Cyber Security",
+            "Data Consultant, Workday"
     })
-    public void roleGetRolePositveCase(String validRole, Integer validCapabilityID){
-        Role validRoleInstance = new Role(validRole, validCapabilityID);
+    public void roleGetRolePositveCase(String validRole, String validCapability){
+        Role validRoleInstance = new Role(validRole, validCapability);
 
         Assertions.assertEquals(validRoleInstance.getRoleName(), validRole);
     }
@@ -22,46 +22,29 @@ public class RoleTest {
 
     @ParameterizedTest
     @CsvSource({
-            "10",
-            "12",
-            "13",
-            "14"
+            "Engineering",
+            "People",
+            "Cyber Security",
+            "Workday"
     })
-    public void roleSetCapabilityIDPositveCase(Integer validCapabilityID){
+    public void roleSetCapabilityPositveCase(String validCapability){
         Role validRoleInstance = new Role("Software Engineer");
-        validRoleInstance.setCapabilityID(validCapabilityID);
+        validRoleInstance.setCapability(validCapability);
 
-        Assertions.assertEquals(validRoleInstance.getCapabilityID(), validCapabilityID);
+        Assertions.assertEquals(validRoleInstance.getCapability(), validCapability);
     }
-
 
     @ParameterizedTest
     @CsvSource({
-            "-10",
-            "0",
-            "-1203",
-            "16777216"
+            "Software Engineer, Engineering",
+            "Software Engineer, People",
+            "Security Engineer, Cyber Security",
+            "Data Consultant, Workday"
     })
-    public void roleSetCapabilityIDInvalidIntegerExceptIAE( Integer validCapabilityID){
-        Role validRoleInstance = new Role("Software Engineer");
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            validRoleInstance.setCapabilityID(validCapabilityID);
+    public void roleGetCapabilityPositveCase(String validRole, String validCapability){
+        Role validRoleInstance = new Role(validRole, validCapability);
 
-        });
-    }
-
-
-    @ParameterizedTest
-    @CsvSource({
-            "Software Engineer, 10",
-            "Software Engineer, 12",
-            "Software Engineer, 13",
-            "Software Engineer, 14"
-    })
-    public void roleGetCapabilityIDPositveCase(String validRole, Integer validCapabilityID){
-        Role validRoleInstance = new Role(validRole, validCapabilityID);
-
-        Assertions.assertEquals(validRoleInstance.getCapabilityID(), validCapabilityID);
+        Assertions.assertEquals(validRoleInstance.getCapability(), validCapability);
     }
 
 
@@ -73,7 +56,7 @@ public class RoleTest {
             "55"
     })
     public void roleSetIDPositveCase(Integer validID){
-        Role validRoleInstance = new Role("Software Engineer", 1);
+        Role validRoleInstance = new Role("Software Engineer", "Engineering");
         validRoleInstance.setRoleID(validID);
 
         Assertions.assertEquals(validRoleInstance.getRoleID(), validID);
@@ -88,7 +71,7 @@ public class RoleTest {
             "16777216"
     })
     public void roleSetIDWhenIDIsIllegalExceptIAE(Integer invalidID){
-        Role validRoleInstance = new Role("Software Engineer", 1);
+        Role validRoleInstance = new Role("Software Engineer", "Engineering");
 
         Assertions.assertThrows(IllegalArgumentException.class, ()->{
             validRoleInstance.setRoleID(invalidID);
@@ -100,14 +83,14 @@ public class RoleTest {
     @CsvSource({
             "Software Engineer, 10, 10"
     })
-    public void roleToStringPositiveCase(String validRole, Integer validCapabilityID, Integer validID){
+    public void roleToStringPositiveCase(String validRole, String validCapabilityID, Integer validID){
         Role validRoleInstance = new Role(validRole, validCapabilityID);
         validRoleInstance.setRoleID(validID);
 
         String expectedReturn = "Role{" +
                 "roleId=" + validID +
                 ", roleName='" + validRole + '\'' +
-                ", capabilityID='" + validCapabilityID + '\'' +
+                ", capability='" + validCapabilityID + '\'' +
                 '}';
 
         Assertions.assertEquals(validRoleInstance.toString(), expectedReturn);

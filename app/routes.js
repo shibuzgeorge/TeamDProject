@@ -18,6 +18,7 @@ router.get('/jobroles', (req, res) => {
     })
         .then(function (response) {
             jobRoles = response.data;
+            console.log(jobRoles);
             res.render('jobroles', {jobRoles: jobRoles})
         });
 })
