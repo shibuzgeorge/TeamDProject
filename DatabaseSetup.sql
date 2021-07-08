@@ -3,7 +3,7 @@ USE `RoleManagement_GroupD`;
 CREATE TABLE `Employee`(
     `employeeID` mediumint NOT NULL AUTO_INCREMENT,
     `employeeName` varchar(255) NOT NULL,
-    `employeeIDPhoto` blob NOT NULL,
+    `employeeIDPhoto` mediumblob NOT NULL,
     PRIMARY KEY(`employeeID`)
 );
 
