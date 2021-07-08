@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
-import java.util.Objects;
-
 public class Role {
 
     @JsonProperty
@@ -14,6 +12,10 @@ public class Role {
     private String roleName; //role
     @JsonProperty
     private String capability; //capability
+    @JsonProperty
+    private String band; //band
+    @JsonProperty
+    private String specification; //specification
 
     public Role() {
     }
@@ -25,6 +27,16 @@ public class Role {
     public Role(String roleName, String capability) {
         this(roleName);
         this.capability = capability;
+    }
+
+    public Role(String roleName, String capability, String band) {
+        this(roleName, capability);
+        this.band = band;
+    }
+
+    public Role(String roleName, String capability, String band, String specification) {
+        this(roleName, capability, band);
+        this.setSpecification(specification);
     }
 
     public Integer getRoleID() {
@@ -53,9 +65,24 @@ public class Role {
         return capability;
     }
 
+    public String getBand() {
+        return band;
+    }
 
-    public void setCapability(String capability) throws IllegalArgumentException{
+    public void setBand(String band) {
+        this.band = band;
+    }
+
+    public void setCapability(String capability) throws IllegalArgumentException {
         this.capability = capability;
+    }
+
+    public String getSpecification() {
+        return specification;
+    }
+
+    public void setSpecification(String specification) {
+        this.specification = specification;
     }
 
     @Override
@@ -86,7 +113,7 @@ public class Role {
 
     @Override
     public int hashCode() {
-        return Objects.hash(roleID, capability, roleName);
+        return Objects.hash(roleID, capability, roleName, band);
     }
 
 }
