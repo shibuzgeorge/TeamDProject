@@ -1,7 +1,9 @@
 language: java 
 jdk: openjdk14 
 cache: 
-  directories: $HOME/.m2 
+  directories: $HOME/.m2
+script:
+  - npm start
 notifications: 
   email: 
     recipients:
