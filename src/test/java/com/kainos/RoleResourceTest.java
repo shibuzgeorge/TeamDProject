@@ -1,8 +1,8 @@
 package com.kainos;
 
-import com.kainos.ea.Role;
-import com.kainos.ea.RoleDAO;
-import com.kainos.ea.RoleResource;
+import com.kainos.ea.RoleFiles.Role;
+import com.kainos.ea.RoleFiles.RoleDAO;
+import com.kainos.ea.RoleFiles.RoleResource;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.*;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
@@ -29,7 +29,7 @@ public class RoleResourceTest {
         role = new Role();
         role.setRoleID(1);
         role.setRoleName("Software Engineering");
-        role.setCapabilityID(1);
+        role.setCapability("Engineering");
     }
 
     @AfterEach

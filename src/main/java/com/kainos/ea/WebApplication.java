@@ -2,6 +2,8 @@ package com.kainos.ea;
 
 import com.kainos.ea.capabilitylead.CapabilityLeadDAO;
 import com.kainos.ea.capabilitylead.CapabilityLeadResource;
+import com.kainos.ea.RoleFiles.RoleDAO;
+import com.kainos.ea.RoleFiles.RoleResource;
 import io.dropwizard.Application;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
