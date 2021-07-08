@@ -6,6 +6,6 @@ class DummyTest extends BaseIntegrationTest {
 
     @Test
     public void goToBrowser() {
-        driver.get("www.google.co.uk");
+        driver.get("http://www.google.co.uk");
     }
 }
