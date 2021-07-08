@@ -1,4 +1,7 @@
-package com.kainos.ea;
+package com.kainos.ea.RoleFiles;
+
+import com.kainos.ea.RoleFiles.Role;
+import com.kainos.ea.RoleFiles.RoleDAO;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

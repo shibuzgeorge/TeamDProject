@@ -64,6 +64,12 @@ CREATE VIEW `RoleListWithoutID` AS
     LEFT JOIN `JobFamily` JF
         ON R.jobFamilyID = JF.jobFamilyID;
 
+CREATE VIEW `CapabilityLeads` AS
+SELECT C.capabilityName, E.employeeID, E.employeeName, E.employeeIDPhoto
+FROM Capability C
+         LEFT JOIN Employee E
+                   on C.capabilityLeadID = E.employeeID
+
 INSERT INTO Band (`bandName`) VALUES ("Associate");
 
 INSERT INTO Employee (employeeName) VALUES ("Dean");
