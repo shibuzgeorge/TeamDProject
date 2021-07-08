@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Objects;
 
+import java.util.Objects;
+
 public class Role {
 
     @JsonProperty
@@ -13,9 +15,10 @@ public class Role {
     @JsonProperty
     private String capability; //capability
 
-    public Role(){}
-      
-    public Role(String roleName){
+    public Role() {
+    }
+
+    public Role(String roleName) {
         this.roleName = roleName;
     }
 
@@ -28,14 +31,14 @@ public class Role {
         return roleID;
     }
 
-    public void setRoleID(Integer roleID) throws IllegalArgumentException{
-            if (roleID < 1) {
-                throw new IllegalArgumentException("Given integer must be greater than 1");
-            } else if (roleID > 16777215) {
-                throw new IllegalArgumentException("Given integer must be not greater than 16777215");
-            } else {
-                this.roleID = roleID;
-            }
+    public void setRoleID(Integer roleID) throws IllegalArgumentException {
+        if (roleID < 1) {
+            throw new IllegalArgumentException("Given integer must be greater than 1");
+        } else if (roleID > 16777215) {
+            throw new IllegalArgumentException("Given integer must be not greater than 16777215");
+        } else {
+            this.roleID = roleID;
+        }
     }
 
     public String getRoleName() {
@@ -63,6 +66,7 @@ public class Role {
                 ", capability='" + capability + '\'' +
                 '}';
     }
+
 
     @Override
     public boolean equals(Object o) {
