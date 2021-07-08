@@ -254,4 +254,7 @@ dist
 
 usage-data-config.json
 
+public/stylesheets/*.css
+lib/extensions/*.scss
+
 # End of https://www.toptal.com/developers/gitignore/api/node,maven,java,intellij+all
