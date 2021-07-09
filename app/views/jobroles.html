@@ -17,6 +17,8 @@ Job Roles
         <th scope="col">Role ID</th>
         <th scope="col">Role Name</th>
         <th scope="col">Capability</th>
+        <th scope="col">Band</th>
+        <th scope="col">Specification</th>
     </tr>
     </thead>
     <tbody>
@@ -26,6 +28,8 @@ Job Roles
         <th scope="row">{{ jobRole.roleID }}</th>
         <td>{{ jobRole.roleName }}</td>
         <td>{{ jobRole.capability }}</td>
+        <td>{{ jobRole.band }}</td>
+        <td>{{ jobRole.specification}}</td>
     </tr>
     {% endfor %}
     {% else %}
@@ -42,6 +46,11 @@ Job Roles
     <tr>
         <th scope="row">3</th>
         <td>Lead Tech</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <th scope="row">4</th>
+        <td>Associate</td>
         <td>3</td>
     </tr>
     {% endif %}
