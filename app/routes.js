@@ -18,7 +18,6 @@ router.get('/capabilityleaders', (req, res) => {
     })
         .then(function (response) {
             capabilityLeaders = response.data;
-            console.log(capabilityLeaders);
             res.render('capabilityleaders', {capabilityLeaders: capabilityLeaders})
         });
 })

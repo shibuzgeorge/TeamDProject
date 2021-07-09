@@ -19,6 +19,9 @@ public class CapabilityLead {
     @JsonProperty
     private String employeeIDPhoto;
 
+    @JsonProperty
+    private String capabilityLeadMessage;
+
     public CapabilityLead() {
     }
 
@@ -26,10 +29,11 @@ public class CapabilityLead {
         this.capabilityName = capabilityName;
     }
 
-    public CapabilityLead(String capabilityName, String employeeName, String employeeIDPhoto) {
+    public CapabilityLead(String capabilityName, String capabilityLeadMessage, String employeeName, String employeeIDPhoto) {
         this(capabilityName);
         this.employeeName = employeeName;
         this.employeeIDPhoto = employeeIDPhoto;
+        this.capabilityLeadMessage = capabilityLeadMessage;
     }
 
     public String getCapabilityName() {
@@ -58,6 +62,14 @@ public class CapabilityLead {
         return employeeName;
     }
 
+    public void setCapabilityLeadMessage(String capabilityLeadMessage) {
+        this.capabilityLeadMessage = capabilityLeadMessage;
+    }
+
+    public String getCapabilityLeadMessage() {
+        return capabilityLeadMessage;
+    }
+
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
@@ -74,6 +86,7 @@ public class CapabilityLead {
     public String toString() {
         return "CapabilityLead{" +
                 "capabilityName=" + capabilityName +
+                "capabilityLeadMessage=" + capabilityLeadMessage +
                 ", employeeID='" + employeeID + '\'' +
                 ", employeeName='" + employeeName + '\'' +
                 '}';
@@ -93,12 +106,13 @@ public class CapabilityLead {
         return employeeID.equals(capabilityLead.employeeID) &&
                 capabilityName.equals(capabilityLead.capabilityName) &&
                 Objects.equals(employeeName, capabilityLead.employeeName) &&
-                Objects.equals(employeeIDPhoto, capabilityLead.employeeIDPhoto);
+                Objects.equals(employeeIDPhoto, capabilityLead.employeeIDPhoto) &&
+                Objects.equals(capabilityLeadMessage, capabilityLead.capabilityLeadMessage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeID, employeeName, capabilityName, employeeIDPhoto);
+        return Objects.hash(employeeID, employeeName, capabilityName, employeeIDPhoto, capabilityLeadMessage);
     }
 }
 

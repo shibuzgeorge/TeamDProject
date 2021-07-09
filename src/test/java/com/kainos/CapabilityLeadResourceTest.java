@@ -32,6 +32,7 @@ public class CapabilityLeadResourceTest {
         capabilityLead.setEmployeeID(1);
         capabilityLead.setCapabilityName("Engineering");
         capabilityLead.setEmployeeName("Peter");
+        capabilityLead.setCapabilityLeadMessage("Come join us");
         capabilityLead.setEmployeeIDPhoto("iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==");
     }
 
