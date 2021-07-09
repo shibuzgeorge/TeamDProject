@@ -3,6 +3,8 @@ package com.kainos.ea.capabilitylead;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Objects;
+
 public class CapabilityLead {
 
     @JsonProperty
@@ -14,6 +16,9 @@ public class CapabilityLead {
     @JsonProperty
     private String employeeName;
 
+    @JsonProperty
+    private String employeeIDPhoto;
+
     public CapabilityLead() {
     }
 
@@ -21,9 +26,10 @@ public class CapabilityLead {
         this.capabilityName = capabilityName;
     }
 
-    public CapabilityLead(String capabilityName, String employeeName) {
+    public CapabilityLead(String capabilityName, String employeeName, String employeeIDPhoto) {
         this(capabilityName);
         this.employeeName = employeeName;
+        this.employeeIDPhoto = employeeIDPhoto;
     }
 
     public String getCapabilityName() {
@@ -38,8 +44,14 @@ public class CapabilityLead {
         return employeeID;
     }
 
-    public void setEmployeeID(Integer employeeID) {
-        this.employeeID = employeeID;
+    public void setEmployeeID(Integer employeeID) throws IllegalArgumentException {
+        if (employeeID < 1) {
+            throw new IllegalArgumentException("Given integer must be greater than 1");
+        } else if (employeeID > 16777215) {
+            throw new IllegalArgumentException("Given integer must be not greater than 16777215");
+        } else {
+            this.employeeID = employeeID;
+        }
     }
 
     public String getEmployeeName() {
@@ -50,6 +62,14 @@ public class CapabilityLead {
         this.employeeName = employeeName;
     }
 
+    public String getEmployeeIDPhoto() {
+        return employeeIDPhoto;
+    }
+
+    public void setEmployeeIDPhoto(String employeeIDPhoto) throws IllegalArgumentException{
+        this.employeeIDPhoto = employeeIDPhoto;
+    }
+
     @Override
     public String toString() {
         return "CapabilityLead{" +
@@ -57,6 +77,28 @@ public class CapabilityLead {
                 ", employeeID='" + employeeID + '\'' +
                 ", employeeName='" + employeeName + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof CapabilityLead)) {
+            return false;
+        }
+
+        CapabilityLead capabilityLead = (CapabilityLead) o;
+        return employeeID.equals(capabilityLead.employeeID) &&
+                capabilityName.equals(capabilityLead.capabilityName) &&
+                Objects.equals(employeeName, capabilityLead.employeeName) &&
+                Objects.equals(employeeIDPhoto, capabilityLead.employeeIDPhoto);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(employeeID, employeeName, capabilityName, employeeIDPhoto);
     }
 }
 
