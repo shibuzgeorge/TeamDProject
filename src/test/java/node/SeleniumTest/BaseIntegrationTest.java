@@ -6,6 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +20,8 @@ public class BaseIntegrationTest {
     @BeforeAll
     public static void setUp() {
         WebDriverManager.chromedriver().browserVersion(browserVersion).setup();
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions().setHeadless(true);
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
