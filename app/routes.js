@@ -23,6 +23,20 @@ router.get('/jobroles', (req, res) => {
         });
 })
 
+router.get('/competencies', (req, res) => {
+
+    axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/role/getCompetencies',
+        responseType: 'json'
+    })
+        .then(function (response) {
+            competencies = response.data;
+            console.log(competencies);
+            res.render('competencies', {competencies: competencies})
+        });
+})
+
 module.exports = router
 
 
