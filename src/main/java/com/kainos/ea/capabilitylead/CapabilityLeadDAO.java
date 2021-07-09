@@ -9,7 +9,7 @@ import java.util.List;
 public interface CapabilityLeadDAO {
 
     // Can extend this query, need to add image
-    @SqlQuery("select capabilityName, employeeID, employeeName FROM CapabilityLeads;")
+    @SqlQuery("select * FROM CapabilityLeads;")
     List<CapabilityLead> getCapabilityLead();
 
 }
