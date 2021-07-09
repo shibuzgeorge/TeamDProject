@@ -72,7 +72,13 @@ CREATE VIEW `CapabilityLeads` AS
     LEFT JOIN Employee E
         ON C.capabilityLeadID = E.employeeID;
 
+INSERT INTO Band (`bandName`) VALUES ("Apprentice");
+INSERT INTO Band (`bandName`) VALUES ("Trainee");
 INSERT INTO Band (`bandName`) VALUES ("Associate");
+INSERT INTO Band (`bandName`) VALUES ("Senior Associate");
+INSERT INTO Band (`bandName`) VALUES ("Consultant");
+INSERT INTO Band (`bandName`) VALUES ("Manager");
+INSERT INTO Band (`bandName`) VALUES ("Principal");
 
 INSERT INTO Employee (employeeName) VALUES ("Dean");
 
