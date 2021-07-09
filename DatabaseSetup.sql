@@ -1,6 +1,6 @@
 USE `RoleManagement_GroupD`;
 
-DROP TABLE IF EXISTS `Employee`;
+CREATE TABLE IF NOT EXISTS `Employee`
 CREATE TABLE `Employee`(
     `employeeID` mediumint NOT NULL AUTO_INCREMENT,
     `employeeName` varchar(255) NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE `Employee`(
     PRIMARY KEY(`employeeID`)
 );
 
-DROP TABLE IF EXISTS `Capability`;
+CREATE TABLE IF NOT EXISTS `Capability`
 CREATE TABLE `Capability`(
     `capabilityID` mediumint NOT NULL AUTO_INCREMENT,
     `capabilityName` varchar(255) NOT NULL,
@@ -18,14 +18,14 @@ CREATE TABLE `Capability`(
     FOREIGN KEY(`capabilityLeadID`) REFERENCES Employee(`employeeID`)
 );
 
-DROP TABLE IF EXISTS `Band`;
+CREATE TABLE IF NOT EXISTS `Band`
 CREATE TABLE `Band`(
     `bandID` mediumint NOT NULL AUTO_INCREMENT,
     `bandName` varchar(255) NOT NULL,
     PRIMARY KEY(`bandID`)
 );
 
-DROP TABLE IF EXISTS `JobFamily`;
+CREATE TABLE IF NOT EXISTS `JobFamily`
 CREATE TABLE `JobFamily`(
     `jobFamilyID` mediumint NOT NULL AUTO_INCREMENT,
     `capabilityID` mediumint NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `JobFamily`(
     FOREIGN KEY(`capabilityID`) REFERENCES Capability(`capabilityID`)
 );
 
-DROP TABLE IF EXISTS `Role`;
+CREATE TABLE IF NOT EXISTS `Role`
 CREATE TABLE `Role`(
     `roleID` mediumint NOT NULL AUTO_INCREMENT,
     `roleName` varchar(255) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE `Role`(
     FOREIGN KEY(`jobFamilyID`) REFERENCES JobFamily(`jobFamilyID`)
 );
 
-DROP VIEW IF EXISTS `Responsibility`;
+CREATE VIEW IF NOT EXISTS `Responsibility`
 CREATE TABLE `Responsibility`(
     `responsibilityID` mediumint NOT NULL AUTO_INCREMENT,
     `roleID` mediumint NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE `Responsibility`(
     FOREIGN KEY(`roleID`) REFERENCES Role(`roleID`)
 );
 
-DROP VIEW IF EXISTS `RoleListWithID`;
+CREATE VIEW IF NOT EXISTS `RoleListWithID`
 CREATE VIEW `RoleListWithID` AS
     SELECT R.roleID, R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification, R.roleSummary
     FROM `Role` R
@@ -71,7 +71,7 @@ CREATE VIEW `RoleListWithID` AS
         ON R.jobFamilyID = JF.jobFamilyID
     ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
 
-DROP VIEW IF EXISTS `RoleListWithoutID`;
+CREATE VIEW IF NOT EXISTS `RoleListWithoutID`
 CREATE VIEW `RoleListWithoutID` AS
     SELECT R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
     FROM `Role` R
@@ -83,7 +83,7 @@ CREATE VIEW `RoleListWithoutID` AS
         ON R.jobFamilyID = JF.jobFamilyID
     ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
 
-DROP VIEW IF EXISTS `CapabilityLeads`;
+CREATE VIEW IF NOT EXISTS `CapabilityLeads`
 CREATE VIEW `CapabilityLeads` AS
     SELECT C.capabilityName, E.employeeID, E.employeeName, E.employeeIDPhoto
     FROM Capability C
