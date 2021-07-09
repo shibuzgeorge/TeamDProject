@@ -16,6 +16,9 @@ public class CapabilityLead {
     @JsonProperty
     private String employeeName;
 
+    @JsonProperty
+    private String employeeIDPhoto;
+
     public CapabilityLead() {
     }
 
@@ -23,9 +26,10 @@ public class CapabilityLead {
         this.capabilityName = capabilityName;
     }
 
-    public CapabilityLead(String capabilityName, String employeeName) {
+    public CapabilityLead(String capabilityName, String employeeName, String employeeIDPhoto) {
         this(capabilityName);
         this.employeeName = employeeName;
+        this.employeeIDPhoto = employeeIDPhoto;
     }
 
     public String getCapabilityName() {
@@ -58,6 +62,14 @@ public class CapabilityLead {
         this.employeeName = employeeName;
     }
 
+    public String getEmployeeIDPhoto() {
+        return employeeIDPhoto;
+    }
+
+    public void setEmployeeIDPhoto(String employeeIDPhoto) throws IllegalArgumentException{
+        this.employeeIDPhoto = employeeIDPhoto;
+    }
+
     @Override
     public String toString() {
         return "CapabilityLead{" +
@@ -80,12 +92,13 @@ public class CapabilityLead {
         CapabilityLead capabilityLead = (CapabilityLead) o;
         return employeeID.equals(capabilityLead.employeeID) &&
                 capabilityName.equals(capabilityLead.capabilityName) &&
-                Objects.equals(employeeName, capabilityLead.employeeName);
+                Objects.equals(employeeName, capabilityLead.employeeName) &&
+                Objects.equals(employeeIDPhoto, capabilityLead.employeeIDPhoto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(employeeID, employeeName, capabilityName);
+        return Objects.hash(employeeID, employeeName, capabilityName, employeeIDPhoto);
     }
 }
 
