@@ -8,6 +8,6 @@ import java.util.List;
 @RegisterRowMapper(RoleMapper.class)
 public interface RoleDAO {
 
-    @SqlQuery("select * from RoleListWithID;")
+    @SqlQuery("select * from RoleListWithID limit 1;")
     public List<Role> getRoles();
 }

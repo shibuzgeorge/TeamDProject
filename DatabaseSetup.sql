@@ -52,7 +52,8 @@ CREATE VIEW `RoleListWithID` AS
     LEFT JOIN `Band` B
         ON R.bandID = B.bandID
     LEFT JOIN `JobFamily` JF
-        ON R.jobFamilyID = JF.jobFamilyID;
+        ON R.jobFamilyID = JF.jobFamilyID
+    ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
 
 CREATE VIEW `RoleListWithoutID` AS
     SELECT R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
@@ -62,13 +63,14 @@ CREATE VIEW `RoleListWithoutID` AS
     LEFT JOIN `Band` B
         ON R.bandID = B.bandID
     LEFT JOIN `JobFamily` JF
-        ON R.jobFamilyID = JF.jobFamilyID;
+        ON R.jobFamilyID = JF.jobFamilyID
+    ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
 
 CREATE VIEW `CapabilityLeads` AS
-SELECT C.capabilityName, E.employeeID, E.employeeName, E.employeeIDPhoto
-FROM Capability C
-         LEFT JOIN Employee E
-                   on C.capabilityLeadID = E.employeeID
+    SELECT C.capabilityName, E.employeeID, E.employeeName, E.employeeIDPhoto
+    FROM Capability C
+    LEFT JOIN Employee E
+        ON C.capabilityLeadID = E.employeeID;
 
 INSERT INTO Band (`bandName`) VALUES ("Associate");
 
@@ -79,3 +81,5 @@ INSERT INTO Capability (capabilityName, capabilityLeadID) VALUES ("Engineering",
 INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, "Engineering", 2);
 
 INSERT INTO Role (roleName, capabilityID, jobFamilyID, bandID, specification) VALUES ("Software Engineer", 1, 2, 2, "Spec goes here");
+
+--TODO Finish the capability leads with message
