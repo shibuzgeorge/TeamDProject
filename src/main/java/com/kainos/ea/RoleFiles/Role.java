@@ -16,6 +16,10 @@ public class Role {
     private String band; //band
     @JsonProperty
     private String specification; //specification
+    @JsonProperty
+    private String jobSummary;
+    @JsonProperty
+    private String jobFamily;
 
     public Role() {
     }
@@ -37,6 +41,16 @@ public class Role {
     public Role(String roleName, String capability, String band, String specification) {
         this(roleName, capability, band);
         this.setSpecification(specification);
+    }
+
+    public Role(String roleName, String capability, String band, String specification, String jobSummary) {
+        this(roleName, capability, band, specification);
+        this.setJobSummary(jobSummary);
+    }
+
+    public Role(String roleName, String capability, String band, String specification, String jobSummary, String jobFamily) {
+        this(roleName, capability, band, specification, jobSummary);
+        this.setJobFamily(jobFamily);
     }
 
     public Integer getRoleID() {
@@ -85,6 +99,22 @@ public class Role {
         this.specification = specification;
     }
 
+    public String getJobSummary() {
+        return jobSummary;
+    }
+
+    public void setJobSummary(String jobSummary) {
+        this.jobSummary = jobSummary;
+    }
+
+    public String getJobFamily() {
+        return jobFamily;
+    }
+
+    public void setJobFamily(String jobFamily) {
+        this.jobFamily = jobFamily;
+    }
+
     @Override
     public String toString() {
         return "Role{" +
@@ -115,5 +145,6 @@ public class Role {
     public int hashCode() {
         return Objects.hash(roleID, capability, roleName, band);
     }
+
 
 }
