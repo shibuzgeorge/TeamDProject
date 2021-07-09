@@ -22,13 +22,16 @@ Job Roles
     <tbody>
     {% if jobRoles %}
     {% for jobRole in jobRoles %}
+
     <tr>
         <th scope="row">{{ jobRole.roleID }}</th>
         <td>{{ jobRole.roleName }}</td>
         <td>{{ jobRole.capabilityID }}</td>
     </tr>
+
     {% endfor %}
     {% else %}
+
     <tr>
         <th scope="row">1</th>
         <td>Software Engineer</td>
@@ -44,8 +47,9 @@ Job Roles
         <td>Lead Tech</td>
         <td>3</td>
     </tr>
+
     {% endif %}
+
     </tbody>
 </table>
-
 {% endblock %}
