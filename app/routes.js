@@ -9,6 +9,8 @@ router.get('/', (req, res) => {
 })
 
 var jobRoles = [];
+var bands = [];
+
 router.get('/jobroles', (req, res) => {
 
     axios({
@@ -23,19 +25,21 @@ router.get('/jobroles', (req, res) => {
         });
 })
 
-router.get('/competencies', (req, res) => {
+router.get('/bands', (req, res) => {
 
     axios({
         method: 'get',
-        url: 'http://localhost:8080/api/role/getCompetencies',
+        url: 'http://localhost:8080/api/band/getBands',
         responseType: 'json'
     })
         .then(function (response) {
-            competencies = response.data;
-            console.log(competencies);
-            res.render('competencies', {competencies: competencies})
+            bands = response.data;
+            console.log(bands);
+            res.render('bands', {bands: bands})
         });
 })
+
+
 
 module.exports = router
 
