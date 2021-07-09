@@ -15,13 +15,16 @@ Job Roles
 
 
 {% block content %}
-<a href="/"><button type="button" class="btn btn-outline-secondary">&#8592;</button></a>
+<a href="/">
+    <button type="button" class="btn btn-outline-secondary">&#8592;</button>
+</a>
 <table class="table table-striped table-hover table-danger">
     <thead>
     <tr>
         <th scope="col">Role Name</th>
         <th scope="col">Capability</th>
         <th scope="col">Band</th>
+        <th scope="col">Job Summary</th>
         <th scope="col">Specification</th>
     </tr>
     </thead>
@@ -33,7 +36,8 @@ Job Roles
         <th scope="row">{{ jobRole.roleName }}</th>
         <td>{{ jobRole.capability }}</td>
         <td>{{ jobRole.band }}</td>
-        <td><a href="{{ jobRole.specification}}">Job Specification</a></td>
+        <td>{{ jobRole.roleSummary }}</td>
+        <td><a href="{{ jobRole.specification }}">Job Specification</a></td>
     </tr>
 
     {% endfor %}

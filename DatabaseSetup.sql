@@ -45,7 +45,7 @@ CREATE TABLE `Role`(
 );
 
 CREATE VIEW `RoleListWithID` AS
-    SELECT R.roleID, R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
+    SELECT R.roleID, R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification, R.roleSummary
     FROM `Role` R
     LEFT JOIN `Capability` C
         ON R.capabilityID = C.capabilityID
@@ -72,20 +72,29 @@ CREATE VIEW `CapabilityLeads` AS
     LEFT JOIN Employee E
         ON C.capabilityLeadID = E.employeeID;
 
-INSERT INTO Band (`bandName`) VALUES ("Apprentice");
-INSERT INTO Band (`bandName`) VALUES ("Trainee");
-INSERT INTO Band (`bandName`) VALUES ("Associate");
-INSERT INTO Band (`bandName`) VALUES ("Senior Associate");
-INSERT INTO Band (`bandName`) VALUES ("Consultant");
-INSERT INTO Band (`bandName`) VALUES ("Manager");
-INSERT INTO Band (`bandName`) VALUES ("Principal");
+INSERT INTO Band (`bandName`) VALUES ('Apprentice');
+INSERT INTO Band (`bandName`) VALUES ('Trainee');
+INSERT INTO Band (`bandName`) VALUES ('Associate');
+INSERT INTO Band (`bandName`) VALUES ('Senior Associate');
+INSERT INTO Band (`bandName`) VALUES ('Consultant');
+INSERT INTO Band (`bandName`) VALUES ('Manager');
+INSERT INTO Band (`bandName`) VALUES ('Principal');
 
-INSERT INTO Employee (employeeName) VALUES ("Dean");
+INSERT INTO Employee (employeeName) VALUES ('Peter');
+INSERT INTO Employee (employeeName) VALUES ('Dean');
+INSERT INTO Employee (employeeName) VALUES ('Shibu');
+INSERT INTO Employee (employeeName) VALUES ('Seweryn');
+INSERT INTO Employee (employeeName) VALUES ('Conor');
 
-INSERT INTO Capability (capabilityName, capabilityLeadID) VALUES ("Engineering", 1);
+INSERT INTO Capability (capabilityName, capabilityLeadID) VALUES ('Engineering', 1);
+INSERT INTO Capability (capabilityName, capabilityLeadID) VALUES ('Artificial Intelligence', 2);
+INSERT INTO Capability (capabilityName, capabilityLeadID) VALUES ('Platforms', 3);
 
-INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, "Engineering", 2);
+INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, 'Testing And Quality Assurance', 1);
+INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (2, 'Engineering', 2);
+INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (3, 'Artificial Intelligence (AI) Engineering', 3);
 
-INSERT INTO Role (roleName, capabilityID, jobFamilyID, bandID, specification) VALUES ("Software Engineer", 1, 2, 2, "Spec goes here");
-
---TODO Finish the capability leads with message
+INSERT INTO Role VALUES (1, 'Test Engineer', 1, 1, 2, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EcGbc8drFRlBoh2H2BZSeVwBV1tAiDCTwirdTmrz2EYYmQ?e=XMqXJh', 'Developing and executing functional automated and manual tests');
+INSERT INTO Role VALUES (2, 'Software Engineer', 1, 2, 3, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EYTCv1ssl6pOuH59zXtoF9YB8qNaEMNSkZIkCthDAY5Kjg?e=Ht84rW', 'Developing high quality programming solutions');
+INSERT INTO Role VALUES (3,'Apprentice AI Engineer', 2, 3, 1, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/Eci7E2WouKdNr5A-q3F9f8wBe9UEdviulHqKp0LVh3BH3A?e=gEI9JV', 'The development of high-quality solutions which integrate AI and ML technologies');
+INSERT INTO Role VALUES (5, 'Senior AI Engineer', 2, 3, 4, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EWi__EluLhNIvhHUYsUb9noBwzGggNoYcTzOZD4NAeNhHg?e=VJqYaX', 'High quality solutions that use AI and ML technologies');

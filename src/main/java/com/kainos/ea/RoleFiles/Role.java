@@ -17,7 +17,7 @@ public class Role {
     @JsonProperty
     private String specification; //specification
     @JsonProperty
-    private String jobSummary;
+    private String roleSummary;
     @JsonProperty
     private String jobFamily;
 
@@ -25,17 +25,17 @@ public class Role {
     }
 
     public Role(String roleName) {
-        this.roleName = roleName;
+        this.setRoleName(roleName);
     }
 
     public Role(String roleName, String capability) {
         this(roleName);
-        this.capability = capability;
+        this.setCapability(capability);
     }
 
     public Role(String roleName, String capability, String band) {
         this(roleName, capability);
-        this.band = band;
+        this.setBand(band);
     }
 
     public Role(String roleName, String capability, String band, String specification) {
@@ -43,13 +43,13 @@ public class Role {
         this.setSpecification(specification);
     }
 
-    public Role(String roleName, String capability, String band, String specification, String jobSummary) {
+    public Role(String roleName, String capability, String band, String specification, String roleSummary) {
         this(roleName, capability, band, specification);
-        this.setJobSummary(jobSummary);
+        this.setRoleSummary(roleSummary);
     }
 
-    public Role(String roleName, String capability, String band, String specification, String jobSummary, String jobFamily) {
-        this(roleName, capability, band, specification, jobSummary);
+    public Role(String roleName, String capability, String band, String specification, String roleSummary, String jobFamily) {
+        this(roleName, capability, band, specification, roleSummary);
         this.setJobFamily(jobFamily);
     }
 
@@ -99,12 +99,12 @@ public class Role {
         this.specification = specification;
     }
 
-    public String getJobSummary() {
-        return jobSummary;
+    public String getRoleSummary() {
+        return roleSummary;
     }
 
-    public void setJobSummary(String jobSummary) {
-        this.jobSummary = jobSummary;
+    public void setRoleSummary(String roleSummary) {
+        this.roleSummary = roleSummary;
     }
 
     public String getJobFamily() {
@@ -123,7 +123,6 @@ public class Role {
                 ", capability='" + capability + '\'' +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
