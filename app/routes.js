@@ -39,6 +39,20 @@ router.get('/bands', (req, res) => {
         });
 })
 
+router.get('/apprentice', (req, res) => {
+
+    axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/band/apprentice',
+        responseType: 'json'
+    })
+        .then(function (response) {
+            apprentice = response.apprentice;
+            console.log(apprentice);
+            res.render('apprentice', {apprentice: apprentice})
+        });
+})
+
 
 
 module.exports = router
