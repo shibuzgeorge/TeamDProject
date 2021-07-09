@@ -4,6 +4,8 @@ import com.kainos.ea.capabilitylead.CapabilityLeadDAO;
 import com.kainos.ea.capabilitylead.CapabilityLeadResource;
 import com.kainos.ea.RoleFiles.RoleDAO;
 import com.kainos.ea.RoleFiles.RoleResource;
+import com.kainos.ea.employee.EmployeeDAO;
+import com.kainos.ea.employee.EmployeeResource;
 import io.dropwizard.Application;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
@@ -33,8 +35,10 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
         final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
         final RoleDAO roleDAO = jdbi.onDemand(RoleDAO.class);
         final CapabilityLeadDAO capabilityLeadDAO = jdbi.onDemand(CapabilityLeadDAO.class);
+        final EmployeeDAO employeeDAO = jdbi.onDemand(EmployeeDAO.class);
         environment.jersey().register(new RoleResource(roleDAO));
         environment.jersey().register(new CapabilityLeadResource(capabilityLeadDAO));
+        environment.jersey().register(new EmployeeResource(employeeDAO));
 
     }
 }
