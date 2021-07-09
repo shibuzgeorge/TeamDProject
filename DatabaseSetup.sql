@@ -44,6 +44,14 @@ CREATE TABLE `Role`(
     FOREIGN KEY(`jobFamilyID`) REFERENCES JobFamily(`jobFamilyID`)
 );
 
+CREATE TABLE `Responsibility`(
+    `responsibilityID` mediumint NOT NULL AUTO_INCREMENT,
+    `roleID` mediumint NOT NULL,
+    `responsibility` text,
+    PRIMARY KEY(`responsibilityID`),
+    FOREIGN KEY(`roleID`) REFERENCES Role(`roleID`)
+);
+
 CREATE VIEW `RoleListWithID` AS
     SELECT R.roleID, R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
     FROM `Role` R
@@ -88,4 +96,5 @@ INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1,
 
 INSERT INTO Role (roleName, capabilityID, jobFamilyID, bandID, specification) VALUES ("Software Engineer", 1, 2, 2, "Spec goes here");
 
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (1, "This is a sample responsibility");
 --TODO Finish the capability leads with message
