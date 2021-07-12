@@ -3,7 +3,7 @@
 cd backend
 mvn clean install
 mvn test -B
-java -jar target/TeamDProject-1.0-SNAPSHOT.jar server config.yml &
+java -jar target/TeamDProject-1.0-SNAPSHOT.jar server testDBConfig.yml &
 cd ../frontend
 npm install
 npm start &

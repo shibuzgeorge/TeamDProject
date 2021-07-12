@@ -1,0 +1,13 @@
+# Database settings.
+database:
+  # the name of your JDBC driver
+  driverClass: com.mysql.cj.jdbc.Driver
+
+  # the username
+  user: root
+
+  # the password
+  password:
+
+  # the JDBC URL
+  url: jdbc:mysql://127.0.0.1/RoleManagement_GroupD
