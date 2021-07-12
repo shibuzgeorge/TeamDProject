@@ -9,34 +9,21 @@ router.get('/', (req, res) => {
 })
 
 router.get('/capabilityleaders', (req, res) => {
-    var techLeads = [
-        {
-            image: "https://static.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-19-5a3926af95d9d__700.jpg",
-            capability: "Engineering",
-            name: "Will Hamill",
-            info: "Hi there!"
-        },
-        {
-            image: "https://cdn.theatlantic.com/media/mt/science/cat_caviar.jpg",
-            capability: "Product",
-            name: "Charlene McDonald",
-            info: "Salut!"
-        },
-        {
-            image: "https://www.apimages.com/Images/Ap_Creative_Stock_Header.jpg",
-            capability: "Cyber Security",
-            name: "Peter Gallagher",
-            info: "Dzien Dobry!"
-        }
-    ]
+    var capabilityLeaders = [];
 
-
-    res.render('capabilityleaders', {techLeads: techLeads})
+    axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/capability/getCapabilityLeads',
+        responseType: 'json'
+    })
+        .then(function (response) {
+            capabilityLeaders = response.data;
+            res.render('capabilityleaders', {capabilityLeaders: capabilityLeaders})
+        });
 })
 
-var jobRoles = [];
 router.get('/jobroles', (req, res) => {
-
+    var jobRoles = [];
     axios({
         method: 'get',
         url: 'http://localhost:8080/api/role/getRoles',

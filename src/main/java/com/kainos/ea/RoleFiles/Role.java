@@ -16,27 +16,41 @@ public class Role {
     private String band; //band
     @JsonProperty
     private String specification; //specification
+    @JsonProperty
+    private String roleSummary;
+    @JsonProperty
+    private String jobFamily;
 
     public Role() {
     }
 
     public Role(String roleName) {
-        this.roleName = roleName;
+        this.setRoleName(roleName);
     }
 
     public Role(String roleName, String capability) {
         this(roleName);
-        this.capability = capability;
+        this.setCapability(capability);
     }
 
     public Role(String roleName, String capability, String band) {
         this(roleName, capability);
-        this.band = band;
+        this.setBand(band);
     }
 
     public Role(String roleName, String capability, String band, String specification) {
         this(roleName, capability, band);
         this.setSpecification(specification);
+    }
+
+    public Role(String roleName, String capability, String band, String specification, String roleSummary) {
+        this(roleName, capability, band, specification);
+        this.setRoleSummary(roleSummary);
+    }
+
+    public Role(String roleName, String capability, String band, String specification, String roleSummary, String jobFamily) {
+        this(roleName, capability, band, specification, roleSummary);
+        this.setJobFamily(jobFamily);
     }
 
     public Integer getRoleID() {
@@ -85,6 +99,22 @@ public class Role {
         this.specification = specification;
     }
 
+    public String getRoleSummary() {
+        return roleSummary;
+    }
+
+    public void setRoleSummary(String roleSummary) {
+        this.roleSummary = roleSummary;
+    }
+
+    public String getJobFamily() {
+        return jobFamily;
+    }
+
+    public void setJobFamily(String jobFamily) {
+        this.jobFamily = jobFamily;
+    }
+
     @Override
     public String toString() {
         return "Role{" +
@@ -93,7 +123,6 @@ public class Role {
                 ", capability='" + capability + '\'' +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -115,5 +144,6 @@ public class Role {
     public int hashCode() {
         return Objects.hash(roleID, capability, roleName, band);
     }
+
 
 }
