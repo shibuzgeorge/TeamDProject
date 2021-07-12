@@ -1,23 +1,56 @@
 {% extends "layout_unbranded.html" %}
 
 {% block pageTitle %}
-HR Page
+Home
 {% endblock %}
 
 {% block header %}
 {{ super() }}
 {% endblock %}
 
-{% block content %}
-<a href="/jobroles"><button type="button" class="btn btn-primary" href="#">Job Roles</button></a>
-<a href="/bands"><button type="button" class="btn btn-secondary" href="#">Bands</button></a>
-<a href="/capabilityleaders"><button type="button" class="btn btn-secondary" href="#">Capability Leaders</button></a>
-<button type="button" class="btn btn-success" href="#">Success</button>
-<button type="button" class="btn btn-danger" href="#">Danger</button>
-<button type="button" class="btn btn-warning" href="#">Warning</button>
-<button type="button" class="btn btn-info" href="#">Info</button>
-<button type="button" class="btn btn-light" href="#">Light</button>
-<button type="button" class="btn btn-dark" href="#">Dark</button>
+{% block headIcons %}
+{{ super() }}
+<link rel="stylesheet" href="public/stylesheets/homePageCustoms.css">
+{% endblock %}
 
-<button type="button" class="btn btn-link">Link</button>
+
+{% block content %}
+<div class="container">
+    <div class="row row-cols-4">
+        <div class="col m-3">
+            <a href="/jobroles">
+            <div class="card homeNavigationButton" style="width: 16rem;">
+                <img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-footer text-center">
+                    <p class="card-text">Job Roles</p>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col m-3">
+            <a href="/capabilityleaders">
+            <div class="card homeNavigationButton" style="width: 16rem;">
+                <img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+                     class="card-img-top" alt="...">
+                <div class="card-footer text-center">
+                    <p class="card-text">Capability Leaders</p>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col m-3">
+            <a href="/bands">
+                <div class="card homeNavigationButton" style="width: 16rem;">
+                    <img src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+                         class="card-img-top" alt="...">
+                    <div class="card-footer text-center">
+                        <p class="card-text">Bands</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
