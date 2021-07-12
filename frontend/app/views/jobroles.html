@@ -20,8 +20,9 @@ Job Roles
     <tr class="table-bordered">
         <th scope="col" id="roleName">Role Name</th>
         <th scope="col" id="capability">Capability</th>
+        <th scope="col">Job Family</th>
         <th scope="col">Band</th>
-        <th scope="col" style="width: 50%">Job Summary</th>
+        <th scope="col" style="width: 30%">Job Summary</th>
         <th scope="col">Specification</th>
     </tr>
     </thead>
@@ -31,13 +32,14 @@ Job Roles
     <tr>
         <th scope="row">{{ jobRole.roleName }}</th>
         <td>{{ jobRole.capability }}</td>
+        <td>Random Text</td>
         <td>{{ jobRole.band }}</td>
         <td>
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-heading{{ jobRole.roleID }}">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ jobRole.roleID }}" aria-expanded="false" aria-controls="flush-collapse{{ jobRole.roleID }}">
-                        {{ jobRole.roleSummary | truncate(84, true, "...") }}
+                        {{ jobRole.roleSummary | truncate(42, true, "...") }}
                     </button>
                 </h2>
                 <div id="flush-collapse{{ jobRole.roleID }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ jobRole.roleID }}" data-bs-parent="#accordionFlushExample">
