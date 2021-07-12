@@ -1,5 +1,3 @@
-package test.java;
-
 import org.junit.Test;
 import framework.FunctionalTest;
 
@@ -52,6 +50,11 @@ public class JobRolesTest extends FunctionalTest {
         String expectedReturn = "The development of high-quality solutions which integrate AI and ML technologiesThe development of high-quality solutions which integrate AI and ML technologiesThe development of high-quality solutions which integrate AI and ML technologiesThe development of high-quality solutions which integrate AI and ML technologies";
 
         assertEquals(expectedReturn, accordionBodyText);
+
+    }
+
+    @Test
+    public void checkListIsOrderedCorrectly(){
 
     }
 }

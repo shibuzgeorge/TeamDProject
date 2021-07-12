@@ -12,10 +12,11 @@ public class RoleMapper implements RowMapper<Role> {
     private static final String BAND = "bandName";
     private static final String SPECIFICATION = "specification";
     private static final String SUMMARY = "roleSummary";
+    private static final String FAMILY = "jobFamily";
 
     @Override
     public Role map(ResultSet rs, StatementContext ctx) throws SQLException {
-        Role role = new Role(rs.getString(ROLE), rs.getString(CAPABILITY), rs.getString(BAND), rs.getString(SPECIFICATION), rs.getString(SUMMARY));
+        Role role = new Role(rs.getString(ROLE), rs.getString(CAPABILITY), rs.getString(BAND), rs.getString(SPECIFICATION), rs.getString(SUMMARY), rs.getString(FAMILY));
         role.setRoleID(rs.getInt(ID));
         return role;
     }
