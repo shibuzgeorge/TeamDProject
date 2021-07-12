@@ -5,7 +5,7 @@ cache:
 service:
   - mysql
 before_script:
-  - mysql -u root -r 'CREATE DATABASE RoleManagement_GroupD;'
+  - mysql -u root -e 'CREATE DATABASE RoleManagement_GroupD;'
   - mysql -u root RoleManagement_GroupD < DatabaseSetup.sql
 script:
   - ./build-test.sh
