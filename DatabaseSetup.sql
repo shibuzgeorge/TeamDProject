@@ -1,94 +1,86 @@
 USE `RoleManagement_GroupD`;
 
-CREATE TABLE IF NOT EXISTS `Employee`
-CREATE TABLE `Employee`(
-    `employeeID` mediumint NOT NULL AUTO_INCREMENT,
-    `employeeName` varchar(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `Employee`(
+                                         `employeeID` mediumint NOT NULL AUTO_INCREMENT,
+                                         `employeeName` varchar(255) NOT NULL,
     `employeeIDPhoto` mediumblob NOT NULL,
     PRIMARY KEY(`employeeID`)
-);
+    );
 
-CREATE TABLE IF NOT EXISTS `Capability`
-CREATE TABLE `Capability`(
-    `capabilityID` mediumint NOT NULL AUTO_INCREMENT,
-    `capabilityName` varchar(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `Capability`(
+                                           `capabilityID` mediumint NOT NULL AUTO_INCREMENT,
+                                           `capabilityName` varchar(255) NOT NULL,
     `capabilityLeadID` mediumint,
     `capabilityLeadMessage` varchar(300),
     PRIMARY KEY(`capabilityID`),
     FOREIGN KEY(`capabilityLeadID`) REFERENCES Employee(`employeeID`)
-);
+    );
 
-CREATE TABLE IF NOT EXISTS `Band`
-CREATE TABLE `Band`(
-    `bandID` mediumint NOT NULL AUTO_INCREMENT,
-    `bandName` varchar(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `Band`(
+                                     `bandID` mediumint NOT NULL AUTO_INCREMENT,
+                                     `bandName` varchar(255) NOT NULL,
     PRIMARY KEY(`bandID`)
-);
+    );
 
-CREATE TABLE IF NOT EXISTS `JobFamily`
-CREATE TABLE `JobFamily`(
-    `jobFamilyID` mediumint NOT NULL AUTO_INCREMENT,
-    `capabilityID` mediumint NOT NULL,
-    `jobFamilyName` varchar(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `JobFamily`(
+                                          `jobFamilyID` mediumint NOT NULL AUTO_INCREMENT,
+                                          `capabilityID` mediumint NOT NULL,
+                                          `jobFamilyName` varchar(255) NOT NULL,
     `disciplineLeadID` mediumint NOT NULL,
     PRIMARY KEY(`jobFamilyID`),
     FOREIGN KEY(`disciplineLeadID`) REFERENCES Employee(`employeeID`),
     FOREIGN KEY(`capabilityID`) REFERENCES Capability(`capabilityID`)
-);
+    );
 
-CREATE TABLE IF NOT EXISTS `Role`
-CREATE TABLE `Role`(
-    `roleID` mediumint NOT NULL AUTO_INCREMENT,
-    `roleName` varchar(255) NOT NULL,
+CREATE TABLE IF NOT EXISTS `Role`(
+                                     `roleID` mediumint NOT NULL AUTO_INCREMENT,
+                                     `roleName` varchar(255) NOT NULL,
     `capabilityID` mediumint NOT NULL,
     `jobFamilyID` mediumint NOT NULL,
     `bandID` mediumint NOT NULL,
     `specification` text NOT NULL,
+    `roleSummary` text NOT NULL,
     PRIMARY KEY(`roleID`),
     FOREIGN KEY(`capabilityID`) REFERENCES Capability(capabilityID),
     FOREIGN KEY(`bandID`) REFERENCES Band(bandID),
     FOREIGN KEY(`jobFamilyID`) REFERENCES JobFamily(`jobFamilyID`)
-);
+    );
 
-CREATE VIEW IF NOT EXISTS `Responsibility`
-CREATE TABLE `Responsibility`(
-    `responsibilityID` mediumint NOT NULL AUTO_INCREMENT,
-    `roleID` mediumint NOT NULL,
-    `responsibility` text,
-    PRIMARY KEY(`responsibilityID`),
+CREATE TABLE IF NOT EXISTS `Responsibility`(
+                                               `responsibilityID` mediumint NOT NULL AUTO_INCREMENT,
+                                               `roleID` mediumint NOT NULL,
+                                               `responsibility` text,
+                                               PRIMARY KEY(`responsibilityID`),
     FOREIGN KEY(`roleID`) REFERENCES Role(`roleID`)
-);
+    );
 
-CREATE VIEW IF NOT EXISTS `RoleListWithID`
 CREATE VIEW `RoleListWithID` AS
-    SELECT R.roleID, R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification, R.roleSummary
-    FROM `Role` R
-    LEFT JOIN `Capability` C
-        ON R.capabilityID = C.capabilityID
-    LEFT JOIN `Band` B
-        ON R.bandID = B.bandID
-    LEFT JOIN `JobFamily` JF
-        ON R.jobFamilyID = JF.jobFamilyID
-    ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
+SELECT R.roleID, R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification, R.roleSummary
+FROM `Role` R
+         LEFT JOIN `Capability` C
+                   ON R.capabilityID = C.capabilityID
+         LEFT JOIN `Band` B
+                   ON R.bandID = B.bandID
+         LEFT JOIN `JobFamily` JF
+                   ON R.jobFamilyID = JF.jobFamilyID
+ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
 
-CREATE VIEW IF NOT EXISTS `RoleListWithoutID`
 CREATE VIEW `RoleListWithoutID` AS
-    SELECT R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
-    FROM `Role` R
-    LEFT JOIN `Capability` C
-        ON R.capabilityID = C.capabilityID
-    LEFT JOIN `Band` B
-        ON R.bandID = B.bandID
-    LEFT JOIN `JobFamily` JF
-        ON R.jobFamilyID = JF.jobFamilyID
-    ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
+SELECT R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
+FROM `Role` R
+         LEFT JOIN `Capability` C
+                   ON R.capabilityID = C.capabilityID
+         LEFT JOIN `Band` B
+                   ON R.bandID = B.bandID
+         LEFT JOIN `JobFamily` JF
+                   ON R.jobFamilyID = JF.jobFamilyID
+ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
 
-CREATE VIEW IF NOT EXISTS `CapabilityLeads`
 CREATE VIEW `CapabilityLeads` AS
-    SELECT C.capabilityName, C.capabilityLeadMessage, E.employeeID, E.employeeName, E.employeeIDPhoto,
-    FROM Capability C
-    LEFT JOIN Employee E
-        ON C.capabilityLeadID = E.employeeID;
+SELECT C.capabilityName, C.capabilityLeadMessage, E.employeeID, E.employeeName, E.employeeIDPhoto
+FROM Capability C
+         LEFT JOIN Employee E
+                   ON C.capabilityLeadID = E.employeeID;
 
 INSERT INTO Band (`bandName`) VALUES ('Apprentice');
 INSERT INTO Band (`bandName`) VALUES ('Trainee');
@@ -120,11 +112,11 @@ INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (5,
 INSERT INTO Role VALUES (1, 'Test Engineer', 1, 1, 2, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EcGbc8drFRlBoh2H2BZSeVwBV1tAiDCTwirdTmrz2EYYmQ?e=XMqXJh', 'Developing and executing functional automated and manual tests');
 INSERT INTO Role VALUES (2, 'Software Engineer', 1, 2, 3, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EYTCv1ssl6pOuH59zXtoF9YB8qNaEMNSkZIkCthDAY5Kjg?e=Ht84rW', 'Developing high quality programming solutions');
 INSERT INTO Role VALUES (3, 'Apprentice AI Engineer', 2, 3, 1, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/Eci7E2WouKdNr5A-q3F9f8wBe9UEdviulHqKp0LVh3BH3A?e=gEI9JV', 'The development of high-quality solutions which integrate AI and ML technologies');
+INSERT INTO Role VALUES (4, 'Principal Architect', 3, 4, 7, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EUEaCumLhexMqe_9rYGIFTcBTo5HQ32RMCwkCXotBkbUMA?e=c2bOQH', 'Leading the delivery of cloud platforms and solutions');
 INSERT INTO Role VALUES (5, 'Senior AI Engineer', 2, 3, 4, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EWi__EluLhNIvhHUYsUb9noBwzGggNoYcTzOZD4NAeNhHg?e=VJqYaX', 'High quality solutions that use AI and ML technologies');
-INSERT INTO Role VALUES (4, 'Principal Architect', 3, 4, 8, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EUEaCumLhexMqe_9rYGIFTcBTo5HQ32RMCwkCXotBkbUMA?e=c2bOQH', 'Leading the delivery of cloud platforms and solutions');
-INSERT INTO Role VALUES (6, 'Data Solution Architect', 4, 5, 7, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/ER9Yw1LY54BGiRwVdhQ6lBsBZw197GfKWANwdUX4ewDrqw?e=0sR4gp', ' leading multi-skilled agile teams to design and deliver contemporary data solutions');
+INSERT INTO Role VALUES (6, 'Data Solution Architect', 4, 5, 6, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/ER9Yw1LY54BGiRwVdhQ6lBsBZw197GfKWANwdUX4ewDrqw?e=0sR4gp', ' leading multi-skilled agile teams to design and deliver contemporary data solutions');
 INSERT INTO Role VALUES (7, 'Security Architect', 5, 6, 5, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EdRkobDAJwFIkZb5dfSv9qoBcCxBoPEaetYh57zkRO2eWg?e=rDHSDs', 'Design and application of good security practices');
-INSERT INTO Role VALUES (8, 'AI Engineering Manager', 2, 3, 6, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/ETcAlrQyGxVCn45P589uloABjPotEWVVzIAQg0wGdP5gMw?e=BsJOte', 'Successful delivery of large-scale high-quality solutions that use AI and ML technologies');
+INSERT INTO Role VALUES (8, 'AI Engineering Manager', 2, 3, 5, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/ETcAlrQyGxVCn45P589uloABjPotEWVVzIAQg0wGdP5gMw?e=BsJOte', 'Successful delivery of large-scale high-quality solutions that use AI and ML technologies');
 INSERT INTO Role VALUES (9, 'Data Engineer', 4, 5, 3, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EQu32o-ppGZFnvPigrc7At0BG2xsyvAAEQ8OlhssUHsMvQ?e=lKPzM7', 'Design and develop large-scale data processing software');
 INSERT INTO Role VALUES (10, 'Senior Platform Engineer', 3, 4, 4, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EQnPQ8NzxulCj-opU2QVe8UBtItlrDw4YY0v5HTNnrOAbA?e=jOcehE', 'Leading with the design of significant components of a modern digital service platform');
 
