@@ -53,20 +53,26 @@ router.get('/bands', (req, res) => {
         });
 })
 
-router.get('/apprentice', (req, res) => {
-
-//    axios({
-//        method: 'get',
-//        url: 'http://localhost:8080/api/band/apprentice',
-//        responseType: 'json'
-//    })
-//        .then(function (response) {
-//            apprentice = response.apprentice;
-//            console.log(apprentice);
-//            res.render('apprentice', {apprentice: apprentice})
-//        });
-render('apprentice')
+router.get('/competencies', (req, res) => {
+var competencies = [];
+//TODO: Pass CompetencyID to axios request
+    axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/band/getCompetencies',
+        responseType: 'json',
+        data: {
+            competencyID: '',
+            competencyName: ''
+            }
+    })
+        .then(function (response) {
+            competencies = response.data;
+            console.log(competencies);
+            res.render('competencies', {competencies: competencies})
+        });
 })
+
+
 
 
 
