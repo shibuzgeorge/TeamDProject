@@ -1,8 +1,5 @@
 package com.kainos.ea.RoleFiles;
 
-import com.kainos.ea.RoleFiles.Role;
-import com.kainos.ea.RoleFiles.RoleDAO;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -24,4 +21,11 @@ public class RoleResource {
     public List<Role> getRoles() {
         return roleDAO.getRoles();
     }
+
+//    @GET
+//    @Path("/role/getRoles/{roleID}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String getResponsibility() {
+//        return roleDAO.getRoles();
+//    }
 }
