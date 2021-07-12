@@ -10,7 +10,6 @@ import io.dropwizard.testing.junit5.ResourceExtension;
 
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

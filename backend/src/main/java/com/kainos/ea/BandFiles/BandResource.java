@@ -1,8 +1,5 @@
 package com.kainos.ea.BandFiles;
 
-import com.kainos.ea.BandFiles.Band;
-import com.kainos.ea.BandFiles.BandDAO;
-
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
