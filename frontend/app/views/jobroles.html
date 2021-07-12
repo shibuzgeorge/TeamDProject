@@ -38,12 +38,12 @@ Job Roles
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-heading{{ jobRole.roleID }}">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ jobRole.roleID }}" aria-expanded="false" aria-controls="flush-collapse{{ jobRole.roleID }}">
+                    <button id="accordionButtonId{{ jobRole.roleID }}" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ jobRole.roleID }}" aria-expanded="false" aria-controls="flush-collapse{{ jobRole.roleID }}">
                         {{ jobRole.roleSummary | truncate(42, true, "...") }}
                     </button>
                 </h2>
                 <div id="flush-collapse{{ jobRole.roleID }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ jobRole.roleID }}" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body" >{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}</div>
+                    <div class="accordion-body" id="accordionBodyId{{ jobRole.roleID }}" >{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}</div>
                 </div>
             </div>
         </div>
