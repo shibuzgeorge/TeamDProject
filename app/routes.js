@@ -8,12 +8,9 @@ router.get('/', (req, res) => {
     res.render('home')
 })
 
-<<<<<<< HEAD
 var jobRoles = [];
 var bands = [];
 
-router.get('/jobroles', (req, res) => {
-=======
 router.get('/capabilityleaders', (req, res) => {
     var capabilityLeaders = [];
 
