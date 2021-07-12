@@ -8,6 +8,7 @@ before_script:
   - mysql -u root -e 'CREATE DATABASE RoleManagement_GroupD;'
   - mysql -u root RoleManagement_GroupD < DatabaseSetup.sql
 script:
+  - chmod +x build-test.sh
   - ./build-test.sh
 notifications: 
   email: 
