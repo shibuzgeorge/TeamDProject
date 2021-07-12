@@ -1,0 +1,52 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+Bands
+{% endblock %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+
+{% block content %}
+<h1>Select a band to view the expected Kainos competencies for that band.</h1>
+
+<a href="/"><button type="button" class="btn btn-outline-secondary">&#8592;</button></a>
+<table class="table table-striped table-hover table-danger">
+    <thead>
+    <tr>
+        <th scope="col">Band ID</th>
+        <th scope="col">Band Name</th>
+    </tr>
+    </thead>
+
+
+    <tbody>
+    {% if bands %}
+    {% for bands in bands %}
+    <tr>
+        <th scope="row">{{ bands.bandID }}</th>
+        <!--//TODO change the href to point to the correct band page /bands/bands.bandName etc -->
+        <td> <a href="http://localhost:3000/band/apprentice">{{ bands.bandName }}</a> </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <tr>
+        <th scope="row">1</th>
+        <td>Management</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Trainee</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>Apprentice</td>
+    </tr>
+
+    {% endif %}
+    </tbody>
+</table>
+
+{% endblock %}
