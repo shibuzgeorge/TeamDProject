@@ -41,7 +41,7 @@ public class RoleTest {
             "Security Engineer, Cyber Security",
             "Data Consultant, Workday"
     })
-    public void roleGetCapabilityPositveCase(String validRole, String validCapability){
+    public void roleGetCapabilityPositiveCase(String validRole, String validCapability){
         Role validRoleInstance = new Role(validRole, validCapability);
 
         Assertions.assertEquals(validRoleInstance.getCapability(), validCapability);
@@ -55,7 +55,7 @@ public class RoleTest {
             "123",
             "55"
     })
-    public void roleSetIDPositveCase(Integer validID){
+    public void roleSetIDPositiveCase(Integer validID){
         Role validRoleInstance = new Role("Software Engineer", "Engineering");
         validRoleInstance.setRoleID(validID);
 
@@ -95,4 +95,7 @@ public class RoleTest {
 
         Assertions.assertEquals(validRoleInstance.toString(), expectedReturn);
     }
+
+
+
 }

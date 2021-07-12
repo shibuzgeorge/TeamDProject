@@ -8,11 +8,28 @@ router.get('/', (req, res) => {
     res.render('home')
 })
 
+<<<<<<< HEAD
 var jobRoles = [];
 var bands = [];
 
 router.get('/jobroles', (req, res) => {
+=======
+router.get('/capabilityleaders', (req, res) => {
+    var capabilityLeaders = [];
 
+    axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/capability/getCapabilityLeads',
+        responseType: 'json'
+    })
+        .then(function (response) {
+            capabilityLeaders = response.data;
+            res.render('capabilityleaders', {capabilityLeaders: capabilityLeaders})
+        });
+})
+
+router.get('/jobroles', (req, res) => {
+    var jobRoles = [];
     axios({
         method: 'get',
         url: 'http://localhost:8080/api/role/getRoles',
@@ -57,5 +74,3 @@ render('apprentice')
 
 
 module.exports = router
-
-

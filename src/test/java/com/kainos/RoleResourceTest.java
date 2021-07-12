@@ -30,6 +30,8 @@ public class RoleResourceTest {
         role.setRoleID(1);
         role.setRoleName("Software Engineering");
         role.setCapability("Engineering");
+        role.setBand("Associate");
+        role.setSpecification("https://kainossoftwareltd.sharepoint.com/:b:/g/people/EYTCv1ssl6pOuH59zXtoF9YB8qNaEMNSkZIkCthDAY5Kjg?e=Ht84rW");
     }
 
     @AfterEach
@@ -38,7 +40,7 @@ public class RoleResourceTest {
     }
 
     @Test
-    void getRolesAllSuccess() throws Exception {
+    void getRolesOneSuccess() throws Exception {
         final List<Role> ListOfRole = Collections.singletonList(role);
 
         final Response response = EXT.target("/api/role/getRoles").request().get();
@@ -51,6 +53,6 @@ public class RoleResourceTest {
 
         verify(DAO, times(2)).getRoles();
         Assertions.assertEquals(responseList, ListOfRole);
-
     }
+
 }
