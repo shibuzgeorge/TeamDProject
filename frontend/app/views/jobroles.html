@@ -29,6 +29,7 @@ Job Roles
     <tbody>
     {% if jobRoles %}
     {% for jobRole in jobRoles %}
+
     <tr>
         <th id="roleName {{jobRole.roleID}}" scope="row">{{ jobRole.roleName }}</th>
         <td id="capability{{ jobRole.roleID }}">{{ jobRole.capability }}</td>
