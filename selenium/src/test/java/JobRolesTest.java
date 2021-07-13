@@ -29,8 +29,14 @@ public class JobRolesTest extends FunctionalTest {
     }
 
     @Test
-    public void getRoleById() {
+    public void getRoleByIdPass() {
         driver.get("http://localhost:3000/role/1");
         assertThat(driver.findElement(By.cssSelector("h1")).getText(), is("Role: Test Engineer"));
+    }
+
+    @Test
+    public void getRoleByIdFail() {
+        driver.get("http://localhost:3000/role/random");
+        assertThat(driver.findElement(By.cssSelector("h1")).getText(), is("Role not found"));
     }
 }
