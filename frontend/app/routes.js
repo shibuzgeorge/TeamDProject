@@ -55,6 +55,114 @@ router.get('/bands', async (req, res) => {
   res.render('bands', { data: data })
 })
 
+router.get('/training', (req, res) => {
+  var bands = [
+    {
+      bandID: 1,
+      bandName: "Apprentice"
+    },
+    {
+      bandID: 2,
+      bandName: "Trainee"
+    },
+    {
+      bandID: 3,
+      bandName: "Associate"
+    },
+    {
+      bandID: 4,
+      bandName: "Senior Associate"
+    },
+    {
+      bandID: 5,
+      bandName: "Consultant"
+    },
+    {
+      bandID: 6,
+      bandName: "Manager"
+    },
+    {
+      bandID: 7,
+      bandName: "Principal"
+    }
+  ]
+  var trainings = [
+    {
+      name: "Training 1",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 1,
+      highBandLevel: 2,
+    },
+    {
+      name: "Training 2",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 1,
+      highBandLevel: 1,
+    },
+    {
+      name: "Training 3",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 4,
+      highBandLevel: 5,
+    },
+    {
+      name: "Training 4",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 1,
+      highBandLevel: 7,
+    },
+    {
+      name: "Training 5",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 5,
+      highBandLevel: 7,
+    },
+    {
+      name: "Training 6",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 3,
+      highBandLevel: 7,
+    },
+    {
+      name: "Training 7",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 2,
+      highBandLevel: 5,
+    },
+    {
+      name: "Training 8",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 1,
+      highBandLevel: 1,
+    },
+    {
+      name: "Training 9",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 4,
+      highBandLevel: 4,
+    },
+    {
+      name: "Training 10",
+      description: "You do this and that",
+      place: "internet",
+      lowBandLevel: 5,
+      highBandLevel: 5,
+    }
+  ]
+
+  res.render('training', {request: req, bands: bands, trainings: trainings})
+})
+
+
 router.get('/bands/:bandID', async (req, res) => {
 let competencies = '';
       try {
