@@ -131,6 +131,17 @@ INSERT INTO Role VALUES (8, 'AI Engineering Manager', 2, 3, 5, 'https://kainosso
 INSERT INTO Role VALUES (9, 'Data Engineer', 4, 5, 3, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EQu32o-ppGZFnvPigrc7At0BG2xsyvAAEQ8OlhssUHsMvQ?e=lKPzM7', 'Design and develop large-scale data processing software');
 INSERT INTO Role VALUES (10, 'Senior Platform Engineer', 3, 4, 4, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EQnPQ8NzxulCj-opU2QVe8UBtItlrDw4YY0v5HTNnrOAbA?e=jOcehE', 'Leading with the design of significant components of a modern digital service platform');
 
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (1, "As a Test Engineer (Trainee) in Kainos, you’ll work within a multi-skilled agile team, developing and executing functional automated and manual tests to help the team deliver working application software that meets user needs.");
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (2, "As a Trainee Software Engineer with Kainos, you will work on projects where you can make a real difference to people’s lives – the lives of people you know. After taking part in our award-winning, seven-week Engineering Academy, you will then join one of our many project teams, to learn from our experienced developers, project managers and customer-facing staff.");
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (3, "As a Trainee Artificial Intelligence (AI) Engineer in Kainos, you’ll be responsible for contributing to the development of high-quality solutions which integrate AI and ML technologies that delight our customers and impact the lives of users worldwide.");
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (4, "As a Principal Architect (Principal) in Kainos, you’ll be accountable for successful delivery of large-scale high-quality solutions which delight our customers and impact the lives of users worldwide.");
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (5, "As a Senior Artificial Intelligence (AI) Engineer in Kainos, you’ll be responsible for developing high  quality  solutions  that  use  AI  and  ML  technologies  which  delight  our  customers  and  impact the lives of users worldwide.");
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (6, "As a Data Solution Architect (Manager) in Kainos, you’ll be responsible for leading multi-skilled agile teams to design and deliver contemporary data solutions. You will be a quality-driven pragmatist, where you balance trade-offs to successfully deliver complex solutions. You will be viewed as an authority figure for data technology solutions, providing strong technical and thought leadership.");
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (7, "As a Security Architect (Consultant) in Kainos, you’ll be responsible for the design and application of good security practices in the platforms and services we build for our customers");
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (8, "As an Artificial Intelligence (AI) Engineer Manager in Kainos, you’ll be responsible for successful delivery of large-scale high-quality solutions that use AI and ML technologiesthat delight our customers and impact the lives of users worldwide.");
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (9, "Working to develop data processing software primarily for deployment in Big Data technologies. The role encompasses the full software lifecycle including design, code, test and defect resolution.");
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (10, "As a Senior Platform Engineer (Senior Associate) in Kainos, you’ll be responsible for leading with the design of significant components of a modern digital service platform including its automation, build, deployment and support.");
+
 
 INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (1, "This is a sample responsibility");
 
@@ -161,3 +172,4 @@ INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 'Communicating and Influence', 8, 'Sample Text'
 );
+
