@@ -40,7 +40,19 @@ router.get('/role/:roleID', async (req, res) => {
     console.log(err.message)
   }
 
-  res.render('role', { role: role.data })
+  let responsibility = ''
+  try {
+    responsibility = await axios({
+      method: 'get',
+      url: 'http://localhost:8080/api/responsibility/getResponsibilityByID/' + req.params.roleID,
+      responseType: 'json'
+    })
+  } catch (err) {
+    console.log(err.message)
+  }
+
+  res.render('role', { role: role.data, responsibility: responsibility.data })
+
 })
 
 router.get('/bands', async (req, res) => {
