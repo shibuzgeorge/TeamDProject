@@ -10,9 +10,8 @@ const usageData = require('./lib/usage_data')
 // Get usageDataConfig from file, if exists
 const usageDataConfig = usageData.getUsageDataConfig()
 
-
-  usageData.startTracking(usageDataConfig)
-  runGulp()
+usageData.startTracking(usageDataConfig)
+runGulp()
 
 // Warn if node_modules folder doesn't exist
 function checkFiles () {
