@@ -1,3 +1,11 @@
 .govuk-width-container {
     max-width: 1400px !important;
 }
+
+.noUnderLine{
+    text-decoration-line: none;
+}
+
+.noUnderLine:visited {
+    color: rgb(0, 101, 171);
+}

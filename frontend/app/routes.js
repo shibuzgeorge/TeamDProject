@@ -29,11 +29,16 @@ router.get('/jobroles', async (req, res) => {
 })
 
 router.get('/role/:roleID', async (req, res) => {
-  const role = await axios({
-    method: 'get',
-    url: 'http://localhost:8080/api/role/' + req.params.roleID,
-    responseType: 'json'
-  })
+  let role = ''
+  try {
+    role = await axios({
+      method: 'get',
+      url: 'http://localhost:8080/api/role/' + req.params.roleID,
+      responseType: 'json'
+    })
+  } catch (err) {
+    console.log(err.message)
+  }
 
   res.render('role', { role: role.data })
 })
