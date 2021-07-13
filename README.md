@@ -41,8 +41,11 @@ The `DAO` interface includes all the SQL queries and this is mapped to the `Mapp
 
 API Route available:
 * http://localhost:8080/api/role/getRoles
+* http://localhost:8080/api/role/{roleID}
+* http://localhost:8080/api/responsibility/getResponsibilityByID/{roleID}
 * http://localhost:8080/api/capability/getCapabilityLeads
 * http://localhost:8080/api/employee/getEmployees
+* http://localhost:8080/api/band/getBands
 
 ### Frontend
 
@@ -52,12 +55,17 @@ Node. js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node. j
 
 Data is provided by the API layer and passed down to the HTML templates to be rendered to the page.
 
+### Selenium 
+
+Selenium is a automated testing framework used to validate web applications across different browsers and platforms.
+Selenium is used to test the UI elements of our frontend.
+
 ## Run Application
 
 ### Frontend
 
 #### How to start the application
-
+1. `cd frontend`
 1. Run `npm install` to build your application
 2. Start application with `npm start`
 3. To check that your application is running enter url `http://localhost:3000`
@@ -69,10 +77,21 @@ Data is provided by the API layer and passed down to the HTML templates to be re
 ### Backend
 
 #### How to start the application
+1. Change directory `cd backend`
+2. Run `mvn clean install` to build your application
+3. Start application with `java -jar target/TeamDProject-1.0-SNAPSHOT.jar server ../config.yml`
+4. To check that your application is running enter url `http://localhost:8080`
 
-1. Run `mvn clean install` to build your application
-2. Start application with `java -jar target/TeamDProject-1.0-SNAPSHOT.jar server config.yml`
-3. To check that your application is running enter url `http://localhost:8080`
+##### Run test
+
+1. Run `mvn test -B`
+
+### Selenium
+
+#### How to start the application
+1. Change directory `cd selenium`
+2. Run `mvn clean install` to build your application
+3. Make sure you have both the front end and back end application running
 
 ##### Run test
 

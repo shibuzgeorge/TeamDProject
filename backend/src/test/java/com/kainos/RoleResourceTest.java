@@ -8,7 +8,7 @@ import org.junit.jupiter.api.*;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
 import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.Response;
+import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Collections;
 import java.util.List;
 
@@ -38,19 +38,31 @@ public class RoleResourceTest {
     }
 
     @Test
-    void getRolesOneSuccess() throws Exception {
+    void getAllRolesSuccess() throws Exception {
         final List<Role> ListOfRole = Collections.singletonList(role);
-
-        final Response response = EXT.target("/api/role/getRoles").request().get();
-        Assertions.assertEquals(response.getStatusInfo().getStatusCode(), Response.Status.OK.getStatusCode());
 
         when(DAO.getRoles()).thenReturn(ListOfRole);
         final List<Role> responseList = EXT.target("/api/role/getRoles")
                 .request().get(new GenericType<List<Role>>() {
                 });
 
-        verify(DAO, times(2)).getRoles();
+        verify(DAO).getRoles();
         Assertions.assertEquals(responseList, ListOfRole);
+    }
+
+    @Test
+    void getRoleSuccess() throws Exception {
+        final Role newRole = new Role("Test Engineer", "Engineering", "Trainee", "https://kainossoftwareltd.sharepoint.com/:b:/g/people/EcGbc8drFRlBoh2H2BZSeVwBV1tAiDCTwirdTmrz2EYYmQ?e=XMqXJh");
+        newRole.setRoleID(1);
+
+        when(DAO.getRoleByID(1)).thenReturn(newRole);
+        final Role response = EXT.target("/api/role/1")
+                .request().get(Role.class);
+        assertThat(response.getRoleID()).isEqualTo(newRole.getRoleID());
+        assertThat(response.getRoleName()).isEqualTo(newRole.getRoleName());
+        assertThat(response.getBand()).isEqualTo(newRole.getBand());
+        assertThat(response.getSpecification()).isEqualTo(newRole.getSpecification());
+        verify(DAO).getRoleByID(1);
     }
 
 }
