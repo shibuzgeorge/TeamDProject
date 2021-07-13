@@ -1,7 +1,6 @@
 import org.junit.Test;
 import framework.FunctionalTest;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertEquals;
@@ -37,6 +36,13 @@ public class JobRolesTest extends FunctionalTest {
     }
 
     @Test
+    public void testAccordionTruncatedText() {
+        driver.get("http://localhost:3000/");
+        driver.findElement(By.cssSelector(".col:nth-child(1) .card-img-top")).click();
+        assertEquals(driver.findElement(By.id("accordionButtonId3")).getText(),"The development of high-quality solutions ...");
+    }
+
+/*    @Test
     public void checkAccordionHeaderTruncatedText(){
         driver.get("http://localhost:3000/jobroles");
         WebElement accordionButton = driver.findElement(By.id("accordionButtonId3"));
@@ -47,7 +53,7 @@ public class JobRolesTest extends FunctionalTest {
 
         assertEquals(expectedReturn, accordionBodyText);
 
-    }
+    }*/
 
     @Test
     public void assertSortByWorksCorrectly() {
