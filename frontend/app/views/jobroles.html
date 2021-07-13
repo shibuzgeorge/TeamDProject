@@ -23,9 +23,9 @@ Job Roles
     <tr class="table-bordered">
         <th id="roleName" scope="col">Role Name</th>
         <th id="capability" scope="col">Capability</th>
-        <th scope="col">Band</th>
-        <th scope="col">Job Summary</th>
-        <th scope="col">Specification</th>
+        <th id="band" scope="col">Band</th>
+        <th id="jobSummary" scope="col">Job Summary</th>
+        <th id="specification" scope="col">Specification</th>
     </tr>
     </thead>
     <tbody>
@@ -33,7 +33,7 @@ Job Roles
     {% for jobRole in jobRoles %}
 
     <tr>
-        <th scope="row">{{ jobRole.roleName }}</th>
+        <th scope="row"><a href="/role/{{jobRole.roleID}}">{{ jobRole.roleName }}</a></th>
         <td>{{ jobRole.capability }}</td>
         <td>{{ jobRole.band }}</td>
         <td>{{ jobRole.roleSummary }}</td>

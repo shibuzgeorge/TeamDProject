@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+Job Roles
+{% endblock %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block headIcons %}
+{{ super() }}
+<link rel="stylesheet" href="../public/stylesheets/jobroles.css">
+{% endblock %}
+
+
+{% block content %}
+<button type="button" onclick="history.back(-1)" class="btn btn-outline-secondary">&#8592;</button>
+{% if role %}
+<h1><u>Role:</u> {{role.roleName}} </h1> <p>
+<h2><u>Summary:</u> {{role.roleSummary}}</h2><p>
+
+<h2><u>Capability:</u> {{role.capability}}</h2><p>
+
+<h2><u>Band:</u> {{role.band}}</h2><p>
+
+<h2><u>Specification:</u> <a href="{{ role.specification }}">Job Specification</a></h2><p>
+
+<h2><u>Job Family:</u> {{role.jobFamily}}</h2><p>
+
+{% else %}
+<h1>Role not found </h1>
+{% endif %}
+
+{% endblock %}
