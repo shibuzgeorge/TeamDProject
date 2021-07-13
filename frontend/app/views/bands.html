@@ -52,19 +52,27 @@ Bands
 <!--</table>-->
 
 
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle kainos-nav-text" href="#" id="navbarDropdown" role="button"
-       data-bs-toggle="dropdown" aria-expanded="false">
-        Select a Band:
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        {% if bands %}
-        {% for bands in bands %}
-        <li><a class="dropdown-item " href="#">{{ bands.bandName }}</a></li>
-        {% endfor %}
-        {% endif %}
-    </ul>
-</li>
+<!--<li class="nav-item dropdown">-->
+<!--    <a class="nav-link dropdown-toggle kainos-nav-text" href="#" id="navbarDropdown" role="button"-->
+<!--       data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--        Select a Band:-->
+<!--    </a>-->
+<!--    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="mySelection">-->
+<!--        {% if bands %}-->
+<!--        {% for bands in bands %}-->
+<!--        <li><a class="dropdown-item " href="#" onchange="competencies">{{ bands.bandName }}</a></li>-->
+<!--        {% endfor %}-->
+<!--        {% endif %}-->
+<!--    </ul>-->
+<!--</li>-->
+
+<select id="mySelect" onchange="/competencies">
+    {% if bands %}
+    {% for bands in bands %}
+    <option value={{ bands.bandName }}> {{ bands.bandName }} </option>
+    {% endfor %}
+    {% endif %}
+</select>
 
 <div>
     <!-- TODO add competencies information here -->
