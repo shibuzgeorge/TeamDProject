@@ -23,7 +23,7 @@ Capability Leads
                         <h5 class="modal-title" id="exampleModalLabel">Message</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="modalBodyID{{ inc }}">
                         {{ lead.capabilityLeadMessage }}
                     </div>
                 </div>
@@ -34,14 +34,16 @@ Capability Leads
             <div class="p-3">
                 <h2 class="text-center">{{ lead.capabilityName }}</h2>
                 <h3 class="text-center">{{ lead.employeeName }}</h3>
-                <a data-bs-toggle="modal" data-bs-target="#modal{{ inc }}">
-                    <img src="data:image/jpeg;base64,{{ lead.employeeIDPhoto }}" class="shadow rounded-circle border border-3 mx-auto d-block img-thumbnail img-fluid" alt="..."
+                <a data-bs-toggle="modal" data-bs-target="#modal{{ inc }}" >
+                    <button id="clickableImageID{{ inc }}">
+                    <img src="data:image/jpeg;base64,{{ lead.employeeIDPhoto }}" id="imageID{{ inc }}" class="shadow rounded-circle border border-3 mx-auto d-block img-thumbnail img-fluid" alt="..."
                          width="400" height="400"
                          style="object-fit:cover;
                                 object-position: center;
                                 width:300px;
                                 height:300px;
                                 border: solid 1px #CCC">
+                    </button>
                 </a>
             </div>
         </div>
