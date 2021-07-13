@@ -10,7 +10,7 @@ public class ResponsibilityMapper implements RowMapper<Responsibility> {
 
     private static final String ROLE_ID = "roleID";
     private static final String RESPONSIBILITY_ID = "responsibilityID";
-    private static final String RESPONSIBILITY_TEXT = "responsibilityText";
+    private static final String RESPONSIBILITY_TEXT = "responsibility";
 
     @Override
     public Responsibility map(ResultSet rs, StatementContext ctx) throws SQLException {
