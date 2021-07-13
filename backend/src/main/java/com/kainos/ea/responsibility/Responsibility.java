@@ -24,9 +24,9 @@ public class Responsibility {
         this.responsibilityID = responsibilityID;
     }
 
-    public Responsibility(String responsibilityText, int roleID) {
+    public Responsibility(String responsibilityText, int responsibilityID) {
         this.responsibilityText = responsibilityText;
-        this.roleID = roleID;
+        this.responsibilityID = responsibilityID;
     }
 
     public Integer getRoleID() {
