@@ -1,0 +1,56 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+Training{% endblock %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block headIcons %}
+{{ super() }}
+<script src="public/javascripts/training.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<form method="get" action="training" id="bandChoice">
+    <h1>Choose your band: </h1>
+    <select id="band" name="band" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" >
+        <option value="0" id="clickme">Band levels:</option>
+        {% for band in bands %}
+            {% if band.bandID == request.url | replace("/training?band=", "") %}
+                <option selected value="{{ band.bandID }}">{{ band.bandName }}</option>
+            {% else %}
+                <option value="{{ band.bandID }}">{{ band.bandName }}</option>
+            {% endif %}
+        {% endfor %}}
+    </select>
+</form>
+
+{% if request.url == "/training" or request.url == "/training?band=0" %}
+    {% for training in trainings %}
+    <h1>{{ training.name }}</h1>
+    <p>{{ training.place }}</p>
+    <h3>{{ training.description }}</h3>
+    <h3>.....................</h3>
+    {% endfor %}
+{% else %}
+    {% for band in bands %}
+        {% if band.bandID == request.url | replace("/training?band=", "") %}
+            {% for training in trainings %}
+                {% if band.bandID >= training.lowBandLevel and band.bandID <= training.highBandLevel %}
+                    <h1>{{ training.name }}</h1>
+                    <p>{{ training.place }}</p>
+                    <h3>{{ training.description }}</h3>
+                    <h3>.....................</h3>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+
+
+{% endblock %}
