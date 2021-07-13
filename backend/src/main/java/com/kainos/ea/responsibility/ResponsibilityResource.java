@@ -1,9 +1,13 @@
 package com.kainos.ea.responsibility;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/api")
 public class ResponsibilityResource {
@@ -15,11 +19,9 @@ public class ResponsibilityResource {
     }
 
     @GET
-    @Path("/role/getRoles/{roleID}")
+    @Path("/responsibility/getResponsibilityByID/{roleID}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getResponsibility() {
-//        return ResponsibilityDAO.getResponsibility();
-        return "";
-        //TODO: sort out this method error
+    public Responsibility getResponsibility(@PathParam ("roleID") @NotNull @Valid int roleID) {
+        return responsibilityDAO.getResponsibility(roleID);
     }
 }

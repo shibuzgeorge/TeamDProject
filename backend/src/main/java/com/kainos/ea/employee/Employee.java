@@ -43,14 +43,13 @@ public class Employee {
         return employeeName;
     }
 
-    public void setEmployeeName(String roleName) {
+    public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
 
     public String getEmployeeIDPhoto() {
         return employeeIDPhoto;
     }
-
 
     public void setEmployeeIDPhoto(String employeeIDPhoto) throws IllegalArgumentException{
         this.employeeIDPhoto = employeeIDPhoto;
