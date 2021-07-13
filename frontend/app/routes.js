@@ -1,56 +1,51 @@
 const express = require('express')
 const router = express.Router()
-const axios = require('axios').default;
+const axios = require('axios').default
 
 // Add your routes here - above the module.exports line
 
 router.get('/', (req, res) => {
-    res.render('home')
+  res.render('home')
 })
 
-var jobRoles = [];
-var bands = [];
+router.get('/capabilityleaders', async (req, res) => {
+  const capabilityLeaders = await axios({
+    method: 'get',
+    url: 'http://localhost:8080/api/capability/getCapabilityLeads',
+    responseType: 'json'
+  })
 
-router.get('/capabilityleaders', (req, res) => {
-    var capabilityLeaders = [];
-
-    axios({
-        method: 'get',
-        url: 'http://localhost:8080/api/capability/getCapabilityLeads',
-        responseType: 'json'
-    })
-        .then(function (response) {
-            capabilityLeaders = response.data;
-            res.render('capabilityleaders', {capabilityLeaders: capabilityLeaders})
-        });
+  res.render('capabilityleaders', { capabilityLeaders: capabilityLeaders.data })
 })
 
-router.get('/jobroles', (req, res) => {
-    var jobRoles = [];
-    axios({
-        method: 'get',
-        url: 'http://localhost:8080/api/role/getRoles',
-        responseType: 'json'
-    })
-        .then(function (response) {
-            jobRoles = response.data;
-            console.log(jobRoles);
-            res.render('jobroles', {jobRoles: jobRoles})
-        });
+router.get('/jobroles', async (req, res) => {
+  const jobRoles = await axios({
+    method: 'get',
+    url: 'http://localhost:8080/api/role/getRoles',
+    responseType: 'json'
+  })
+
+  res.render('jobroles', { jobRoles: jobRoles.data })
 })
 
-router.get('/bands', (req, res) => {
+router.get('/role/:roleID', async (req, res) => {
+  const role = await axios({
+    method: 'get',
+    url: 'http://localhost:8080/api/role/' + req.params.roleID,
+    responseType: 'json'
+  })
 
-    axios({
-        method: 'get',
-        url: 'http://localhost:8080/api/band/getBands',
-        responseType: 'json'
-    })
-        .then(function (response) {
-            bands = response.data;
-            console.log(bands);
-            res.render('bands', {bands: bands})
-        });
+  res.render('role', { role: role.data })
+})
+
+router.get('/bands', async (req, res) => {
+  const bands = await axios({
+    method: 'get',
+    url: 'http://localhost:8080/api/band/getBands',
+    responseType: 'json'
+  })
+
+  res.render('bands', { bands: bands.data })
 })
 
 router.get('/competencies', (req, res) => {
@@ -72,9 +67,6 @@ console.log('compName: ', compName)
             res.render('competencies', {competencies: competencies})
         });
 })
-
-
-
 
 
 module.exports = router
