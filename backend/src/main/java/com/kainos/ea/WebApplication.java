@@ -1,5 +1,8 @@
 package com.kainos.ea;
 
+import com.kainos.ea.CompetencyFiles.Competency;
+import com.kainos.ea.CompetencyFiles.CompetencyDAO;
+import com.kainos.ea.CompetencyFiles.CompetencyResource;
 import com.kainos.ea.capabilitylead.CapabilityLeadDAO;
 import com.kainos.ea.capabilitylead.CapabilityLeadResource;
 import com.kainos.ea.RoleFiles.RoleDAO;
@@ -37,10 +40,12 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
         final Jdbi jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
         final RoleDAO roleDAO = jdbi.onDemand(RoleDAO.class);
         final BandDAO bandDAO = jdbi.onDemand(BandDAO.class);
+        final CompetencyDAO competencyDAO = jdbi.onDemand(CompetencyDAO.class);
         final CapabilityLeadDAO capabilityLeadDAO = jdbi.onDemand(CapabilityLeadDAO.class);
         final EmployeeDAO employeeDAO = jdbi.onDemand(EmployeeDAO.class);
         environment.jersey().register(new RoleResource(roleDAO));
         environment.jersey().register(new BandResource(bandDAO));
+        environment.jersey().register(new CompetencyResource(competencyDAO));
         environment.jersey().register(new CapabilityLeadResource(capabilityLeadDAO));
         environment.jersey().register(new EmployeeResource(employeeDAO));
 

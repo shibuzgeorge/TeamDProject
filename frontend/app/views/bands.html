@@ -15,70 +15,27 @@ Bands
 <a href="/"><button type="button" class="btn btn-outline-secondary">&#8592;</button></a>
 
 
-<!--<table class="table table-striped table-hover table-danger">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th scope="col">Band ID</th>-->
-<!--        <th scope="col">Band Name</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
+<select id="mySelect" onchange="window.location.href=this.value">
+    <option value="none" >
+        Select an Option
+    </option>
 
+    {% if data[0].bands %}
+    {% for band in data[0].bands %}
+    {% if request.url | replace("/bands/", "") == band.bandID %}
+    <option selected value=/bands/{{band.bandID}}> {{ band.bandName }} </option>
+    {% else %}
+    <option  value=/bands/{{band.bandID}}> {{ band.bandName }} </option>
 
-<!--    <tbody>-->
-<!--    {% if bands %}-->
-<!--    {% for bands in bands %}-->
-<!--    <tr>-->
-<!--        <th scope="row">{{ bands.bandID }}</th>-->
-<!--        <td> <a href="http://localhost:3000/band/apprentice">{{ bands.bandName }}</a> </td>-->
-<!--    </tr>-->
-<!--    {% endfor %}-->
-<!--    {% else %}-->
-<!--    <tr>-->
-<!--        <th scope="row">1</th>-->
-<!--        <td>Management</td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <th scope="row">2</th>-->
-<!--        <td>Trainee</td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <th scope="row">3</th>-->
-<!--        <td>Apprentice</td>-->
-<!--    </tr>-->
-
-<!--    {% endif %}-->
-
-<!--    </tbody>-->
-<!--</table>-->
-
-
-<!--<li class="nav-item dropdown">-->
-<!--    <a class="nav-link dropdown-toggle kainos-nav-text" href="#" id="navbarDropdown" role="button"-->
-<!--       data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--        Select a Band:-->
-<!--    </a>-->
-<!--    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="mySelection">-->
-<!--        {% if bands %}-->
-<!--        {% for bands in bands %}-->
-<!--        <li><a class="dropdown-item " href="#" onchange="competencies">{{ bands.bandName }}</a></li>-->
-<!--        {% endfor %}-->
-<!--        {% endif %}-->
-<!--    </ul>-->
-<!--</li>-->
-
-<!--<th scope="row"><a href="/role/{{jobRole.roleID}}">{{ jobRole.roleName }}</a></th>-->
-
-
-<select id="mySelect">
-    {% if bands %}
-    {% for bands in bands %}
-    <option value={{ bands.bandName }}><a href="/bands/{{bands.bandName}}"> {{ bands.bandName }} </a></option>
+    {% endif %}
     {% endfor %}
     {% endif %}
 </select>
 
 <div>
     <!-- TODO add competencies information here -->
+    {% if data[0].competencies %}
+
     <table class="table table-striped table-hover table-danger">
             <thead>
             <tr>
@@ -86,8 +43,21 @@ Bands
                 <th scope="col">Expectation</th>
             </tr>
             </thead>
+        <tbody>
+
+        {% for competency in data[0].competencies %}
+
+        <tr>
+            <th scope="row">{{ competency.compName }}</th>
+            <td>{{ competency.description }}</td>
+        </tr>
+
+        {% endfor %}
+        </tbody>
 
     </table>
+
+    {% endif %}
 
 </div>
 

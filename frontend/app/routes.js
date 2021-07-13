@@ -45,20 +45,35 @@ router.get('/bands', async (req, res) => {
     responseType: 'json'
   })
 
-  res.render('bands', { bands: bands.data })
+    let data = [ {bands: bands.data} ];
+
+  res.render('bands', { data: data })
 })
 
-router.get('/bands/:bandName', (req, res) => {
-var competencies = [];
-console.log('compName: ', compName)
-//TODO: Pass CompetencyID to axios request
-   axios({
+router.get('/bands/:bandID', async (req, res) => {
+let competencies = '';
+      try {
+      competencies = await axios({
         method: 'get',
-        url: 'http://localhost:8080/api/bands/' + req.params.bandName,
-        responseType: 'json',
-    })
+        url: 'http://localhost:8080/api/competency/getCompetencyByBand/' + req.params.bandID,
+        responseType: 'json'
+      })
+      } catch (err) {
+      console.log('***ERROR: ', err.message)}
 
-  res.render('competencies', { competencies: competencies})
+      const bands = await axios({
+          method: 'get',
+          url: 'http://localhost:8080/api/band/getBands',
+          responseType: 'json'
+        })
+
+        let data = [
+        {bands: bands.data,
+        competencies: competencies.data}
+        ];
+
+  res.render('bands', {data: data, request: req})
+
 })
 
 

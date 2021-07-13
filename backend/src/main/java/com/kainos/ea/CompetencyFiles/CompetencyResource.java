@@ -18,12 +18,18 @@ public class CompetencyResource {
     }
 
     @GET
-    @Path("/band/getCompetencies")
+    @Path("/competency/getCompetencies")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Competency> getCompetencies() { return competencyDAO.getCompetencies(); }
 
     @GET
-    @Path("/band/{bandID}")
+    @Path("/competency/{competencyID}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Competency getCompetencyByID(@PathParam("compID") int compID) { return competencyDAO.getCompetencies().get(compID);}
+    public Competency getCompetencyByID(@PathParam("competencyID") int compID) { return competencyDAO.getCompetencyByID(compID);}
+
+    @GET
+    @Path("/competency/getCompetencyByBand/{bandID}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Competency> getCompetencyByBandID(@PathParam("bandID") int bandID) { return competencyDAO.getCompetencyByBandID(bandID);}
+
 }

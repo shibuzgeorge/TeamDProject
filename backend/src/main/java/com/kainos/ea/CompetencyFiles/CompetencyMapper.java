@@ -9,8 +9,8 @@ import java.sql.SQLException;
 
 public class CompetencyMapper implements RowMapper<Competency> {
 
-    private static final String ID = "compID";
-    private static final String NAME = "compName";
+    private static final String ID = "competencyID";
+    private static final String NAME = "competencyName";
     private static final String BAND_ID = "bandID";
     private static final String DESCRIPTION = "description";
 

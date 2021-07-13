@@ -23,6 +23,10 @@ public class Competency {
 
     }
 
+    public Competency(Integer bandID) {
+        this.bandID = bandID;
+    }
+
     public Competency(String compName, String description) {
         this.compName = compName;
         this.description = description;
