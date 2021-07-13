@@ -12,7 +12,7 @@ public class RoleMapper implements RowMapper<Role> {
     private static final String BAND = "bandName";
     private static final String SPECIFICATION = "specification";
     private static final String SUMMARY = "roleSummary";
-    private static final String FAMILY = "jobFamily";
+    private static final String FAMILY = "jobFamilyName";
 
     @Override
     public Role map(ResultSet rs, StatementContext ctx) throws SQLException {

@@ -3,9 +3,12 @@ import framework.FunctionalTest;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class JobRolesTest extends FunctionalTest {
 
@@ -54,7 +57,16 @@ public class JobRolesTest extends FunctionalTest {
     }
 
     @Test
-    public void checkListIsOrderedCorrectly(){
-
+    public void assertSortByWorksCorrectly() {
+        driver.get("http://localhost:3000/jobroles");
+        driver.manage().window().setSize(new Dimension(1434, 818));
+        driver.findElement(By.id("roleName 3")).click();
+        assertEquals(driver.findElement(By.id("roleName 3")).getText(), "Apprentice AI Engineer");
+        driver.findElement(By.id("capability3")).click();
+        assertEquals(driver.findElement(By.id("capability3")).getText(), "Artificial Intelligence");
+        driver.findElement(By.id("jobFamily3")).click();
+        assertEquals(driver.findElement(By.id("jobFamily3")).getText(), "Artificial Intelligence (AI) Engineering");
+        driver.findElement(By.id("band3")).click();
+        assertEquals(driver.findElement(By.id("band3")).getText(), "Apprentice");
     }
 }
