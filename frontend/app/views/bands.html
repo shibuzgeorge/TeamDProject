@@ -66,10 +66,13 @@ Bands
 <!--    </ul>-->
 <!--</li>-->
 
-<select id="mySelect" onchange="/competencies">
+<!--<th scope="row"><a href="/role/{{jobRole.roleID}}">{{ jobRole.roleName }}</a></th>-->
+
+
+<select id="mySelect">
     {% if bands %}
     {% for bands in bands %}
-    <option value={{ bands.bandName }}> {{ bands.bandName }} </option>
+    <option value={{ bands.bandName }}><a href="/bands/{{bands.bandName}}"> {{ bands.bandName }} </a></option>
     {% endfor %}
     {% endif %}
 </select>

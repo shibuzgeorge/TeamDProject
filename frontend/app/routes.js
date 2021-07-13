@@ -48,24 +48,17 @@ router.get('/bands', async (req, res) => {
   res.render('bands', { bands: bands.data })
 })
 
-router.get('/competencies', (req, res) => {
+router.get('/bands/:bandName', (req, res) => {
 var competencies = [];
-var compName = document.getElementById("mySelect").value;
 console.log('compName: ', compName)
 //TODO: Pass CompetencyID to axios request
-    axios({
+   axios({
         method: 'get',
-        url: 'http://localhost:8080/api/band/getCompetencies',
+        url: 'http://localhost:8080/api/bands/' + req.params.bandName,
         responseType: 'json',
-        data: {
-            competencyName: compName
-            }
     })
-        .then(function (response) {
-            competencies = response.data;
-            console.log(competencies);
-            res.render('competencies', {competencies: competencies})
-        });
+
+  res.render('competencies', { competencies: competencies})
 })
 
 
