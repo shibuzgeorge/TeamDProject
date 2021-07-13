@@ -29,7 +29,7 @@ public class JobRolesTest extends FunctionalTest {
     }
 
     @Test
-    public void testAccordiontext() {
+    public void checkAccordionTextExpandedIsCorrect() {
         driver.get("http://localhost:3000/jobroles");
         driver.findElement(By.id("accordionButtonId3")).click();
         driver.findElement(By.id("accordionBodyId3")).click();
@@ -61,7 +61,6 @@ public class JobRolesTest extends FunctionalTest {
         assertEquals(driver.findElement(By.id("jobFamily3")).getText(), "Artificial Intelligence (AI) Engineering");
         driver.findElement(By.id("band3")).click();
         assertEquals(driver.findElement(By.id("band3")).getText(), "Apprentice");
-
     }
 
     @Test
