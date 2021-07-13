@@ -43,8 +43,8 @@ public class Employee {
         return employeeName;
     }
 
-    public void setEmployeeName(String roleName) {
-        this.employeeName = roleName;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
     public String getEmployeeIDPhoto() {
