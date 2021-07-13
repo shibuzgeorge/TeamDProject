@@ -52,7 +52,6 @@ public class JobRolesTest extends FunctionalTest {
     @Test
     public void assertSortByWorksCorrectly() {
         driver.get("http://localhost:3000/jobroles");
-        driver.manage().window().setSize(new Dimension(1434, 818));
         driver.findElement(By.id("roleName 3")).click();
         assertEquals(driver.findElement(By.id("roleName 3")).getText(), "Apprentice AI Engineer");
         driver.findElement(By.id("capability3")).click();
