@@ -4,9 +4,6 @@ import framework.FunctionalTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
-
 import static org.junit.Assert.assertEquals;
 
 public class JobRolesTest extends FunctionalTest {
@@ -31,12 +28,12 @@ public class JobRolesTest extends FunctionalTest {
     @Test
     public void getRoleByIdPass() {
         driver.get("http://localhost:3000/role/1");
-        assertThat(driver.findElement(By.cssSelector("h1")).getText(), is("Role: Test Engineer"));
+        assertEquals(driver.findElement(By.cssSelector("h1")).getText(),"Role: Test Engineer");
     }
 
     @Test
     public void getRoleByIdFail() {
         driver.get("http://localhost:3000/role/random");
-        assertThat(driver.findElement(By.cssSelector("h1")).getText(), is("Role not found"));
+        assertEquals(driver.findElement(By.cssSelector("h1")).getText(),"Role not found");
     }
 }
