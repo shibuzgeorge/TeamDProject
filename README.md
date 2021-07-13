@@ -46,6 +46,7 @@ API Route available:
 * http://localhost:8080/api/capability/getCapabilityLeads
 * http://localhost:8080/api/employee/getEmployees
 * http://localhost:8080/api/band/getBands
+* http://localhost:8080/api/competency/getCompetencyByBand/{bandID}
 
 ### Frontend
 
