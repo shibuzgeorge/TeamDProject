@@ -18,12 +18,13 @@ Job Roles
 <table class="table table-striped table-hover table-secondary">
     <thead class="table table-striped table-hover table-primary table-bordered" id="jobRolesTable">
     <tr class="table-bordered">
-        <th scope="col">Role Name</th>
-        <th scope="col">Capability</th>
-        <th scope="col">Job Family</th>
-        <th scope="col">Band</th>
-        <th scope="col" style="width: 30%">Job Summary</th>
-        <th scope="col" >Specification</th>
+
+        <th id="roleName" scope="col">Role Name</th>
+        <th id="capability" scope="col">Capability</th>
+        <th id="jobFamily" scope="col">Job Family</th>
+        <th id="band" scope="col">Band</th>
+        <th id="jobSummary" scope="col" style="width: 30%">Job Summary</th>
+        <th id="specification" scope="col">Specification</th>
     </tr>
     </thead>
     <tbody>
@@ -49,6 +50,7 @@ Job Roles
         </div>
         </td>
         <td id="specification{{ jobRole.roleID }}"><a href="{{ jobRole.specification }}" class="noUnderLine">Job Specification</a></td>
+
     </tr>
     {% endfor %}
     {% else %}
