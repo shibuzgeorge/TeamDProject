@@ -1,4 +1,4 @@
-# TeamDProject
+# TeamDProject [![Build Status](https://travis-ci.com/shibuzgeorge/TeamDProject.svg?token=JPwaVvxXZez87HNoYyEe&branch=main)](https://travis-ci.com/shibuzgeorge/TeamDProject)
 
 ## Project Structure
 
