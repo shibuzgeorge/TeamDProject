@@ -158,18 +158,18 @@ INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 );
 
 INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
-'Personal Performance', 8, 'Sample Text'
+'Personal Performance', 7, 'Sample Text'
 );
 
 INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
-'Setting Direction, Development and Accountability', 8, 'Sample Text'
+'Setting Direction, Development and Accountability', 7, 'Sample Text'
 );
 
 INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
-'Commerciality and Risk', 8, 'Sample Text'
+'Commerciality and Risk', 7, 'Sample Text'
 );
 
 INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
-'Communicating and Influence', 8, 'Sample Text'
+'Communicating and Influence', 7, 'Sample Text'
 );
 
