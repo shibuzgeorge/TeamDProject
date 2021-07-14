@@ -32,13 +32,23 @@ public class Competency {
         this.description = description;
     }
 
+    public Competency(Integer bandID, String description) {
+        this.bandID = bandID;
+        this.description = description;
+    }
+
+    public Competency(Integer compID, Integer bandID, String description) {
+        this.compID = compID;
+        this.bandID = bandID;
+        this.description = description;
+    }
+
     public Competency(Integer compID, String compName, Integer bandID, String description) {
         this.compID = compID;
         this.compName = compName;
         this.bandID = bandID;
         this.description = description;
     }
-
 
     public Integer getCompID() {
         return compID;
