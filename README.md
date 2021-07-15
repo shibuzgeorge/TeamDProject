@@ -40,13 +40,22 @@ Dropwizard is used to perform GET, POST, PUT and DELETE requests. The `Resource`
 The `DAO` interface includes all the SQL queries and this is mapped to the `Mapper` to output the result set from the database.
 
 API Route available:
-* http://localhost:8080/api/role/getRoles
-* http://localhost:8080/api/role/{roleID}
-* http://localhost:8080/api/responsibility/getResponsibilityByID/{roleID}
-* http://localhost:8080/api/capability/getCapabilityLeads
-* http://localhost:8080/api/employee/getEmployees
-* http://localhost:8080/api/band/getBands
-* http://localhost:8080/api/competency/getCompetencyByBand/{bandID}
+* Role:
+  * http://localhost:8080/api/role/getRoles
+  * http://localhost:8080/api/role/{roleID}
+* Responsibility:
+  * http://localhost:8080/api/responsibility/getResponsibilityByID/{roleID}
+* Capability:    
+  * http://localhost:8080/api/capability/getCapabilityLeads
+* Employee:    
+  * http://localhost:8080/api/employee/getEmployees
+* Band:    
+  * http://localhost:8080/api/band/getBands
+* Competency
+  * http://localhost:8080/api/competency/getCompetencyByBand/{bandID}
+* Training
+  * http://localhost:8080/api/training/getTrainings
+  * http://localhost:8080/api/training/getTrainingByBand/{bandID}    
 
 ### Frontend
 
