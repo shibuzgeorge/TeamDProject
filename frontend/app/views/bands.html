@@ -29,6 +29,16 @@ Bands
 
     {% endif %}
     {% endfor %}
+
+    {% if bands %}
+        {% for band in bands %}
+            {% if request.url | replace("/bands/", "") == band.bandID %}
+            <option selected value=/bands/{{band.bandID}}> {{ band.bandName }} </option>
+            {% else %}
+            <option  value=/bands/{{band.bandID}}> {{ band.bandName }} </option>
+
+            {% endif %}
+        {% endfor %}
     {% endif %}
 </select>
 
@@ -36,6 +46,7 @@ Bands
 
 <div>
     {% if data[0].competencies %}
+    {% if competencies %}
 
     <br>
 
@@ -48,7 +59,7 @@ Bands
             </thead>
         <tbody>
 
-        {% for competency in data[0].competencies %}
+        {% for competency in competencies %}
 
         <tr>
             <th id="competencyName{{competency.compName}}" scope="row">{{ competency.compName }}</th>
