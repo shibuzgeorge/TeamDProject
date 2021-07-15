@@ -20,32 +20,23 @@ Bands
         Select an Option
     </option>
 
-    {% if data[0].bands %}
-    {% for band in data[0].bands %}
-    {% if request.url | replace("/bands/", "") == band.bandID %}
-    <option selected value=/bands/{{band.bandID}}> {{ band.bandName }} </option>
-    {% else %}
-    <option  value=/bands/{{band.bandID}} id="bandSelect{{ band.bandName }}"> {{ band.bandName }} </option>
-
-    {% endif %}
-    {% endfor %}
-
     {% if bands %}
         {% for band in bands %}
             {% if request.url | replace("/bands/", "") == band.bandID %}
             <option selected value=/bands/{{band.bandID}}> {{ band.bandName }} </option>
             {% else %}
-            <option  value=/bands/{{band.bandID}}> {{ band.bandName }} </option>
+            <option  value=/bands/{{band.bandID}} id="bandSelect{{ band.bandName }}"> {{ band.bandName }} </option>
 
             {% endif %}
         {% endfor %}
     {% endif %}
+
+
 </select>
 
 <br>
 
 <div>
-    {% if data[0].competencies %}
     {% if competencies %}
 
     <br>
