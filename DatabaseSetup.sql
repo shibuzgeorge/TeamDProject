@@ -193,3 +193,13 @@ INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 'Communicating and Influence', 7, 'Sample Text'
 );
 
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Mindset Modules', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Mindset.aspx', 'Professional Skills');
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Effective Time Management', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Time-Management.aspx', 'Professional Skills');
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Presenting With Impact ', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Presenting-with-Impact.aspx', 'Professional Skills');
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Java Development', 'http://jer.metapath.org/JavaCourse/', 'Technical skills');
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Managing Change', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Managing-Change.aspx', 'Development programmes');
+
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '1');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '2');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('2', '3');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('3', '4');
