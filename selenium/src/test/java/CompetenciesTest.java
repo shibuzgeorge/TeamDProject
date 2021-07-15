@@ -30,9 +30,6 @@ public class CompetenciesTest extends FunctionalTest {
         String notExpectedText = "Apprentice";
         String result = driver.findElement(By.id("bandSelectApprentice")).getText();
 
-        System.out.println("notExpectedText:" + notExpectedText);
-        System.out.println("result:" + result);
-
         assertEquals(result, notExpectedText);
     }
 
