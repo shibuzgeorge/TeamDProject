@@ -25,7 +25,19 @@ router.get('/jobroles', async (req, res) => {
         responseType: 'json'
     })
 
-    res.render('jobroles', {jobRoles: jobRoles.data})
+  const capabilities = await axios({
+    method: 'get',
+    url: 'http://localhost:8080/api/capability/getCapabilityLeads',
+    responseType: 'json'
+  })
+
+  const bands = await axios({
+    method: 'get',
+    url: 'http://localhost:8080/api/band/getBands',
+    responseType: 'json'
+  })
+
+  res.render('jobroles', { jobRoles: jobRoles.data, capabilities: capabilities.data, bands: bands.data })
 })
 
 router.get('/role/:roleID', async (req, res) => {
