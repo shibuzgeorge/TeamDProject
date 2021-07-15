@@ -43,6 +43,14 @@ Capability Leads
                                 height:300px;
                                 border: solid 1px #CCC">
                 </a>
+                <noscript>
+                    <ul class="list-group mb-4 w-100 mt-4">
+                        <li class="list-group-item active" aria-current="true">
+                            <h7>Message: </h7>
+                        </li>
+                        <li class="list-group-item">{{ lead.capabilityLeadMessage }}</li>
+                    </ul>
+                </noscript>
             </div>
         </div>
         {% set inc = inc + 1 %}
