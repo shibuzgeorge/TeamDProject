@@ -93,5 +93,15 @@ let competencies = '';
 
 })
 
+router.get('/jobroles/capability/:capabilityID', async (req, res) => {
+  const capability = await axios({
+    method: 'get',
+    url: 'http://localhost:8080/api/capability/getCapability',
+    responseType: 'json'
+  })
+
+  const data = [{capbility: capability.data}];
+  res.render('capability', { data: data })
+})
 
 module.exports = router
