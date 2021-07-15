@@ -25,7 +25,7 @@ public class RoleTest extends FunctionalTest {
     public void checkCorrectResponsibility() {
         driver.get("http://localhost:3000/role/3");
         driver.findElement(By.cssSelector("h2:nth-child(14)")).click();
-        assertEquals(driver.findElement(By.cssSelector("h2:nth-child(14)")).getText(),"Role Responsibilties: As a Trainee Artificial Intelligence (AI) Engineer in Kainos, you’ll be responsible for contributing to the development of high-quality solutions which integrate AI and ML technologies that delight our customers and impact the lives of users worldwide.");
+        assertEquals(driver.findElement(By.cssSelector("h2:nth-child(14)")).getText(),"Role Responsibilities: As a Trainee Artificial Intelligence (AI) Engineer in Kainos, you’ll be responsible for contributing to the development of high-quality solutions which integrate AI and ML technologies that delight our customers and impact the lives of users worldwide.");
     }
 
     /**
@@ -54,7 +54,7 @@ public class RoleTest extends FunctionalTest {
         driver.findElement(By.cssSelector("h2:nth-child(12) > u")).click();
         assertEquals(driver.findElement(By.cssSelector("h2:nth-child(12) > u")).getText(),"Job Family:");
         driver.findElement(By.cssSelector("h2:nth-child(14) > u")).click();
-        assertEquals(driver.findElement(By.cssSelector("h2:nth-child(14) > u")).getText(),"Role Responsibilties:");
+        assertEquals(driver.findElement(By.cssSelector("h2:nth-child(14) > u")).getText(),"Role Responsibilities:");
     }
 
     @Test
@@ -71,7 +71,7 @@ public class RoleTest extends FunctionalTest {
         driver.findElement(By.cssSelector("h2:nth-child(12)")).click();
         assertEquals(driver.findElement(By.cssSelector("h2:nth-child(12)")).getText(),"Job Family: Artificial Intelligence (AI) Engineering");
         driver.findElement(By.cssSelector("h2:nth-child(14)")).click();
-        assertEquals(driver.findElement(By.cssSelector("h2:nth-child(14)")).getText(),"Role Responsibilties: As a Trainee Artificial Intelligence (AI) Engineer in Kainos, you’ll be responsible for contributing to the development of high-quality solutions which integrate AI and ML technologies that delight our customers and impact the lives of users worldwide.");
+        assertEquals(driver.findElement(By.cssSelector("h2:nth-child(14)")).getText(),"Role Responsibilities: As a Trainee Artificial Intelligence (AI) Engineer in Kainos, you’ll be responsible for contributing to the development of high-quality solutions which integrate AI and ML technologies that delight our customers and impact the lives of users worldwide.");
     }
 
     @Test
