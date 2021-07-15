@@ -12,8 +12,8 @@ Bands
 {% block content %}
 <h1 class="display-6">Select a band to view the expected Kainos competencies for that band.</h1>
 
-<a href="/"><button type="button" class="btn btn-outline-secondary">&#8592;</button></a>
-
+<!--<a href="/"><button type="button" class="btn btn-outline-secondary">&#8592;</button></a> *** Deleted until Navigation decisions are completed-->
+<br>
 
 <select id="mySelect" onchange="window.location.href=this.value">
     <option value="none" >
@@ -32,15 +32,18 @@ Bands
     {% endif %}
 </select>
 
+<br>
+
 <div>
-    <!-- TODO add competencies information here -->
     {% if data[0].competencies %}
 
-    <table class="table table-striped table-hover table-danger">
-            <thead>
-            <tr>
-                <th scope="col">Competency Name</th>
-                <th scope="col">Expectation</th>
+    <br>
+
+    <table class="table table-striped table-hover table-secondary">
+            <thead class="table table-striped table-hover table-primary table-bordered" id="competenciesTable">
+            <tr class="table-bordered">
+                <th id="competencyName" scope="col" width="35%">Competency Name</th>
+                <th id="competencyDescription" scope="col" width="65%">Description</th>
             </tr>
             </thead>
         <tbody>
@@ -48,8 +51,8 @@ Bands
         {% for competency in data[0].competencies %}
 
         <tr>
-            <th scope="row">{{ competency.compName }}</th>
-            <td>{{ competency.description }}</td>
+            <th id="roleName {{competency.compName}}" scope="row">{{ competency.compName }}</th>
+            <td id="roleName {{competency.compDesciption}}">{{ competency.description }}</td>
         </tr>
 
         {% endfor %}
