@@ -28,9 +28,9 @@ Training{% endblock %}
 
 {% if trainings %}
     {% for training in trainings %}
-        <ul class="list-group mb-4 w-50">-->
+        <ul class="list-group mb-4 w-50">
             <li class="list-group-item active" aria-current="true">{{ training.name }}</li>
-            <li class="list-group-item">{{ training.place }}</li>
+            <li class="list-group-item">{{ training.url }}</li>
         </ul>
     {% endfor %}
 {% endif %}

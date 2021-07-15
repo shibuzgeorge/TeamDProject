@@ -56,15 +56,15 @@ router.get('/training', async (req, res) => {
 })
 
 router.get('/training/:bandID', async (req, res) => {
-  // let trainings = '';
-  // try {
-  //   trainings = await axios({
-  //     method: 'get',
-  //     url: 'http://localhost:8080/api/competency/getCompetencyByBand/' + req.params.bandID,
-  //     responseType: 'json'
-  //   })
-  // } catch (err) {
-  //   console.log('***ERROR: ', err.message)}
+  let trainings = '';
+  try {
+    trainings = await axios({
+      method: 'get',
+      url: 'http://localhost:8080/api/training/getTrainingByBand/' + req.params.bandID,
+      responseType: 'json'
+    })
+  } catch (err) {
+    console.log('***ERROR: ', err.message)}
 
   const bands = await axios({
     method: 'get',
@@ -72,8 +72,7 @@ router.get('/training/:bandID', async (req, res) => {
     responseType: 'json'
   })
 
-  // res.render('bands', {bands: bands.data, trainings: trainings.data, request: req})
-  res.render('training', {bands: bands.data, request: req})
+  res.render('bands', {bands: bands.data, trainings: trainings.data, request: req})
 })
 
 router.get('/bands', async (req, res) => {
