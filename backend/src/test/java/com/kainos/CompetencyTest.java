@@ -1,6 +1,5 @@
 package com.kainos;
 import com.kainos.ea.CompetencyFiles.Competency;
-import com.kainos.ea.RoleFiles.Role;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -42,7 +41,7 @@ public class CompetencyTest {
             "Communicating and Influence",
             "Personal Performance"
     })
-    public void competencySetCompetencyNamePositveCase(String validCompetencyName){
+    public void competencySetCompetencyNamePositiveCase(String validCompetencyName){
         Competency validCompetencyInstance = new Competency(1);
         validCompetencyInstance.setCompName(validCompetencyName);
 
@@ -57,7 +56,7 @@ public class CompetencyTest {
             "Communicating and Influence",
             "Personal Performance"
     })
-    public void competencyGetCompetencyNamePositveCase(String validCompetencyName){
+    public void competencyGetCompetencyNamePositiveCase(String validCompetencyName){
         Competency validCompetencyInstance = new Competency(validCompetencyName, 1);
 
         Assertions.assertEquals(validCompetencyInstance.getCompName(), validCompetencyName);
