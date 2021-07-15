@@ -5,6 +5,8 @@ import com.kainos.ea.Capability.CapabilityResource;
 import com.kainos.ea.CompetencyFiles.Competency;
 import com.kainos.ea.CompetencyFiles.CompetencyDAO;
 import com.kainos.ea.CompetencyFiles.CompetencyResource;
+import com.kainos.ea.JobFamily.JobFamilyDAO;
+import com.kainos.ea.JobFamily.JobFamilyResource;
 import com.kainos.ea.capabilitylead.CapabilityLeadDAO;
 import com.kainos.ea.capabilitylead.CapabilityLeadResource;
 import com.kainos.ea.RoleFiles.RoleDAO;
@@ -49,6 +51,7 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
         final EmployeeDAO employeeDAO = jdbi.onDemand(EmployeeDAO.class);
         final ResponsibilityDAO responsibilityDAO = jdbi.onDemand(ResponsibilityDAO.class);
         final CapabilityDAO capabilityDAO = jdbi.onDemand(CapabilityDAO.class);
+        final JobFamilyDAO jobFamilyDAO = jdbi.onDemand(JobFamilyDAO.class);
         environment.jersey().register(new RoleResource(roleDAO));
         environment.jersey().register(new BandResource(bandDAO));
         environment.jersey().register(new CompetencyResource(competencyDAO));
@@ -56,5 +59,6 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
         environment.jersey().register(new EmployeeResource(employeeDAO));
         environment.jersey().register(new ResponsibilityResource(responsibilityDAO));
         environment.jersey().register(new CapabilityResource(capabilityDAO));
+        environment.jersey().register(new JobFamilyResource(jobFamilyDAO));
     }
 }
