@@ -95,15 +95,7 @@ router.get('/bands/:bandID', async (req, res) => {
         responseType: 'json'
     })
 
-    let data = [
-        {
-            bands: bands.data,
-            competencies: competencies.data
-        }
-    ];
-
-    res.render('bands', {data: data, request: req})
-
+    res.render('bands', {request: req, bands: bands.data, competencies: competencies.data})
 })
 
 router.get('/training', async (req, res) => {
