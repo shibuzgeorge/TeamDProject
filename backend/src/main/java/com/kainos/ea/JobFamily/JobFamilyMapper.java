@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class JobFamilyMapper implements RowMapper<JobFamily> {
 
     private static final String ID = "jobFamilyID";
-    private static final String CAPABILITY = "capability";
+    private static final String CAPABILITY = "capabilityName";
     private static final String NAME = "jobFamilyName";
-    private static final String LEAD = "disciplineLead";
+    private static final String LEAD = "employeeName";
 
     @Override
     public JobFamily map(ResultSet rs, StatementContext ctx) throws SQLException {

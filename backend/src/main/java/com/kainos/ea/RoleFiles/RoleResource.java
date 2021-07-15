@@ -29,4 +29,11 @@ public class RoleResource {
     public Role getRoleByID(@PathParam("roleID") int roleID) {
         return roleDAO.getRoleByID(roleID);
     }
+
+    @GET
+    @Path("/roleFromCapability/{capability}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Role getRoleByCapability(@PathParam("capability") String capability) {
+        return roleDAO.getRoleByCapability(capability);
+    }
 }

@@ -14,4 +14,7 @@ public interface RoleDAO {
 
     @SqlQuery("SELECT * FROM RoleListWithID R WHERE R.roleID = :id;")
     public Role getRoleByID(@Bind("id") int id);
+
+    @SqlQuery("SELECT * FROM RoleListWithID R WHERE R.capability = :capability;")
+    public Role getRoleByCapability(@Bind("capability") String capability);
 }
