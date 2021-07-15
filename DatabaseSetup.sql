@@ -54,6 +54,15 @@ CREATE TABLE IF NOT EXISTS `Responsibility`(
     FOREIGN KEY(`roleID`) REFERENCES Role(`roleID`)
     );
 
+CREATE TABLE IF NOT EXISTS `Competency`(
+    `competencyID` mediumint NOT NULL AUTO_INCREMENT,
+    `competencyName` varchar(255) NOT NULL,
+    `bandID` mediumint NOT NULL,
+    `description` text,
+    PRIMARY KEY(`competencyID`),
+    FOREIGN KEY(`bandID`) REFERENCES Band(`bandID`)
+    );
+
 CREATE TABLE IF NOT EXISTS `Training`(
     `trainingID` mediumint NOT NULL AUTO_INCREMENT,
     `trainingName` VARCHAR(255) NOT NULL,
@@ -153,4 +162,34 @@ INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (8, "As an Artifi
 INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (9, "Working to develop data processing software primarily for deployment in Big Data technologies. The role encompasses the full software lifecycle including design, code, test and defect resolution.");
 INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (10, "As a Senior Platform Engineer (Senior Associate) in Kainos, you’ll be responsible for leading with the design of significant components of a modern digital service platform including its automation, build, deployment and support.");
 
+
+INSERT INTO Responsibility (`roleID`, `responsibility`) VALUES (1, "This is a sample responsibility");
+
+
+INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
+'Personal Performance', 1,
+'Developing self-awareness: Understands own strengths and areas of development. Self-aware of own wellbeing and seeks support where appropriate. Managing yourself: Works with People Manager to sets and achieve goals by monitoring progress regularly against performance.Continuing personal development: Flexible and willingness to learn on the job while proactively keeping up to date with the knowledge and skills needed.Acting with integrity: Understands the company values and applies this to own principles. Is open and honest and acts respectfully with others and customers.'
+);
+
+INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
+'Working with Others', 1,
+'Mobilises self and others to drive self-improvement: Understand how to respond constructively to developmental feedback from a diverse range of people and implement changes as a result.Champions continuous improvement: Displays high levels of enthusiasm, energy and pace to achieve performance and results.Developing networks and building and maintaining relationships: Recognises the need to build internal networks within immediate teams and projects. Working within teams: Respects others by attending meetings on time and contributing where appropriate. Recognising how current role relates to others within Capability and project.
+'
+);
+
+INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
+'Personal Performance', 7, 'Sample Text'
+);
+
+INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
+'Setting Direction, Development and Accountability', 7, 'Sample Text'
+);
+
+INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
+'Commerciality and Risk', 7, 'Sample Text'
+);
+
+INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
+'Communicating and Influence', 7, 'Sample Text'
+);
 
