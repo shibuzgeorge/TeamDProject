@@ -16,7 +16,7 @@ Bands
 <br>
 
 <select id="mySelect" onchange="window.location.href=this.value">
-    <option value="none" >
+    <option value="none" id="defaultMySelectOption">
         Select an Option
     </option>
 
@@ -25,7 +25,7 @@ Bands
     {% if request.url | replace("/bands/", "") == band.bandID %}
     <option selected value=/bands/{{band.bandID}}> {{ band.bandName }} </option>
     {% else %}
-    <option  value=/bands/{{band.bandID}}> {{ band.bandName }} </option>
+    <option  value=/bands/{{band.bandID}} id="bandSelect{{ band.bandName }}"> {{ band.bandName }} </option>
 
     {% endif %}
     {% endfor %}
@@ -51,8 +51,8 @@ Bands
         {% for competency in data[0].competencies %}
 
         <tr>
-            <th id="roleName {{competency.compName}}" scope="row">{{ competency.compName }}</th>
-            <td id="roleName {{competency.compDesciption}}">{{ competency.description }}</td>
+            <th id="competencyName{{competency.compName}}" scope="row">{{ competency.compName }}</th>
+            <td id="competencyDescription{{competency.compDescription}}">{{ competency.description }}</td>
         </tr>
 
         {% endfor %}
