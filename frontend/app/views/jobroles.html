@@ -47,7 +47,7 @@ Job Roles
     {% for jobRole in jobRoles %}
 
     <tr>
-        <th id="roleName {{jobRole.roleID}}" scope="row"><a href="/role/{{jobRole.roleID}}">{{ jobRole.roleName }}</a></th>
+        <td id="roleName {{jobRole.roleID}}" scope="row"><a href="/role/{{jobRole.roleID}}">{{ jobRole.roleName }}</a></td>
         <td id="capability{{ jobRole.roleID }}">{{ jobRole.capability }}</td>
         <td id="jobFamily{{ jobRole.roleID }}" >{{ jobRole.jobFamily }}</td>
         <td id="band{{ jobRole.roleID }}" >{{ jobRole.band }}</td>

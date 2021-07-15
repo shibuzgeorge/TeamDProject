@@ -1,0 +1,147 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+Training{% endblock %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block headIcons %}
+{{ super() }}
+<script src="/public/javascripts/training.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-3">Choose your band: </h1>
+<table class="mb-2">
+    <tr>
+        <td>
+            <select id="band" name="band" class="form-select form-select-lg mb-3 w-100"
+                    aria-label=".form-select-lg example"
+                    onchange="window.location.href=this.value">
+                <option value="">Band levels:</option>
+                {% for band in bands %}
+                {% if band.bandID == request.url | replace("/training/", "") %}
+                <option selected value="/training/{{ band.bandID }}">{{ band.bandName }}</option>
+                {% else %}
+                <option value="/training/{{ band.bandID }}">{{ band.bandName }}</option>
+                {% endif %}
+                {% endfor %}}
+            </select>
+        </td>
+        <td>
+            <div class="form-check form-switch m-3">
+                <input class="form-check-input" type="checkbox" id="pTypeSwitch" checked="true">
+                <label class="form-check-label" for="pTypeSwitch">Professional Skills</label>
+            </div>
+        </td>
+        <td>
+            <div class="form-check form-switch m-3">
+                <input class="form-check-input" type="checkbox" id="tTypeSwitch" checked="true">
+                <label class="form-check-label" for="tTypeSwitch">Technical Skills</label>
+            </div>
+        </td>
+        <td>
+            <div class="form-check form-switch m-3">
+                <input class="form-check-input" type="checkbox" id="dTypeSwitch" checked="true">
+                <label class="form-check-label" for="dTypeSwitch">Development Programmes</label>
+            </div>
+        </td>
+    </tr>
+</table>
+
+{% set emptyString = "" %}
+{% if trainings %}
+{% for training in trainings %}
+<div class="container">
+    <div class="row gy-1">
+        {% if trainings %}
+        {% for training in trainings %}
+        <div class="col-6 {{ training.trainingType | truncate(1, true, emptyString) | lower }}Type">
+            <div class="p-3">
+                <ul class="list-group mb-4 w-100">
+                    <li class="list-group-item active" aria-current="true">
+                        <h4>{{ training.trainingName }}</h4>
+                    </li>
+                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
+                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
+                        <button type="button" class="btn btn-sm btn-link">See more</button>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6 tType">
+            <div class="p-3">
+                <ul class="list-group mb-4 w-100">
+                    <li class="list-group-item active" aria-current="true">
+                        <h4>{{ training.trainingName }}</h4>
+                    </li>
+                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
+                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
+                        <button type="button" class="btn btn-sm btn-link">See more</button>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6 tType">
+            <div class="p-3">
+                <ul class="list-group mb-4 w-100">
+                    <li class="list-group-item active" aria-current="true">
+                        <h4>{{ training.trainingName }}</h4>
+                    </li>
+                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
+                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
+                        <button type="button" class="btn btn-sm btn-link">See more</button>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6 dType">
+            <div class="p-3">
+                <ul class="list-group mb-4 w-100">
+                    <li class="list-group-item active" aria-current="true">
+                        <h4>{{ training.trainingName }}</h4>
+                    </li>
+                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
+                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
+                        <button type="button" class="btn btn-sm btn-link">See more</button>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6 tType">
+            <div class="p-3">
+                <ul class="list-group mb-4 w-100">
+                    <li class="list-group-item active" aria-current="true">
+                        <h4>{{ training.trainingName }}</h4>
+                    </li>
+                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
+                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
+                        <button type="button" class="btn btn-sm btn-link">See more</button>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6 pType">
+            <div class="p-3">
+                <ul class="list-group mb-4 w-100">
+                    <li class="list-group-item active" aria-current="true">
+                        <h4>{{ training.trainingName }}</h4>
+                    </li>
+                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
+                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
+                        <button type="button" class="btn btn-sm btn-link">See more</button>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
