@@ -1,15 +1,15 @@
 USE `RoleManagement_GroupD`;
 
 CREATE TABLE IF NOT EXISTS `Employee`(
-                                         `employeeID` mediumint NOT NULL AUTO_INCREMENT,
-                                         `employeeName` varchar(255) NOT NULL,
+    `employeeID` mediumint NOT NULL AUTO_INCREMENT,
+    `employeeName` varchar(255) NOT NULL,
     `employeeIDPhoto` mediumblob NOT NULL,
     PRIMARY KEY(`employeeID`)
     );
 
 CREATE TABLE IF NOT EXISTS `Capability`(
-                                           `capabilityID` mediumint NOT NULL AUTO_INCREMENT,
-                                           `capabilityName` varchar(255) NOT NULL,
+    `capabilityID` mediumint NOT NULL AUTO_INCREMENT,
+    `capabilityName` varchar(255) NOT NULL,
     `capabilityLeadID` mediumint,
     `capabilityLeadMessage` varchar(300),
     PRIMARY KEY(`capabilityID`),
@@ -17,15 +17,15 @@ CREATE TABLE IF NOT EXISTS `Capability`(
     );
 
 CREATE TABLE IF NOT EXISTS `Band`(
-                                     `bandID` mediumint NOT NULL AUTO_INCREMENT,
-                                     `bandName` varchar(255) NOT NULL,
+    `bandID` mediumint NOT NULL AUTO_INCREMENT,
+    `bandName` varchar(255) NOT NULL,
     PRIMARY KEY(`bandID`)
     );
 
 CREATE TABLE IF NOT EXISTS `JobFamily`(
-                                          `jobFamilyID` mediumint NOT NULL AUTO_INCREMENT,
-                                          `capabilityID` mediumint NOT NULL,
-                                          `jobFamilyName` varchar(255) NOT NULL,
+    `jobFamilyID` mediumint NOT NULL AUTO_INCREMENT,
+    `capabilityID` mediumint NOT NULL,
+    `jobFamilyName` varchar(255) NOT NULL,
     `disciplineLeadID` mediumint NOT NULL,
     PRIMARY KEY(`jobFamilyID`),
     FOREIGN KEY(`disciplineLeadID`) REFERENCES Employee(`employeeID`),
@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `JobFamily`(
     );
 
 CREATE TABLE IF NOT EXISTS `Role`(
-                                     `roleID` mediumint NOT NULL AUTO_INCREMENT,
-                                     `roleName` varchar(255) NOT NULL,
+    `roleID` mediumint NOT NULL AUTO_INCREMENT,
+    `roleName` varchar(255) NOT NULL,
     `capabilityID` mediumint NOT NULL,
     `jobFamilyID` mediumint NOT NULL,
     `bandID` mediumint NOT NULL,
@@ -47,51 +47,71 @@ CREATE TABLE IF NOT EXISTS `Role`(
     );
 
 CREATE TABLE IF NOT EXISTS `Responsibility`(
-                                               `responsibilityID` mediumint NOT NULL AUTO_INCREMENT,
-                                               `roleID` mediumint NOT NULL,
-                                               `responsibility` text,
-                                               PRIMARY KEY(`responsibilityID`),
+    `responsibilityID` mediumint NOT NULL AUTO_INCREMENT,
+    `roleID` mediumint NOT NULL,
+    `responsibility` text,
+    PRIMARY KEY(`responsibilityID`),
     FOREIGN KEY(`roleID`) REFERENCES Role(`roleID`)
     );
 
 CREATE TABLE IF NOT EXISTS `Competency`(
-  `competencyID` mediumint NOT NULL AUTO_INCREMENT,
-  `competencyName` varchar(255) NOT NULL,
-  `bandID` mediumint NOT NULL,
-  `description` text,
-  PRIMARY KEY(`competencyID`),
-  FOREIGN KEY(`bandID`) REFERENCES Band(`bandID`)
+    `competencyID` mediumint NOT NULL AUTO_INCREMENT,
+    `competencyName` varchar(255) NOT NULL,
+    `bandID` mediumint NOT NULL,
+    `description` text,
+    PRIMARY KEY(`competencyID`),
+    FOREIGN KEY(`bandID`) REFERENCES Band(`bandID`)
+    );
+
+CREATE TABLE IF NOT EXISTS `Training`(
+    `trainingID` mediumint NOT NULL AUTO_INCREMENT,
+    `trainingName` VARCHAR(255) NOT NULL,
+    `trainingLink` text NOT NULL,
+    `trainingType` varchar(22) NOT NULL,
+    PRIMARY KEY(`trainingID`)
 );
 
-
+CREATE TABLE IF NOT EXISTS `TrainingBand`(
+    `trainingID` mediumint NOT NULL AUTO_INCREMENT,
+    `bandID` mediumint NOT NULL,
+    PRIMARY KEY(`trainingID`, `bandID`),
+    FOREIGN KEY(`trainingID`) REFERENCES Training(`trainingID`),
+    FOREIGN KEY(`BandID`) REFERENCES Band(`bandID`)
+);
 
 CREATE VIEW `RoleListWithID` AS
 SELECT R.roleID, R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification, R.roleSummary
 FROM `Role` R
          LEFT JOIN `Capability` C
-                   ON R.capabilityID = C.capabilityID
+                ON R.capabilityID = C.capabilityID
          LEFT JOIN `Band` B
-                   ON R.bandID = B.bandID
+                ON R.bandID = B.bandID
          LEFT JOIN `JobFamily` JF
-                   ON R.jobFamilyID = JF.jobFamilyID
+                ON R.jobFamilyID = JF.jobFamilyID
 ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
 
 CREATE VIEW `RoleListWithoutID` AS
-SELECT R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
-FROM `Role` R
+    SELECT R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
+    FROM `Role` R
          LEFT JOIN `Capability` C
-                   ON R.capabilityID = C.capabilityID
+                ON R.capabilityID = C.capabilityID
          LEFT JOIN `Band` B
-                   ON R.bandID = B.bandID
+                ON R.bandID = B.bandID
          LEFT JOIN `JobFamily` JF
-                   ON R.jobFamilyID = JF.jobFamilyID
+                ON R.jobFamilyID = JF.jobFamilyID
 ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
 
 CREATE VIEW `CapabilityLeads` AS
-SELECT C.capabilityName, C.capabilityLeadMessage, E.employeeID, E.employeeName, E.employeeIDPhoto
-FROM Capability C
-         LEFT JOIN Employee E
-                   ON C.capabilityLeadID = E.employeeID;
+    SELECT C.capabilityName, C.capabilityLeadMessage, E.employeeID, E.employeeName, E.employeeIDPhoto
+    FROM Capability C
+        LEFT JOIN Employee E
+                ON C.capabilityLeadID = E.employeeID;
+
+CREATE VIEW `TrainingByBand` AS
+    SELECT TB.bandID, T.trainingID, T.trainingName, T.trainingType, T.traininglink
+    FROM Training T
+        LEFT JOIN TrainingBand TB
+            USING(trainingID);
 
 INSERT INTO Band (`bandName`) VALUES ('Apprentice');
 INSERT INTO Band (`bandName`) VALUES ('Trainee');
@@ -173,3 +193,13 @@ INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 'Communicating and Influence', 7, 'Sample Text'
 );
 
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Mindset Modules', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Mindset.aspx', 'Professional Skills');
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Effective Time Management', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Time-Management.aspx', 'Professional Skills');
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Presenting With Impact ', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Presenting-with-Impact.aspx', 'Professional Skills');
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Java Development', 'http://jer.metapath.org/JavaCourse/', 'Technical skills');
+INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Managing Change', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Managing-Change.aspx', 'Development programmes');
+
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '1');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '2');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('2', '3');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('3', '4');
