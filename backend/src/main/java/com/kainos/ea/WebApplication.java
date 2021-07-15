@@ -17,6 +17,8 @@ import com.kainos.ea.employee.EmployeeDAO;
 import com.kainos.ea.employee.EmployeeResource;
 import com.kainos.ea.responsibility.ResponsibilityDAO;
 import com.kainos.ea.responsibility.ResponsibilityResource;
+import com.kainos.ea.training.TrainingDAO;
+import com.kainos.ea.training.TrainingResource;
 import io.dropwizard.Application;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
@@ -52,6 +54,7 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
         final ResponsibilityDAO responsibilityDAO = jdbi.onDemand(ResponsibilityDAO.class);
         final CapabilityDAO capabilityDAO = jdbi.onDemand(CapabilityDAO.class);
         final JobFamilyDAO jobFamilyDAO = jdbi.onDemand(JobFamilyDAO.class);
+        final TrainingDAO trainingDAO = jdbi.onDemand(TrainingDAO.class);
         environment.jersey().register(new RoleResource(roleDAO));
         environment.jersey().register(new BandResource(bandDAO));
         environment.jersey().register(new CompetencyResource(competencyDAO));
@@ -60,5 +63,6 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
         environment.jersey().register(new ResponsibilityResource(responsibilityDAO));
         environment.jersey().register(new CapabilityResource(capabilityDAO));
         environment.jersey().register(new JobFamilyResource(jobFamilyDAO));
+        environment.jersey().register(new TrainingResource(trainingDAO));
     }
 }
