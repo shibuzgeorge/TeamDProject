@@ -93,6 +93,12 @@ FROM Capability C
          LEFT JOIN Employee E
                    ON C.capabilityLeadID = E.employeeID;
 
+CREATE VIEW `JobFamilyFull` AS
+    SELECT J.jobFamilyID, C.capabilityName, J.jobFamilyName, E.employeeName
+    FROM JobFamily J
+        LEFT JOIN Capability C USING (`capabilityID`)
+        LEFT JOIN Employee E ON J.disciplineLeadID = E.employeeName;
+
 INSERT INTO Band (`bandName`) VALUES ('Apprentice');
 INSERT INTO Band (`bandName`) VALUES ('Trainee');
 INSERT INTO Band (`bandName`) VALUES ('Associate');
