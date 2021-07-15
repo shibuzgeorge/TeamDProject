@@ -12,8 +12,8 @@ public class RoleResource {
 
     private final RoleDAO roleDAO;
 
-    public RoleResource(RoleDAO cityDAO) {
-        this.roleDAO = cityDAO;
+    public RoleResource(RoleDAO roleDAO) {
+        this.roleDAO = roleDAO;
     }
 
     @GET
