@@ -10,4 +10,5 @@ import java.util.List;
 public interface BandDAO {
     @SqlQuery("select * from Band;")
     public List<Band> getBands();
+
 }
