@@ -107,7 +107,7 @@ router.get('/jobroles/capability/:capabilityID', async (req, res) => {
 router.get('/capability/:capabilityName', async (req,res) =>{
   const capability = await axios({
     method: 'get',
-    url: 'http://localhost:8080/api/capability/getCapability',
+    url: 'http://localhost:8080/api/capability/' +req.params.capabilityName,
     responseType: 'json'
   })
 
@@ -126,6 +126,7 @@ router.get('/capability/:capabilityName', async (req,res) =>{
   const jobRolesData = [{jobRoles: jobRoles.data}]
   const jobFamilyData = [{jobFamily: jobFamily.data}]
   const capabilityData = [{capability: capability.data}]
+
   res.render('capability', {capabilityData: capabilityData, jobFamilyData: jobFamilyData, jobRolesData: jobRolesData})
 })
 

@@ -33,7 +33,7 @@ public class RoleResource {
     @GET
     @Path("/roleFromCapability/{capability}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Role getRoleByCapability(@PathParam("capability") String capability) {
+    public List<Role> getRoleByCapability(@PathParam("capability") String capability) {
         return roleDAO.getRoleByCapability(capability);
     }
 }

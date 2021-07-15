@@ -26,7 +26,7 @@ public class JobFamilyResource {
     @GET
     @Path("/jobFamilyFromCapability/{capability}")
     @Produces(MediaType.APPLICATION_JSON)
-    public JobFamily getJobFamilyByCapability(@PathParam("capability") String capability) {
+    public List<JobFamily> getJobFamilyByCapability(@PathParam("capability") String capability) {
         return jobFamilyDAO.getJobFamilyByCapability(capability);
     }
 }

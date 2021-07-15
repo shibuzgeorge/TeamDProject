@@ -13,5 +13,5 @@ public interface JobFamilyDAO {
     List<JobFamily> getJobFamilies();
 
     @SqlQuery("SELECT * FROM JobFamilyFull R WHERE R.capabilityName = :capability;")
-    public JobFamily getJobFamilyByCapability(@Bind("capability") String capability);
+    public List<JobFamily> getJobFamilyByCapability(@Bind("capability") String capability);
 }
