@@ -173,3 +173,11 @@ INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 'Communicating and Influence', 7, 'Sample Text'
 );
 
+INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
+'Communicating and Influence', 7, 'Sample Text'
+);
+
+INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
+'Communicating and Influence', 7, 'Sample Text'
+);
+
