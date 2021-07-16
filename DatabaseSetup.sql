@@ -113,6 +113,12 @@ CREATE VIEW `TrainingByBand` AS
         LEFT JOIN TrainingBand TB
             USING(trainingID);
 
+CREATE VIEW `JobFamilyFull` AS
+SELECT J.jobFamilyID, C.capabilityName, J.jobFamilyName, E.employeeName
+FROM JobFamily J
+         LEFT JOIN Capability C USING (`capabilityID`)
+         LEFT JOIN Employee E ON J.disciplineLeadID = E.employeeName;
+
 INSERT INTO Band (`bandName`) VALUES ('Apprentice');
 INSERT INTO Band (`bandName`) VALUES ('Trainee');
 INSERT INTO Band (`bandName`) VALUES ('Associate');
@@ -192,7 +198,6 @@ INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 'Communicating and Influence', 7, 'Sample Text'
 );
-
 
 INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Mindset Modules', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Mindset.aspx', 'Professional Skills');
 INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Effective Time Management', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Time-Management.aspx', 'Professional Skills');

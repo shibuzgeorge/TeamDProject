@@ -12,8 +12,8 @@ public class RoleResource {
 
     private final RoleDAO roleDAO;
 
-    public RoleResource(RoleDAO cityDAO) {
-        this.roleDAO = cityDAO;
+    public RoleResource(RoleDAO roleDAO) {
+        this.roleDAO = roleDAO;
     }
 
     @GET
@@ -28,5 +28,12 @@ public class RoleResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Role getRoleByID(@PathParam("roleID") int roleID) {
         return roleDAO.getRoleByID(roleID);
+    }
+
+    @GET
+    @Path("/roleFromCapability/{capability}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Role> getRoleByCapability(@PathParam("capability") String capability) {
+        return roleDAO.getRoleByCapability(capability);
     }
 }
