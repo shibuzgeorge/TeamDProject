@@ -18,16 +18,13 @@ Bands
 <h1 class="display-6">Select a band to view the expected Kainos competencies for that band.</h1>
 
 <select id="mySelect" onchange="window.location.href=this.value" hidden="true">
-    <option value="none" >
-        Select an Option
-    </option>
-
+    <option value="none" id="defaultMySelectOption">Select an Option</option>
     {% if bands %}
         {% for band in bands %}
             {% if request.url | replace("/bands/", "") == band.bandID %}
-            <option selected value="/bands/{{band.bandID}}"> {{ band.bandName }} </option>
+            <option selected value="/bands/{{band.bandID}}" id="bandSelect{{ band.bandName}}"> {{ band.bandName }} </option>
             {% else %}
-            <option  value="/bands/{{band.bandID}}"> {{ band.bandName }} </option>
+            <option  value="/bands/{{band.bandID}}" id="bandSelect{{ band.bandName }}"> {{ band.bandName }} </option>
             {% endif %}
         {% endfor %}
     {% endif %}
