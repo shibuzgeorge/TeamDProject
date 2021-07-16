@@ -40,6 +40,11 @@ router.get('/jobroles', async (req, res) => {
   res.render('jobroles', { jobRoles: jobRoles.data, capabilities: capabilities.data, bands: bands.data })
 })
 
+router.get('/jobroles/:roleID', async (req, res) => {
+
+
+})
+
 router.get('/role/:roleID', async (req, res) => {
     let role = ''
     try {
