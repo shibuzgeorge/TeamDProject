@@ -30,12 +30,12 @@ Job Roles
             <th id="{{band.bandName}}">{{band.bandName}}</th>
             {% for jobFamily in jobFamilyData %}
             {% for jobRole in jobRoleData %}
-            <td>{{jobRole.jobFamilyName}}</td>
-            <td>{{jobFamily.jobFamilyName}}</td>
-            {% if (jobRole.bandName == band.bandName) and (jobRole.jobFamilyName == jobFamily.jobFamilyName) %}
+            {% set a = "" + jobRole.bandName | string %}
+            {% set b = "" + band.bandName | string %}
+            {% set c = "" + jobRole.jobFamilyName | string %}
+            {% set d = "" + jobFamily.jobFamilyName | string %}
+            {% if (a == b) and (c == d) %}
             <td id="{{jobRole.roleName}}">{{jobRole.roleName}}</td>
-            {% else %}
-            <td id="empty-box"></td>
             {% endif %}
             {% endfor %}
             {% endfor %}
