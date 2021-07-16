@@ -26,8 +26,14 @@ public class Band {
         return bandID;
     }
 
-    public void setBandID(Integer bandID) {
-        this.bandID = bandID;
+    public void setBandID(Integer bandID) throws IllegalArgumentException {
+        if (bandID < 1) {
+            throw new IllegalArgumentException("Given integer must be greater than 1");
+        } else if (bandID > 16777215) {
+            throw new IllegalArgumentException("Given integer must be not greater than 16777215");
+        } else {
+            this.bandID = bandID;
+        }
     }
 
     public String getBandName() {
