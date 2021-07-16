@@ -27,10 +27,10 @@ public class CompetenciesTest extends FunctionalTest {
         driver.get("http://localhost:3000/bands");
         driver.findElement(By.id("defaultMySelectOption")).click();
 
-        String notExpectedText = "Apprentice";
+        String expectedText = "Apprentice";
         String result = driver.findElement(By.id("bandSelectApprentice")).getText();
 
-        assertEquals(result, notExpectedText);
+        assertEquals(result, expectedText);
     }
 
     @Test
