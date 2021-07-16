@@ -10,10 +10,40 @@ Job Roles
 
 {% block headIcons %}
 {{ super() }}
-<link rel="stylesheet" href="public/stylesheets/jobroles.css">
+<link rel="stylesheet" href="/public/stylesheets/jobroles.css">
 {% endblock %}
 
 {% block content %}
-
-
+{% if jobFamilyData %}
+<table class = "table table-striped table-hover table-secondary">
+    <thead id="Career-Lattice-{{ capability.capabilityName }}">
+    <tr class="table-bordered">
+        <th id="Band-Name">Band</th>
+        {% for jobFamily in jobFamilyData %}
+        <th id="{{jobFamily.jobFamilyName}}" scope="col">{{jobFamily.jobFamilyName}}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for band in bandData %}
+        <tr>
+            <th id="{{band.bandName}}">{{band.bandName}}</th>
+            {% for jobFamily in jobFamilyData %}
+            {% for jobRole in jobRoleData %}
+            <td>{{jobRole.jobFamilyName}}</td>
+            <td>{{jobFamily.jobFamilyName}}</td>
+            {% if (jobRole.bandName == band.bandName) and (jobRole.jobFamilyName == jobFamily.jobFamilyName) %}
+            <td id="{{jobRole.roleName}}">{{jobRole.roleName}}</td>
+            {% else %}
+            <td id="empty-box"></td>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>"Hi"</p>
+{% endif %}
 {% endblock %}

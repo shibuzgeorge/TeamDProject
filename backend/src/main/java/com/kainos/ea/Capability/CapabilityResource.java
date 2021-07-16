@@ -2,6 +2,7 @@ package com.kainos.ea.Capability;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -20,5 +21,12 @@ public class CapabilityResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Capability> getCapability() {
         return capabilityDAO.getCapability();
+    }
+
+    @GET
+    @Path("/capability/{capability}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Capability getCapabilityByName(@PathParam("capability") String capability) {
+        return capabilityDAO.getCapabilityByName(capability);
     }
 }
