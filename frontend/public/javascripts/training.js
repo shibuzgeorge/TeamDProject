@@ -1,4 +1,7 @@
 window.onload = function(){
+    const selectMenu = document.querySelector("#jsBand")
+    selectMenu.hidden = false;
+
     const pTypeSwitch = document.querySelector("#pTypeSwitch")
     const tTypeSwitch = document.querySelector("#tTypeSwitch")
     const dTypeSwitch = document.querySelector("#dTypeSwitch")
