@@ -22,9 +22,9 @@ Bands
     {% if bands %}
         {% for band in bands %}
             {% if request.url | replace("/bands/", "") == band.bandID %}
-            <option selected value="/bands/{{band.bandID}}" id="bandSelect{{ band.bandName}}"> {{ band.bandName }} </option>
+            <option selected value="/bands/{{band.bandID}}" id="bandSelect{{ band.bandName}}">{{ band.bandName }}</option>
             {% else %}
-            <option  value="/bands/{{band.bandID}}" id="bandSelect{{ band.bandName }}"> {{ band.bandName }} </option>
+            <option value="/bands/{{band.bandID}}" id="bandSelect{{ band.bandName }}">{{ band.bandName }}</option>
             {% endif %}
         {% endfor %}
     {% endif %}
