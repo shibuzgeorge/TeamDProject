@@ -2,7 +2,6 @@ package framework;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
