@@ -9,6 +9,7 @@ public class JobRolesTest extends FunctionalTest {
   
     @Test
     public void getAllTableHeadings() {
+
         driver.get("http://localhost:3000/jobroles");
         WebElement table = driver.findElement(By.id("jobRolesTable"));
         String roleName = table.findElement(By.id("roleName")).getText();

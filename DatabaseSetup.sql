@@ -193,6 +193,7 @@ INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 'Communicating and Influence', 7, 'Sample Text'
 );
 
+
 INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Mindset Modules', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Mindset.aspx', 'Professional Skills');
 INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Effective Time Management', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Time-Management.aspx', 'Professional Skills');
 INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Presenting With Impact ', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Presenting-with-Impact.aspx', 'Professional Skills');
@@ -201,5 +202,26 @@ INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES (
 
 INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '1');
 INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '2');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '3');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '4');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '5');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '6');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('1', '7');
 INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('2', '3');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('2', '4');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('2', '5');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('3', '2');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('3', '3');
 INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('3', '4');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('3', '5');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('4', '1');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('4', '2');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('4', '3');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('4', '4');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('4', '5');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('4', '6');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('4', '7');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('5', '4');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('5', '5');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('5', '6');
+INSERT INTO `TrainingBand` (`trainingID`, `bandID`) VALUES ('5', '7');
