@@ -27,8 +27,34 @@ public class Competency {
         this.bandID = bandID;
     }
 
+    public Competency(String compName) {
+        this.compName = compName;
+    }
+
     public Competency(String compName, String description) {
         this.compName = compName;
+        this.description = description;
+    }
+
+    public Competency(String compName, Integer bandID) {
+        this.compName = compName;
+        this.bandID = bandID;
+    }
+
+    public Competency(Integer bandID, String description) {
+        this.bandID = bandID;
+        this.description = description;
+    }
+
+    public Competency(Integer compID, Integer bandID, String description) {
+        this.compID = compID;
+        this.bandID = bandID;
+        this.description = description;
+    }
+
+    public Competency(String compName, Integer bandID, String description) {
+        this.compName = compName;
+        this.bandID = bandID;
         this.description = description;
     }
 
@@ -39,13 +65,18 @@ public class Competency {
         this.description = description;
     }
 
-
     public Integer getCompID() {
         return compID;
     }
 
-    public void setCompID(Integer compID) {
-        this.compID = compID;
+    public void setCompID(Integer compID) throws IllegalArgumentException {
+        if (compID < 1) {
+            throw new IllegalArgumentException("Given integer must be greater than 1");
+        } else if (compID > 16777215) {
+            throw new IllegalArgumentException("Given integer must be not greater than 16777215");
+        } else {
+            this.compID = compID;
+        }
     }
 
     public String getCompName() {
@@ -88,9 +119,9 @@ public class Competency {
     @Override
     public String toString() {
         return "Competency{" +
-                "compId=" + compID +
+                "compID=" + compID +
                 ", compName='" + compName + '\'' +
-                ", bandId=" + bandID +
+                ", bandID=" + bandID +
                 ", description='" + description + '\'' +
                 '}';
     }
