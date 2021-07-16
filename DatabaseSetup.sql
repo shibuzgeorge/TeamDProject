@@ -193,6 +193,7 @@ INSERT INTO `Competency` (competencyName, bandID, description) VALUES (
 'Communicating and Influence', 7, 'Sample Text'
 );
 
+
 INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Mindset Modules', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Mindset.aspx', 'Professional Skills');
 INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Effective Time Management', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Time-Management.aspx', 'Professional Skills');
 INSERT INTO `Training` (`trainingName`, `trainingLink`, `trainingType`) VALUES ('Presenting With Impact ', 'https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Presenting-with-Impact.aspx', 'Professional Skills');
