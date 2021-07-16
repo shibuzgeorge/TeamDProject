@@ -15,6 +15,22 @@ Job Roles
 
 
 {% block content %}
+
+<!--<div class="checkboxes">
+    <div class="table">
+        <ul id="horizontal-list">
+            <li><input name="entry1" type="checkbox" value="entry4" id="entry1"/>
+            <label>Entry 1</label><br/></li>
+            <li><input name="entry2" type="checkbox" value="entry4"  id="entry2"/>
+            <label>Entry 2</label><br/></li>
+            <li><input name="entry3" type="checkbox" value="entry4"  id="entry3"/>
+            <label>Entry 3</label><br/></li>
+            <li><input name="entry4" type="checkbox" value="entry4"  id="entry4"/>
+            <label>Entry 4</label></li>
+        </ul>
+    </div>
+</div>-->
+
 <table class="table table-striped table-hover table-secondary">
     <thead class="table table-striped table-hover table-primary table-bordered" id="jobRolesTable">
     <tr class="table-bordered">
@@ -31,7 +47,7 @@ Job Roles
     {% for jobRole in jobRoles %}
 
     <tr>
-        <th id="roleName {{jobRole.roleID}}" scope="row"><a href="/role/{{jobRole.roleID}}">{{ jobRole.roleName }}</a></th>
+        <td id="roleName {{jobRole.roleID}}" scope="row"><a href="/role/{{jobRole.roleID}}">{{ jobRole.roleName }}</a></td>
         <td id="capability{{ jobRole.roleID }}">{{ jobRole.capability }}</td>
         <td id="jobFamily{{ jobRole.roleID }}" >{{ jobRole.jobFamily }}</td>
         <td id="band{{ jobRole.roleID }}" >{{ jobRole.band }}</td>
