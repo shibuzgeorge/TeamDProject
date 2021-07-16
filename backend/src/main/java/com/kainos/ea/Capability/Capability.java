@@ -35,7 +35,7 @@ public class Capability {
             return true;
         }
 
-        if (!(o instanceof CapabilityLead)) {
+        if (!(o instanceof Capability)) {
             return false;
         }
 

@@ -8,7 +8,6 @@ import java.util.List;
 @RegisterRowMapper(CapabilityLeadMapper.class)
 public interface CapabilityLeadDAO {
 
-    // Can extend this query, need to add image
     @SqlQuery("select * FROM CapabilityLeads;")
     List<CapabilityLead> getCapabilityLead();
 
