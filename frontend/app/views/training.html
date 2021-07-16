@@ -53,8 +53,6 @@ Training{% endblock %}
 </table>
 
 {% set emptyString = "" %}
-{% if trainings %}
-{% for training in trainings %}
 <div class="container">
     <div class="row gy-1">
         {% if trainings %}
@@ -72,76 +70,9 @@ Training{% endblock %}
                 </ul>
             </div>
         </div>
-        <div class="col-6 tType">
-            <div class="p-3">
-                <ul class="list-group mb-4 w-100">
-                    <li class="list-group-item active" aria-current="true">
-                        <h4>{{ training.trainingName }}</h4>
-                    </li>
-                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
-                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
-                        <button type="button" class="btn btn-sm btn-link">See more</button>
-                    </a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-6 tType">
-            <div class="p-3">
-                <ul class="list-group mb-4 w-100">
-                    <li class="list-group-item active" aria-current="true">
-                        <h4>{{ training.trainingName }}</h4>
-                    </li>
-                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
-                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
-                        <button type="button" class="btn btn-sm btn-link">See more</button>
-                    </a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-6 dType">
-            <div class="p-3">
-                <ul class="list-group mb-4 w-100">
-                    <li class="list-group-item active" aria-current="true">
-                        <h4>{{ training.trainingName }}</h4>
-                    </li>
-                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
-                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
-                        <button type="button" class="btn btn-sm btn-link">See more</button>
-                    </a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-6 tType">
-            <div class="p-3">
-                <ul class="list-group mb-4 w-100">
-                    <li class="list-group-item active" aria-current="true">
-                        <h4>{{ training.trainingName }}</h4>
-                    </li>
-                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
-                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
-                        <button type="button" class="btn btn-sm btn-link">See more</button>
-                    </a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-6 pType">
-            <div class="p-3">
-                <ul class="list-group mb-4 w-100">
-                    <li class="list-group-item active" aria-current="true">
-                        <h4>{{ training.trainingName }}</h4>
-                    </li>
-                    <li class="list-group-item">Category: {{ training.trainingType }}</li>
-                    <li class="list-group-item"><a href="{{ training.trainingLink }}">
-                        <button type="button" class="btn btn-sm btn-link">See more</button>
-                    </a></li>
-                </ul>
-            </div>
-        </div>
         {% endfor %}
         {% endif %}
     </div>
 </div>
-{% endfor %}
-{% endif %}
 
 {% endblock %}

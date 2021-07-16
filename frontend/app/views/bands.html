@@ -17,20 +17,24 @@ Bands
 {% block content %}
 <h1 class="display-6">Select a band to view the expected Kainos competencies for that band.</h1>
 
+
 <select id="mySelect" onchange="window.location.href=this.value" hidden="true">
-    <option value="none" >
+    <option value="none" id="defaultMySelectOption">
         Select an Option
     </option>
+
 
     {% if bands %}
         {% for band in bands %}
             {% if request.url | replace("/bands/", "") == band.bandID %}
-            <option selected value="/bands/{{band.bandID}}"> {{ band.bandName }} </option>
+            <option selected value=/bands/{{band.bandID}}> {{band.bandName}} </option>
             {% else %}
-            <option  value="/bands/{{band.bandID}}"> {{ band.bandName }} </option>
+            <option  value=/bands/{{band.bandID}} id="bandSelect{{band.bandName}}">{{band.bandName}}</option>
             {% endif %}
         {% endfor %}
     {% endif %}
+
+
 </select>
 
 <noscript>
@@ -53,15 +57,17 @@ Bands
     </table>
 </noscript>
 
+
 <div>
-    <!-- TODO add competencies information here -->
     {% if competencies %}
 
-    <table class="table table-striped table-hover table-danger">
-            <thead>
-            <tr>
-                <th scope="col">Competency Name</th>
-                <th scope="col">Expectation</th>
+    <br>
+
+    <table class="table table-striped table-hover table-secondary">
+            <thead class="table table-striped table-hover table-primary table-bordered" id="competenciesTable">
+            <tr class="table-bordered">
+                <th id="competencyName" scope="col" width="35%">Competency Name</th>
+                <th id="competencyDescription" scope="col" width="65%">Description</th>
             </tr>
             </thead>
         <tbody>
@@ -69,8 +75,8 @@ Bands
         {% for competency in competencies %}
 
         <tr>
-            <th scope="row">{{ competency.compName }}</th>
-            <td>{{ competency.description }}</td>
+            <th id="competencyName{{competency.compName}}" scope="row">{{ competency.compName }}</th>
+            <td id="competencyDescription{{competency.compDescription}}">{{ competency.description }}</td>
         </tr>
 
         {% endfor %}
