@@ -8,7 +8,7 @@ import java.util.List;
 @RegisterRowMapper(BandMapper.class)
 
 public interface BandDAO {
-    @SqlQuery("select * from Band;")
+    @SqlQuery("select * from Band ORDER BY Band.bandPosition ASC;")
     public List<Band> getBands();
 
 }
