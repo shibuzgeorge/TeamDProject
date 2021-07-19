@@ -15,10 +15,6 @@ Job Roles
 
 {% block content %}
 {% if jobFamilyData %}
-{% set a = "" | string %}
-{% set b = "" | string %}
-{% set c = "" | string %}
-{% set d = "" | string %}
 <table class="table table-striped table-hover table-secondary">
     <thead id="Career-Lattice-{{ capability.capabilityName }}">
     <tr class="table-bordered">
@@ -32,9 +28,9 @@ Job Roles
     {% for band in bandData %}
     <tr>
         <th id="{{band.bandName}}">{{band.bandName}}</th>
+        {% for jobFamily in jobFamilyData %}
         {% set rolePresent = false %}
         {% set roleName = "" %}
-        {% for jobFamily in jobFamilyData %}
         {% for jobRole in jobRoleData %}
         {% if (jobRole.band == band.bandName) and (jobRole.jobFamily == jobFamily.jobFamilyName) %}
         {% set rolePresent = true %}
@@ -46,7 +42,7 @@ Job Roles
         {% if rolePresent == true %}
         <td id="{{roleName}}">{{roleName}}</td>
         {% else %}
-        <td id="NoRole"></td>
+        <td id="NoRole">{{roleName}}</td>
         {%endif%}
         {% endfor %}
     </tr>
