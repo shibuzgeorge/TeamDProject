@@ -30,7 +30,7 @@ Job Roles
     <tbody>
     {% for band in bandData %}
     <tr>
-        <th id="{{band.bandName}}" height = "100" class="careerLattice-tableRow"><a href ="/bands/{{band.bandID}}">{{band.bandName}}</a></th>
+        <th height = "100" class="careerLattice-tableRow"><a id="{{band.bandName}}" href ="/bands/{{band.bandID}}">{{band.bandName}}</a></th>
         {% for jobFamily in jobFamilyData %}
         {% set rolePresent = false %}
         {% set roleName = "" %}
@@ -43,7 +43,7 @@ Job Roles
         {% endif %}
         {% endfor %}
         {% if rolePresent == true %}
-        <td id="{{roleName}}" class="careerLattice-tableRow"><a href="/role/{{roleNum}}">{{roleName}}</a></td>
+        <td class="careerLattice-tableRow"><a id="{{roleName}}" href="/role/{{roleNum}}">{{roleName}}</a></td>
         {% else %}
         <td id="NoRole"></td>
         {%endif%}

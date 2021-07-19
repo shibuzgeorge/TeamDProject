@@ -36,4 +36,16 @@ public class LatticeTest extends FunctionalTest {
         assertEquals(driver.findElement(By.cssSelector("tr:nth-child(6) > #Test\\ Engineer > a")).getText(), "Test Engineer");
         assertEquals(driver.findElement(By.linkText("Lead Software Engineer")).getText(), "Lead Software Engineer");
     }
+
+    @Test
+    public void checkBandURL() {
+        driver.get("http://localhost:3000/capability/Engineering");
+        assertEquals("http://localhost:3000/bands/7", driver.findElement(By.id("Principal")).getAttribute("href"));
+    }
+
+    @Test
+    public void checkRoleURL() {
+        driver.get("http://localhost:3000/capability/Engineering");
+        assertEquals("http://localhost:3000/role/16", driver.findElement(By.id("Lead Software Engineer")).getAttribute("href"));
+    }
 }
