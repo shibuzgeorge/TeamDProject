@@ -151,10 +151,6 @@ INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1,
 INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, 'Architecture', 1);
 INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, 'Product Specialist', 1);
 
-INSERT INTO JobFamily (jobFamilyID, capabilityID, jobFamilyName, disciplineLeadID) VALUES (7, 1, 'Engineering Strategy and Planning', 1);
-INSERT INTO JobFamily (jobFamilyID, capabilityID, jobFamilyName, disciplineLeadID) VALUES (8, 1, 'Architecture', 1);
-INSERT INTO JobFamily (jobFamilyID, capabilityID, jobFamilyName, disciplineLeadID) VALUES (9, 1, 'Product Specialist', 1);
-
 INSERT INTO Role VALUES (1, 'Test Engineer', 1, 1, 2, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EcGbc8drFRlBoh2H2BZSeVwBV1tAiDCTwirdTmrz2EYYmQ?e=XMqXJh', 'Developing and executing functional automated and manual tests');
 INSERT INTO Role VALUES (2, 'Software Engineer', 1, 2, 3, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/EYTCv1ssl6pOuH59zXtoF9YB8qNaEMNSkZIkCthDAY5Kjg?e=Ht84rW', 'Developing high quality programming solutions');
 INSERT INTO Role VALUES (3, 'Apprentice AI Engineer', 2, 3, 1, 'https://kainossoftwareltd.sharepoint.com/:b:/g/people/Eci7E2WouKdNr5A-q3F9f8wBe9UEdviulHqKp0LVh3BH3A?e=gEI9JV', 'The development of high-quality solutions which integrate AI and ML technologies');
