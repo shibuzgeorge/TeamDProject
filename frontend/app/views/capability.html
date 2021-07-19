@@ -10,7 +10,7 @@ Job Roles
 
 {% block headIcons %}
 {{ super() }}
-<link rel="stylesheet" href="/public/stylesheets/jobroles.css">
+<link rel="stylesheet" href="../public/css/jobroles.css">
 {% endblock %}
 
 {% block content %}
@@ -21,16 +21,16 @@ Job Roles
 <table class="table table-striped table-hover table-secondary table-bordered table-responsive">
     <thead id="Career-Lattice-{{ capability.capabilityName }}">
     <tr class="table-bordered">
-        <th id="Band-Name" style="width:10%">Band</th>
+        <th id="Band-Name" class="careerLattice-tableColumn" style="width:10%">Band</th>
         {% for jobFamily in jobFamilyData %}
-        <th id="{{jobFamily.jobFamilyName}}" style = "width:20%" scope="col">{{jobFamily.jobFamilyName}}</th>
+        <th id="{{jobFamily.jobFamilyName}}" class="careerLattice-tableColumn" scope="col">{{jobFamily.jobFamilyName}}</th>
         {% endfor %}
     </tr>
     </thead>
     <tbody>
     {% for band in bandData %}
     <tr>
-        <th id="{{band.bandName}}"><a href ="/bands/{{band.bandID}}">{{band.bandName}}</a></th>
+        <th id="{{band.bandName}}" height = "100" class="careerLattice-tableRow"><a href ="/bands/{{band.bandID}}">{{band.bandName}}</a></th>
         {% for jobFamily in jobFamilyData %}
         {% set rolePresent = false %}
         {% set roleName = "" %}
@@ -43,7 +43,7 @@ Job Roles
         {% endif %}
         {% endfor %}
         {% if rolePresent == true %}
-        <td id="{{roleName}}"><a href="/role/{{roleNum}}">{{roleName}}</a></td>
+        <td id="{{roleName}}" class="careerLattice-tableRow"><a href="/role/{{roleNum}}">{{roleName}}</a></td>
         {% else %}
         <td id="NoRole"></td>
         {%endif%}
