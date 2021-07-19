@@ -10,4 +10,7 @@ public interface CapabilityDAO {
 
     @SqlQuery("select * FROM Capability;")
     List<Capability> getCapability();
+
+    @SqlQuery("SELECT * FROM Capability C WHERE C.capabilityName = :capability;")
+    Capability getCapabilityByName(@Bind("capability") String capability);
 }

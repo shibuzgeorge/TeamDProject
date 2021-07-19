@@ -165,11 +165,18 @@ router.get('/capability/:capabilityName', async (req,res) =>{
     responseType: 'json'
   })
 
-  const jobRolesData = [{jobRoles: jobRoles.data}]
-  const jobFamilyData = [{jobFamily: jobFamily.data}]
-  const capabilityData = [{capability: capability.data}]
+    const bands = await axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/band/getBands',
+        responseType: 'json'
+    })
 
-  res.render('capability', {capabilityData: capabilityData, jobFamilyData: jobFamilyData, jobRolesData: jobRolesData})
+  // const bandsData = {bands: bands.data}
+  // const jobRolesData = {jobRoles: jobRoles.data}
+  // const jobFamilyData = {jobFamily: jobFamily.data}
+  // const capabilityData = {capability: capability.data}
+
+  res.render('capability', {capabilityData: capability.data, jobFamilyData: jobFamily.data, jobRoleData: jobRoles.data, bandData: bands.data})
 })
 
 module.exports = router
