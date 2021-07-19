@@ -33,7 +33,7 @@ public class LatticeTest extends FunctionalTest {
         driver.get("http://localhost:3000/capability/engineering");
         assertEquals(driver.findElement(By.linkText("Senior Product Specialist")).getText(), "Senior Product Specialist");
         assertEquals(driver.findElement(By.linkText("Principal Architect")).getText(), "Principal Architect");
-        assertEquals(driver.findElement(By.cssSelector("tr:nth-child(6) > #Test\\ Engineer > a")).getText(), "Test Engineer");
+        assertEquals(driver.findElement(By.linkText("Test Engineer")).getText(), "Test Engineer");
         assertEquals(driver.findElement(By.linkText("Lead Software Engineer")).getText(), "Lead Software Engineer");
     }
 
