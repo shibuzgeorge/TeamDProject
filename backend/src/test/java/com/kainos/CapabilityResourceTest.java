@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
@@ -56,6 +58,21 @@ public class CapabilityResourceTest {
         verify(capabilityDAO).getCapability();
         Assertions.assertEquals(responseList, ListOfCapability);
 
+    }
+
+    @Test
+    void getCapabilityWhereNameGiven() throws Exception {
+        final Capability testCapability = new Capability(5, "Cyber Security", 5, "Come join the Cyber Security team");
+
+        when(capabilityDAO.getCapabilityByName("Cyber Security")).thenReturn(testCapability);
+
+        final Capability response = EXT.target("/api/capability/Cyber%20Security")
+                .request().get(Capability.class);
+
+        Assertions.assertEquals(response.getCapabilityID(), testCapability.getCapabilityID());
+        Assertions.assertEquals(response.getCapabilityName(), testCapability.getCapabilityName());
+        Assertions.assertEquals(response.getCapabilityLeadID(), testCapability.getCapabilityLeadID());
+        Assertions.assertEquals(response.getCapabilityLeadMessage(), testCapability.getCapabilityLeadMessage());
     }
 }
 

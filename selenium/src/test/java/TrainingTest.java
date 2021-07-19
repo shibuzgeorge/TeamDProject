@@ -18,13 +18,13 @@ public class TrainingTest extends FunctionalTest {
 
         assertEquals("Mindset Modules", driver.findElement(By.cssSelector(".pType h4")).getText());
         assertEquals("Category: Professional Skills", driver.findElement(By.cssSelector(".pType .list-group-item:nth-child(2)")).getText());
-        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(1) .btn")).getText() );
-        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Mindset.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(1) a")).getAttribute("href") );
+        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(7) .btn")).getText() );
+        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Mindset.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(7) a")).getAttribute("href") );
 
         assertEquals("Java Development", driver.findElement(By.cssSelector(".tType h4")).getText());
         assertEquals("Category: Technical skills", driver.findElement(By.cssSelector(".tType .list-group-item:nth-child(2)")).getText());
-        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(2) .btn")).getText());
-        assertEquals("http://jer.metapath.org/JavaCourse/", driver.findElement(By.cssSelector(".col-6:nth-child(2) a")).getAttribute("href") );
+        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(8) .btn")).getText());
+        assertEquals("http://jer.metapath.org/JavaCourse/", driver.findElement(By.cssSelector(".col-6:nth-child(8) a")).getAttribute("href") );
 
     }
 
@@ -43,18 +43,18 @@ public class TrainingTest extends FunctionalTest {
 
         assertEquals("Mindset Modules", driver.findElement(By.cssSelector(".pType h4")).getText());
         assertEquals("Category: Professional Skills", driver.findElement(By.cssSelector(".pType .list-group-item:nth-child(2)")).getText());
-        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(1) .btn")).getText() );
-        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Mindset.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(1) a")).getAttribute("href") );
+        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(7) .btn")).getText() );
+        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Mindset.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(7) a")).getAttribute("href") );
 
-        assertEquals("Effective Time Management", driver.findElement(By.cssSelector(".col-6:nth-child(2) h4")).getText());
-        assertEquals("Category: Professional Skills", driver.findElement(By.cssSelector(".col-6:nth-child(2) .list-group-item:nth-child(2)")).getText());
-        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(2) .btn")).getText() );
-        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Time-Management.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(2) a")).getAttribute("href") );
+        assertEquals("Effective Time Management", driver.findElement(By.cssSelector(".col-6:nth-child(8) h4")).getText());
+        assertEquals("Category: Professional Skills", driver.findElement(By.cssSelector(".col-6:nth-child(8) .list-group-item:nth-child(2)")).getText());
+        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(8) .btn")).getText() );
+        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Time-Management.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(8) a")).getAttribute("href") );
 
-        assertEquals("Presenting With Impact", driver.findElement(By.cssSelector(".col-6:nth-child(3) h4")).getText());
-        assertEquals("Category: Professional Skills", driver.findElement(By.cssSelector(".col-6:nth-child(3) .list-group-item:nth-child(2)")).getText());
-        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(3) .btn")).getText() );
-        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Presenting-with-Impact.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(3) a")).getAttribute("href") );
+        assertEquals("Presenting With Impact", driver.findElement(By.cssSelector(".col-6:nth-child(9) h4")).getText());
+        assertEquals("Category: Professional Skills", driver.findElement(By.cssSelector(".col-6:nth-child(9) .list-group-item:nth-child(2)")).getText());
+        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(9) .btn")).getText() );
+        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Presenting-with-Impact.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(9) a")).getAttribute("href") );
     }
 
     @Test
@@ -72,8 +72,8 @@ public class TrainingTest extends FunctionalTest {
 
         assertEquals("Java Development", driver.findElement(By.cssSelector(".tType h4")).getText());
         assertEquals("Category: Technical skills", driver.findElement(By.cssSelector(".tType .list-group-item:nth-child(2)")).getText());
-        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(2) .btn")).getText());
-        assertEquals("http://jer.metapath.org/JavaCourse/", driver.findElement(By.cssSelector(".col-6:nth-child(2) a")).getAttribute("href") );
+        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(8) .btn")).getText());
+        assertEquals("http://jer.metapath.org/JavaCourse/", driver.findElement(By.cssSelector(".col-6:nth-child(8) a")).getAttribute("href") );
     }
 
     @Test
@@ -91,7 +91,7 @@ public class TrainingTest extends FunctionalTest {
 
         assertEquals("Managing Change", driver.findElement(By.cssSelector(".dType h4")).getText());
         assertEquals("Category: Development programmes", driver.findElement(By.cssSelector(".dType .list-group-item:nth-child(2)")).getText());
-        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(5) .btn")).getText());
-        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Managing-Change.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(5) a")).getAttribute("href") );
+        assertEquals("See more", driver.findElement(By.cssSelector(".col-6:nth-child(11) .btn")).getText());
+        assertEquals("https://kainossoftwareltd.sharepoint.com/L%26D/SitePages/Managing-Change.aspx", driver.findElement(By.cssSelector(".col-6:nth-child(11) a")).getAttribute("href") );
     }
 }
