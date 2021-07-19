@@ -8,40 +8,57 @@ Bands
 {{ super() }}
 {% endblock %}
 
+{% block headIcons %}
+{{ super() }}
+<script src="/public/javascripts/bands.js"></script>
+{% endblock %}
+
 
 {% block content %}
 <h1 class="display-6">Select a band to view the expected Kainos competencies for that band.</h1>
 
-<!--<a href="/"><button type="button" class="btn btn-outline-secondary">&#8592;</button></a> *** Deleted until Navigation decisions are completed-->
-<br>
-
-<select id="mySelect" onchange="window.location.href=this.value">
+<select id="mySelect" onchange="window.location.href=this.value" hidden="true">
     <option value="none" id="defaultMySelectOption">Select an Option</option>
-
     {% if bands %}
         {% for band in bands %}
             {% if request.url | replace("/bands/", "") == band.bandID %}
-            <option selected value=/bands/{{band.bandID}}> {{band.bandName}} </option>
+            <option selected value="/bands/{{band.bandID}}" id="bandSelect{{ band.bandName}}">{{ band.bandName }}</option>
             {% else %}
-            <option  value=/bands/{{band.bandID}} id="bandSelect{{band.bandName}}">{{band.bandName}}</option>
-
+            <option value="/bands/{{band.bandID}}" id="bandSelect{{ band.bandName }}">{{ band.bandName }}</option>
             {% endif %}
         {% endfor %}
     {% endif %}
-
-
 </select>
 
-<br>
+<noscript>
+    <table class="table table-striped table-hover table-secondary">
+        <tr>
+            {% if bands %}
+            {% for band in bands %}
+            {% if request.url | replace("/bands/", "") == band.bandID %}
+            <td>
+                <a href="/bands/{{ band.bandID }}" style="color: red">{{ band.bandName }}</a>
+            </td>
+            {% else %}
+            <td>
+                <a href="/bands/{{ band.bandID }}">{{ band.bandName }}</a>
+            </td>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </tr>
+    </table>
+</noscript>
 
 <div>
+    <!-- TODO add competencies information here -->
     {% if competencies %}
 
     <br>
 
     <table class="table table-striped table-hover table-secondary">
-            <thead class="table table-striped table-hover table-primary table-bordered" id="competenciesTable">
-            <tr class="table-bordered">
+            <thead class="table table-striped table-hover table-primary table-bordered">
+            <tr>
                 <th id="competencyName" scope="col" width="35%">Competency Name</th>
                 <th id="competencyDescription" scope="col" width="65%">Description</th>
             </tr>
@@ -51,8 +68,8 @@ Bands
         {% for competency in competencies %}
 
         <tr>
-            <th id="competencyName{{competency.compName}}" scope="row">{{ competency.compName }}</th>
-            <td id="competencyDescription{{competency.compDescription}}">{{ competency.description }}</td>
+            <th scope="row">{{ competency.compName }}</th>
+            <td>{{ competency.description }}</td>
         </tr>
 
         {% endfor %}

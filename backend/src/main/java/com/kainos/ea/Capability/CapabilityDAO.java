@@ -9,7 +9,6 @@ import java.util.List;
 @RegisterRowMapper(CapabilityMapper.class)
 public interface CapabilityDAO {
 
-    // Can extend this query, need to add image
     @SqlQuery("select * FROM Capability;")
     List<Capability> getCapability();
 

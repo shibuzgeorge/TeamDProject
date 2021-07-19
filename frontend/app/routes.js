@@ -134,6 +134,7 @@ router.get('/training/:bandID', async (req, res) => {
     res.render('training', {bands: bands.data, trainings: trainings.data, request: req})
 })
 
+
 router.get('/jobroles/capability/:capabilityID', async (req, res) => {
   const capability = await axios({
     method: 'get',
