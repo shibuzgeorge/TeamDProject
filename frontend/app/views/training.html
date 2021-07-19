@@ -52,12 +52,12 @@ Training{% endblock %}
 {% set emptyString = "" %}
 <div class="container">
     <div class="row gy-1">
-        <input class="form-check-input" type="checkbox" id="pTypeSwitchNoScript" checked>
-        <label class="form-check-label" for="pTypeSwitchNoScript" id="pTypeSwitchNoScriptLabel">Professional Skills</label>
-        <input class="form-check-input" type="checkbox" id="tTypeSwitchNoScript" checked>
-        <label class="form-check-label" for="tTypeSwitchNoScript" id="tTypeSwitchNoScriptLabel">Technical Skills</label>
-        <input class="form-check-input" type="checkbox" id="dTypeSwitchNoScript" checked>
-        <label class="form-check-label" for="dTypeSwitchNoScript" id="dTypeSwitchNoScriptLabel">Development Programmes</label>
+        <input class="form-check-input" type="checkbox" id="pTypeSwitch" checked>
+        <label class="form-check-label" for="pTypeSwitch">Professional Skills</label>
+        <input class="form-check-input" type="checkbox" id="tTypeSwitch" checked>
+        <label class="form-check-label" for="tTypeSwitch">Technical Skills</label>
+        <input class="form-check-input" type="checkbox" id="dTypeSwitch" checked>
+        <label class="form-check-label" for="dTypeSwitch">Development Programmes</label>
         {% if trainings %}
         {% for training in trainings %}
         <div class="col-6 {{ training.trainingType | truncate(1, true, emptyString) | lower }}Type">
