@@ -1,23 +1,23 @@
-#pTypeSwitchNoScript:checked ~ .pType{
+#pTypeSwitch:checked ~ .pType{
     display: block !important;
 }
 
-#pTypeSwitchNoScript:not(:checked) ~ .pType{
+#pTypeSwitch:not(:checked) ~ .pType{
     display: none !important;
 }
 
-#tTypeSwitchNoScript:checked ~ .tType{
+#tTypeSwitch:checked ~ .tType{
     display: block !important;
 }
 
-#tTypeSwitchNoScript:not(:checked) ~ .tType{
+#tTypeSwitch:not(:checked) ~ .tType{
     display: none !important;
 }
 
-#dTypeSwitchNoScript:checked ~ .dType{
+#dTypeSwitch:checked ~ .dType{
     display: block !important;
 }
 
-#dTypeSwitchNoScript:not(:checked) ~ .dType{
+#dTypeSwitch:not(:checked) ~ .dType{
     display: none !important;
 }
