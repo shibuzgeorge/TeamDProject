@@ -35,14 +35,12 @@ Job Roles
         {% if (jobRole.band == band.bandName) and (jobRole.jobFamily == jobFamily.jobFamilyName) %}
         {% set rolePresent = true %}
         {% set roleName = jobRole.roleName %}
-        {% else %}
-        {% set rolePresent = false %}
-        {%endif%}
+        {% endif %}
         {% endfor %}
         {% if rolePresent == true %}
         <td id="{{roleName}}">{{roleName}}</td>
         {% else %}
-        <td id="NoRole">{{roleName}}</td>
+        <td id="NoRole"></td>
         {%endif%}
         {% endfor %}
     </tr>
