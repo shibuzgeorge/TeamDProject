@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `Band`(
     `bandName` varchar(255) NOT NULL,
     `bandPosition` smallint NOT NULL,
     PRIMARY KEY(`bandID`),
-    INDEX(`bandPosition`)
+    INDEX (`bandPosition`)
     );
 
 CREATE TABLE IF NOT EXISTS `JobFamily`(
