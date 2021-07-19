@@ -43,10 +43,13 @@ API Route available:
 * Role:
   * http://localhost:8080/api/role/getRoles
   * http://localhost:8080/api/role/{roleID}
+  * http://localhost:8080/api/roleFromCapability/{capability}
 * Responsibility:
   * http://localhost:8080/api/responsibility/getResponsibilityByID/{roleID}
 * Capability:    
   * http://localhost:8080/api/capability/getCapabilityLeads
+  * http://localhost:8080/api/capability/{capability}
+  * http://localhost:8080/api/capability/getCapability
 * Employee:    
   * http://localhost:8080/api/employee/getEmployees
 * Band:    
@@ -55,7 +58,10 @@ API Route available:
   * http://localhost:8080/api/competency/getCompetencyByBand/{bandID}
 * Training
   * http://localhost:8080/api/training/getTrainings
-  * http://localhost:8080/api/training/getTrainingByBand/{bandID}    
+  * http://localhost:8080/api/training/getTrainingByBand/{bandID}
+* Job Family
+  * http://localhost:8080/api//jobFamily/getJobFamily
+  * http://localhost:8080/api//jobFamilyFromCapability/{capability}
 
 ### Frontend
 
