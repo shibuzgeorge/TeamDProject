@@ -1,5 +1,13 @@
 USE `RoleManagement_GroupD`;
 
+CREATE TABLE IF NOT EXISTS `User`(
+    `userID` mediumint NOT NULL AUTO_INCREMENT,
+    `username` varchar(255) NOT NULL,
+    `password` varchar(255) NOT NULL,
+    `role` enum('Admin','Employee') NOT NULL,
+    PRIMARY KEY (`userID`)
+);
+
 CREATE TABLE IF NOT EXISTS `Employee`(
     `employeeID` mediumint NOT NULL AUTO_INCREMENT,
     `employeeName` varchar(255) NOT NULL,
@@ -118,6 +126,9 @@ SELECT J.jobFamilyID, C.capabilityName, J.jobFamilyName, E.employeeName
 FROM JobFamily J
          LEFT JOIN Capability C USING (`capabilityID`)
          LEFT JOIN Employee E ON J.disciplineLeadID = E.employeeName;
+
+INSERT INTO `User` (`userID`,`username`,`password`,`role`) VALUES (1,'admin','$2a$12$EqTVbc.Gc0wQ5rrjLLPRo.7y2gtBt/WUSSkjw.DJuDXtBYcU0ekgC','Admin'); /*Password = adminpass*/
+INSERT INTO `User` (`userID`,`username`,`password`,`role`) VALUES (2,'employee','$2a$12$rWupSBVZhNUSDsy1OtC.ROI32jbJLDtR5986jEVcp7nwLjgCMu38q','Employee'); /*Password = employeepass*/
 
 INSERT INTO Band (`bandName`) VALUES ('Apprentice');
 INSERT INTO Band (`bandName`) VALUES ('Trainee');
