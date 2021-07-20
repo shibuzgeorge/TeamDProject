@@ -77,6 +77,6 @@ public class RoleTest extends FunctionalTest {
     @Test
     public void checkSpecificationURL() {
         driver.get("http://localhost:3000/role/3");
-        driver.findElement(By.linkText("Job Specification")).click();
+        assertEquals("https://kainossoftwareltd.sharepoint.com/:b:/g/people/Eci7E2WouKdNr5A-q3F9f8wBe9UEdviulHqKp0LVh3BH3A?e=gEI9JV", driver.findElement(By.id("specificationLink")).getAttribute("href"));
     }
 }

@@ -1,0 +1,33 @@
+.govuk-width-container {
+    max-width: 1400px !important;
+}
+
+ul#horizontal-list {
+    min-width: 696px;
+    list-style: none;
+    padding-top: 20px;
+}
+ul#horizontal-list li {
+    display: inline;
+}
+
+.careerLattice-tableRow{
+    text-align: center;
+    vertical-align: middle;
+}
+
+a{
+    color: #339933 !important;
+}
+
+.careerLattice-tableColumn {
+    text-align: center;
+    vertical-align: middle;
+    width : 15%;
+    background-color: #339933 !important;
+    color: white;
+}
+
+table, th, td, tr {
+    border: 1px solid #339933;
+}
