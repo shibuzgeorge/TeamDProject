@@ -2,11 +2,12 @@ package com.kainos.ea;
 
 import com.kainos.ea.Capability.CapabilityDAO;
 import com.kainos.ea.Capability.CapabilityResource;
-import com.kainos.ea.CompetencyFiles.Competency;
 import com.kainos.ea.CompetencyFiles.CompetencyDAO;
 import com.kainos.ea.CompetencyFiles.CompetencyResource;
 import com.kainos.ea.JobFamily.JobFamilyDAO;
 import com.kainos.ea.JobFamily.JobFamilyResource;
+import com.kainos.ea.auth.AppAuthorizer;
+import com.kainos.ea.auth.BasicAuthenticator;
 import com.kainos.ea.capabilitylead.CapabilityLeadDAO;
 import com.kainos.ea.capabilitylead.CapabilityLeadResource;
 import com.kainos.ea.RoleFiles.RoleDAO;
@@ -19,12 +20,18 @@ import com.kainos.ea.responsibility.ResponsibilityDAO;
 import com.kainos.ea.responsibility.ResponsibilityResource;
 import com.kainos.ea.training.TrainingDAO;
 import com.kainos.ea.training.TrainingResource;
+import com.kainos.ea.user.User;
+import com.kainos.ea.user.UserDAO;
+import com.kainos.ea.user.UserResource;
 import io.dropwizard.Application;
+import io.dropwizard.auth.*;
+import io.dropwizard.auth.basic.BasicCredentialAuthFilter;
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor;
 import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.jdbi3.JdbiFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.jdbi.v3.core.Jdbi;
 
 public class WebApplication extends Application<WebApplicationConfiguration> {
@@ -55,6 +62,7 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
         final CapabilityDAO capabilityDAO = jdbi.onDemand(CapabilityDAO.class);
         final JobFamilyDAO jobFamilyDAO = jdbi.onDemand(JobFamilyDAO.class);
         final TrainingDAO trainingDAO = jdbi.onDemand(TrainingDAO.class);
+        final UserDAO userDAO = jdbi.onDemand(UserDAO.class);
         environment.jersey().register(new RoleResource(roleDAO));
         environment.jersey().register(new BandResource(bandDAO));
         environment.jersey().register(new CompetencyResource(competencyDAO));
@@ -64,5 +72,14 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
         environment.jersey().register(new CapabilityResource(capabilityDAO));
         environment.jersey().register(new JobFamilyResource(jobFamilyDAO));
         environment.jersey().register(new TrainingResource(trainingDAO));
+        environment.jersey().register(new UserResource(userDAO));
+
+        environment.jersey().register(new AuthDynamicFeature(new BasicCredentialAuthFilter.Builder<User>()
+                .setAuthenticator(new BasicAuthenticator(userDAO))
+                .setAuthorizer(new AppAuthorizer())
+                .setRealm("BASIC-AUTH-REALM")
+                .buildAuthFilter()));
+        environment.jersey().register(RolesAllowedDynamicFeature.class);
+        environment.jersey().register(new AuthValueFactoryProvider.Binder<>(User.class));
     }
 }
