@@ -14,7 +14,9 @@ Add job family
 
 {% block content %}
 <h1>Add job family</h1>
-{% if user %}
-{{user.username}}
-{% endif %}
+<div>
+<input type="text" name="jobFamilyName" placeholder="Job Family Name" required>
+<input type="text" name="capability" placeholder="Capability" required>
+<input type="submit">
+</div>
 {% endblock %}

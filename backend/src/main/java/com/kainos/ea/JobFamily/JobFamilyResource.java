@@ -1,10 +1,7 @@
 package com.kainos.ea.JobFamily;
 
 import javax.annotation.security.RolesAllowed;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import com.codahale.metrics.annotation.Timed;
@@ -35,10 +32,11 @@ public class JobFamilyResource {
     }
 
     @POST
+    @RolesAllowed({ "Admin" })
     @Timed
     @Path("/newJobFamily")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public int insertJobFamily(){
-        return 0;
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public boolean insertJobFamily(@FormParam("jobFamilyName")String jobFamilyName, @FormParam("capability")String capability){
+        return jobFamilyDAO.insertNewJobFamily(jobFamilyName, capability);
     }
 }
