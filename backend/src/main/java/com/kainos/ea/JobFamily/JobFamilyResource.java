@@ -37,6 +37,10 @@ public class JobFamilyResource {
     @Path("/newJobFamily")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public boolean insertJobFamily(@FormParam("jobFamilyName")String jobFamilyName, @FormParam("capability")String capability){
+        if(jobFamilyDAO.checkIfJobFamilyNameAndCapabilityComboExist(jobFamilyName, capability) != null){
+            return false;
+        }else{
         return jobFamilyDAO.insertNewJobFamily(jobFamilyName, capability);
+        }
     }
 }

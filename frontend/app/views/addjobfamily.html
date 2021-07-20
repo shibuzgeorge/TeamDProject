@@ -13,10 +13,27 @@ Add job family
 {% endblock %}
 
 {% block content %}
-<h1>Add job family</h1>
-<div>
-<input type="text" name="jobFamilyName" placeholder="Job Family Name" required>
-<input type="text" name="capability" placeholder="Capability" required>
-<input type="submit">
+<div class="Add-Job-Family">
+    <h1>Add New Job Family</h1>
+    <form action="/addjobfamily" method="POST">
+        {% if error %}
+        <figure id="error-dialog-box" class="warning">
+            <figcaption style="color: red;">Error</figcaption>
+            <p style="color: red;">{{error}}</p>
+        </figure>
+        {% endif %}
+        {% if message %}
+        <figure id="message-dialog-box" class="message">
+            <p style="color: green;">{{message}}</p>
+        </figure>
+        {% endif %}
+        <input type="text" name="jobFamilyName" placeholder="Job Family Name" required>
+        <select id="capability" name="capability">
+            {% for capability in capabilities %}
+            <option value="{{capability.capabilityName}}">{{capability.capabilityName}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit">
+    </form>
 </div>
 {% endblock %}

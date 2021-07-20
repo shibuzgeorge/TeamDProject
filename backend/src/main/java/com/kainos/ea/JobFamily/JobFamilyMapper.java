@@ -18,8 +18,4 @@ public class JobFamilyMapper implements RowMapper<JobFamily> {
         return jobFamily;
     }
 
-    public JobFamily map2(ResultSet rs, StatementContext ctx) throws SQLException {
-        JobFamily jobFamily = new JobFamily(rs.getString(CAPABILITY), rs.getString(NAME));
-        return jobFamily;
-    }
 }

@@ -5,6 +5,7 @@ import org.jdbi.v3.sqlobject.customizer.Bind;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 import org.jdbi.v3.sqlobject.statement.SqlUpdate;
 
+import javax.ws.rs.FormParam;
 import java.util.List;
 
 @RegisterRowMapper(JobFamilyMapper.class)
@@ -18,5 +19,8 @@ public interface JobFamilyDAO {
 
     @SqlUpdate("INSERT INTO JobFamily (capabilityID, jobFamilyName) VALUES ((SELECT capabilityID FROM Capability WHERE capabilityName = :capability), :jobFamilyName);")
     boolean insertNewJobFamily(@Bind("jobFamilyName") String jobFamilyName, @Bind("capability") String capability);
+
+    @SqlQuery("SELECT * FROM JobFamilyFull WHERE jobFamilyName = :jobFamilyName AND capabilityName = :capability;")
+    JobFamily checkIfJobFamilyNameAndCapabilityComboExist(@Bind("jobFamilyName") String jobFamilyName, @Bind("capability") String capability);
 
 }
