@@ -1,0 +1,23 @@
+#pTypeSwitch:checked ~ .pType{
+    display: block !important;
+}
+
+#pTypeSwitch:not(:checked) ~ .pType{
+    display: none !important;
+}
+
+#tTypeSwitch:checked ~ .tType{
+    display: block !important;
+}
+
+#tTypeSwitch:not(:checked) ~ .tType{
+    display: none !important;
+}
+
+#dTypeSwitch:checked ~ .dType{
+    display: block !important;
+}
+
+#dTypeSwitch:not(:checked) ~ .dType{
+    display: none !important;
+}

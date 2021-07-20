@@ -155,7 +155,7 @@ router.get('/bands/:bandID', permit('Admin', 'Employee'), async (req, res) => {
         responseType: 'json'
     })
 
-    res.render('bands', {request: req, bands: bands.data, competencies: competencies.data})
+    res.render('bands', {request: req, bands: bands.data, competencies: competencies.data,  user: req.user})
 })
 
 router.get('/training', permit('Admin', 'Employee'), async (req, res) => {
@@ -220,11 +220,13 @@ router.get('/capability/:capabilityName', permit('Admin', 'Employee'), async (re
     responseType: 'json'
   })
 
-  const jobRolesData = [{jobRoles: jobRoles.data}]
-  const jobFamilyData = [{jobFamily: jobFamily.data}]
-  const capabilityData = [{capability: capability.data}]
+    const bands = await axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/band/getBands',
+        responseType: 'json'
+    })
 
-  res.render('capability', {capabilityData: capabilityData, jobFamilyData: jobFamilyData, jobRolesData: jobRolesData, user: req.user})
+  res.render('capability', {capabilityData: capability.data, jobFamilyData: jobFamily.data, jobRoleData: jobRoles.data, bandData: bands.data, user: req.user})
 })
 
 module.exports = router
