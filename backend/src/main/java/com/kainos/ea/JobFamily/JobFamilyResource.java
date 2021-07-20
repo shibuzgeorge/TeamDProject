@@ -1,9 +1,8 @@
 package com.kainos.ea.JobFamily;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import com.codahale.metrics.annotation.Timed;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -28,5 +27,13 @@ public class JobFamilyResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<JobFamily> getJobFamilyByCapability(@PathParam("capability") String capability) {
         return jobFamilyDAO.getJobFamilyByCapability(capability);
+    }
+
+    @POST
+    @Timed
+    @Path("/newJobFamily")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public int insertJobFamily(){
+        return 0;
     }
 }
