@@ -86,6 +86,7 @@ Home
             </a>
         </div>
 
+        {% if user.role === 'Admin' %}
         <div class="col m-3">
             <a href="/addjobfamily">
                 <div class="card homeNavigationButton" style="width: 16rem;">
@@ -102,6 +103,8 @@ Home
                 </div>
             </a>
         </div>
+        {% endif %}
+
     </div>
 </div>
 
