@@ -3,6 +3,7 @@ package com.kainos;
 import com.kainos.ea.user.User;
 import com.kainos.ea.user.UserDAO;
 import com.kainos.ea.user.UserResource;
+import io.dropwizard.auth.UnauthorizedHandler;
 import io.dropwizard.testing.junit5.DropwizardExtensionsSupport;
 import io.dropwizard.testing.junit5.ResourceExtension;
 import org.junit.jupiter.api.AfterEach;
@@ -11,10 +12,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import javax.ws.rs.ForbiddenException;
+import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.verify;
 
@@ -26,8 +30,7 @@ public class UserResourceTest {
             .addResource(new UserResource(DAO))
             .build();
     private User user;
-
-
+    
     @BeforeEach
     void setup() {
         user = new User();
@@ -53,5 +56,15 @@ public class UserResourceTest {
 
         verify(DAO).getUser("Test user 1");
         Assertions.assertEquals(response.getStatusInfo(), Response.Status.OK);
+    }
+
+    @Test
+    void loginFailure() {
+        final User newUser = new User("Test user 2", "Random");
+        when(DAO.getUser("Test user 2")).thenThrow(ForbiddenException.class);
+        final Response response = EXT.target("/api/login")
+                .request().post(Entity.entity(newUser, MediaType.APPLICATION_JSON_TYPE));
+
+        Assertions.assertEquals(Response.Status.BAD_REQUEST, response.getStatusInfo());
     }
 }
