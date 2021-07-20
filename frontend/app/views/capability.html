@@ -21,9 +21,9 @@ Job Roles
 <table class="table table-hover table-responsive">
     <thead id="Career-Lattice-{{ capability.capabilityName }}">
     <tr class="table-bordered">
-        <th id="Band-Name" class="careerLattice-tableColumn" style="width:10%">Band</th>
+        <td id="Band-Name" class="careerLattice-tableColumn" style="width:10%">Band</td>
         {% for jobFamily in jobFamilyData %}
-        <th id="{{jobFamily.jobFamilyName}}" class="careerLattice-tableColumn" scope="col">{{jobFamily.jobFamilyName}}</th>
+        <td id="{{jobFamily.jobFamilyName}}" class="careerLattice-tableColumn" scope="col">{{jobFamily.jobFamilyName}}</td>
         {% endfor %}
     </tr>
     </thead>
