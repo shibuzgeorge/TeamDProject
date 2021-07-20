@@ -30,7 +30,7 @@ public class UserResourceTest {
             .addResource(new UserResource(DAO))
             .build();
     private User user;
-    
+
     @BeforeEach
     void setup() {
         user = new User();
@@ -61,7 +61,7 @@ public class UserResourceTest {
     @Test
     void loginFailure() {
         final User newUser = new User("Test user 2", "Random");
-        when(DAO.getUser("Test user 2")).thenThrow(ForbiddenException.class);
+        when(DAO.getUser("Test user 2")).thenThrow(NotAuthorizedException.class);
         final Response response = EXT.target("/api/login")
                 .request().post(Entity.entity(newUser, MediaType.APPLICATION_JSON_TYPE));
 
