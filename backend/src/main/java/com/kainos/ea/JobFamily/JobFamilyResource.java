@@ -1,10 +1,13 @@
 package com.kainos.ea.JobFamily;
 
-import com.codahale.metrics.annotation.Timed;
-
-import javax.ws.rs.*;
+import javax.annotation.security.RolesAllowed;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
+import com.codahale.metrics.annotation.Timed;
 
 @Path("/api")
 public class JobFamilyResource {
@@ -16,6 +19,7 @@ public class JobFamilyResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/jobFamily/getJobFamily")
     @Produces(MediaType.APPLICATION_JSON)
     public List<JobFamily> getJobFamilies() {
@@ -23,6 +27,7 @@ public class JobFamilyResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/jobFamilyFromCapability/{capability}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<JobFamily> getJobFamilyByCapability(@PathParam("capability") String capability) {

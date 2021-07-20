@@ -15,6 +15,10 @@ Home
 
 
 {% block content %}
+{% if error%}
+<h3 style="color: red;">{{error}}</h3>
+{% endif %}
+<h1>Welcome {{user.username}}</h1>
 <div class="container">
     <div class="row row-cols-4">
         <div class="col m-3">
@@ -81,6 +85,26 @@ Home
                 </div>
             </a>
         </div>
+
+        {% if user.role === 'Admin' %}
+        <div class="col m-3">
+            <a href="/addjobfamily">
+                <div class="card homeNavigationButton" style="width: 16rem;">
+                    <img src="https://cdn2.coachmag.co.uk/sites/coachmag/files/2019/07/upper-body-workout.jpg"
+                         class="card-img-top" alt="..."
+                         style="object-fit:cover;
+                            object-position: center;
+                            width:255px;
+                            height:200px;
+                            border: solid 1px #CCC">
+                    <div class="card-footer text-center">
+                        <p class="card-text">Add job family</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+
     </div>
 </div>
 

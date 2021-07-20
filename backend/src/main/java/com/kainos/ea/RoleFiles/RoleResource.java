@@ -1,5 +1,6 @@
 package com.kainos.ea.RoleFiles;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -17,6 +18,7 @@ public class RoleResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/role/getRoles")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Role> getRoles() {
@@ -24,6 +26,7 @@ public class RoleResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/role/{roleID}")
     @Produces(MediaType.APPLICATION_JSON)
     public Role getRoleByID(@PathParam("roleID") int roleID) {
@@ -31,6 +34,7 @@ public class RoleResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/roleFromCapability/{capability}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Role> getRoleByCapability(@PathParam("capability") String capability) {
