@@ -1,0 +1,23 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+Error
+{% endblock %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block headIcons %}
+{{ super() }}
+<link rel="stylesheet" href="public/stylesheets/homePageCustoms.css">
+{% endblock %}
+
+{% block content %}
+<a href="/">
+<button type="button" class="btn btn-outline-secondary">&#8592;</button></a>
+{% if error%}
+<h3 style="color: red;">{{error}}</h3>
+{% endif %}
+
+{% endblock %}

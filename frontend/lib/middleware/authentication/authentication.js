@@ -4,7 +4,7 @@
  * Based on template found at: http://www.danielstjules.com/2014/08/03/basic-auth-with-express-4/
  *
  * @example
- * const authentication = required('authentication.js')
+ * const authentication = required('auth.js')
  * app.use(authentication)
  *
  * @param   {string}   req Express Request object
