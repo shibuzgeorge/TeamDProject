@@ -1,5 +1,6 @@
 package com.kainos.ea.BandFiles;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,6 +17,7 @@ public class BandResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/band/getBands")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Band> getBands() {

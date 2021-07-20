@@ -1,5 +1,6 @@
 package com.kainos.ea.responsibility;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.GET;
@@ -19,6 +20,7 @@ public class ResponsibilityResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/responsibility/getResponsibilityByID/{roleID}")
     @Produces(MediaType.APPLICATION_JSON)
     public Responsibility getResponsibility(@PathParam ("roleID") @NotNull @Valid int roleID) {

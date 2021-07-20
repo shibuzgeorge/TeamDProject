@@ -1,5 +1,6 @@
 package com.kainos.ea.training;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -17,6 +18,7 @@ public class TrainingResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/training/getTrainings")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Training> getTrainings() {
@@ -24,6 +26,7 @@ public class TrainingResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/training/getTrainingByBand/{bandID}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Training> getTrainingByBandID(@PathParam("bandID") int bandID) {

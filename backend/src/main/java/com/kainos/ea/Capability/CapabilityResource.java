@@ -1,5 +1,6 @@
 package com.kainos.ea.Capability;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -17,6 +18,7 @@ public class CapabilityResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/capability/getCapability")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Capability> getCapability() {
@@ -24,6 +26,7 @@ public class CapabilityResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/capability/{capability}")
     @Produces(MediaType.APPLICATION_JSON)
     public Capability getCapabilityByName(@PathParam("capability") String capability) {

@@ -1,5 +1,6 @@
 package com.kainos.ea.CompetencyFiles;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -18,6 +19,7 @@ public class CompetencyResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/competency/getCompetencies")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Competency> getCompetencies() { return competencyDAO.getCompetencies(); }

@@ -63,6 +63,9 @@ router.get('/capabilityleaders', permit('Admin', 'Employee'), async (req, res) =
   const capabilityLeaders = await axios({
         method: 'get',
         url: 'http://localhost:8080/api/capability/getCapabilityLeads',
+        headers: {
+          'Authorization' : localStorage.getItem("auth")
+        },
         responseType: 'json'
     })
 
@@ -74,18 +77,27 @@ router.get('/jobroles', permit('Admin', 'Employee'), async (req, res) => {
   const jobRoles = await axios({
         method: 'get',
         url: 'http://localhost:8080/api/role/getRoles',
+        headers: {
+          'Authorization' : localStorage.getItem("auth")
+        },
         responseType: 'json'
     })
 
   const capabilities = await axios({
     method: 'get',
     url: 'http://localhost:8080/api/capability/getCapabilityLeads',
+    headers: {
+      'Authorization' : localStorage.getItem("auth")
+    },
     responseType: 'json'
   })
 
   const bands = await axios({
     method: 'get',
     url: 'http://localhost:8080/api/band/getBands',
+    headers: {
+      'Authorization' : localStorage.getItem("auth")
+    },
     responseType: 'json'
   })
 
@@ -103,6 +115,9 @@ router.get('/role/:roleID', permit('Admin', 'Employee'), async (req, res) => {
         role = await axios({
             method: 'get',
             url: 'http://localhost:8080/api/role/' + req.params.roleID,
+            headers: {
+              'Authorization' : localStorage.getItem("auth")
+            },
             responseType: 'json'
         })
     } catch (err) {
@@ -114,6 +129,9 @@ router.get('/role/:roleID', permit('Admin', 'Employee'), async (req, res) => {
         responsibility = await axios({
             method: 'get',
             url: 'http://localhost:8080/api/responsibility/getResponsibilityByID/' + req.params.roleID,
+            headers: {
+              'Authorization' : localStorage.getItem("auth")
+            },
             responseType: 'json'
         })
     } catch (err) {
@@ -128,6 +146,9 @@ router.get('/bands', permit('Admin', 'Employee'), async (req, res) => {
   const bands = await axios({
         method: 'get',
         url: 'http://localhost:8080/api/band/getBands',
+        headers: {
+          'Authorization' : localStorage.getItem("auth")
+        },
         responseType: 'json'
     })
 
@@ -143,6 +164,9 @@ router.get('/bands/:bandID', permit('Admin', 'Employee'), async (req, res) => {
         competencies = await axios({
             method: 'get',
             url: 'http://localhost:8080/api/competency/getCompetencyByBand/' + req.params.bandID,
+            headers: {
+              'Authorization' : localStorage.getItem("auth")
+            },
             responseType: 'json'
         })
     } catch (err) {
@@ -152,6 +176,9 @@ router.get('/bands/:bandID', permit('Admin', 'Employee'), async (req, res) => {
     const bands = await axios({
         method: 'get',
         url: 'http://localhost:8080/api/band/getBands',
+        headers: {
+          'Authorization' : localStorage.getItem("auth")
+        },
         responseType: 'json'
     })
 
@@ -162,6 +189,9 @@ router.get('/training', permit('Admin', 'Employee'), async (req, res) => {
     const bands = await axios({
         method: 'get',
         url: 'http://localhost:8080/api/band/getBands',
+        headers: {
+          'Authorization' : localStorage.getItem("auth")
+        },
         responseType: 'json'
     })
 
@@ -174,6 +204,9 @@ router.get('/training/:bandID', permit('Admin', 'Employee'), async (req, res) =>
         trainings = await axios({
             method: 'get',
             url: 'http://localhost:8080/api/training/getTrainingByBand/' + req.params.bandID,
+            headers: {
+              'Authorization' : localStorage.getItem("auth")
+            },
             responseType: 'json'
         })
     } catch (err) {
@@ -183,6 +216,9 @@ router.get('/training/:bandID', permit('Admin', 'Employee'), async (req, res) =>
     const bands = await axios({
         method: 'get',
         url: 'http://localhost:8080/api/band/getBands',
+        headers: {
+          'Authorization' : localStorage.getItem("auth")
+        },
         responseType: 'json'
     })
 
@@ -194,6 +230,9 @@ router.get('/jobroles/capability/:capabilityID', permit('Admin', 'Employee'), as
   const capability = await axios({
     method: 'get',
     url: 'http://localhost:8080/api/capability/getCapability',
+    headers: {
+      'Authorization' : localStorage.getItem("auth")
+    },
     responseType: 'json'
   })
 
@@ -205,24 +244,36 @@ router.get('/capability/:capabilityName', permit('Admin', 'Employee'), async (re
   const capability = await axios({
     method: 'get',
     url: 'http://localhost:8080/api/capability/' +req.params.capabilityName,
+    headers: {
+      'Authorization' : localStorage.getItem("auth")
+    },
     responseType: 'json'
   })
 
   const jobFamily = await axios({
     method: 'get',
     url: 'http://localhost:8080/api/jobFamilyFromCapability/' +req.params.capabilityName,
+    headers: {
+      'Authorization' : localStorage.getItem("auth")
+    },
     responseType: 'json'
   })
 
   const jobRoles = await axios({
     method: 'get',
     url: 'http://localhost:8080/api/roleFromCapability/' +req.params.capabilityName,
+    headers: {
+      'Authorization' : localStorage.getItem("auth")
+    },
     responseType: 'json'
   })
 
     const bands = await axios({
         method: 'get',
         url: 'http://localhost:8080/api/band/getBands',
+        headers: {
+          'Authorization' : localStorage.getItem("auth")
+        },
         responseType: 'json'
     })
 

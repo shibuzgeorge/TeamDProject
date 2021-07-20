@@ -1,5 +1,6 @@
 package com.kainos.ea.JobFamily;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -17,6 +18,7 @@ public class JobFamilyResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/jobFamily/getJobFamily")
     @Produces(MediaType.APPLICATION_JSON)
     public List<JobFamily> getJobFamilies() {
@@ -24,6 +26,7 @@ public class JobFamilyResource {
     }
 
     @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/jobFamilyFromCapability/{capability}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<JobFamily> getJobFamilyByCapability(@PathParam("capability") String capability) {
