@@ -44,7 +44,21 @@ There are 2 users in the `User` database with different roles => `Admin` or `Emp
 
 If you want to protect an API for a certain role e.g. Admin you can use this annotation => `@RolesAllowed({ "Admin" })` to the method.
 
-API Route available:
+####API Documentation
+
+API documentation is provided for every single API route listed below.
+The documentation contains the URL, HTTP verb, parameters, responses and the expected payload
+
+Finding the API documentation:
+
+1. Run the WebApplication
+2. Go to localhost:8080/swagger
+
+All the APIs are then displayed, click on each one to display each individual route
+
+At the bottom of the page, there is a models section - this contains the expected format of every API route (the data expected)
+
+API Routes available:
 * User:
   * http://localhost:8080/api/login
   * http://localhost:8080/api/user/getUsers
