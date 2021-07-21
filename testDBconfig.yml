@@ -12,6 +12,6 @@ database:
   # the JDBC URL
   url: jdbc:mysql://127.0.0.1/RoleManagement_GroupD
 
-  # swagger
-  swagger:
-    resourcePackage: com.kainos.ea
+# swagger
+swagger:
+  resourcePackage: com.kainos.ea
