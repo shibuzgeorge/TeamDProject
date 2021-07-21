@@ -101,7 +101,31 @@ router.get('/jobroles', permit('Admin', 'Employee'), async (req, res) => {
     responseType: 'json'
   })
 
-  res.render('jobroles', { jobRoles: jobRoles.data, capabilities: capabilities.data, bands: bands.data, user: req.user })
+    var counter = 0
+    var uniqueJobFamilies = []
+    var uniqueJobFamiliesObjects = []
+    var capabilitiesFromJobRoles = []
+    for(var i = 0; i < jobRoles.data.length; i++) {
+        if(capabilitiesFromJobRoles.indexOf(jobRoles.data[i].capability) == -1){
+            capabilitiesFromJobRoles.push(jobRoles.data[i].capability)
+        }
+    }
+
+    for(var x = 0; x < jobRoles.data.length; x++) {
+        if(uniqueJobFamilies.indexOf(jobRoles.data[x].jobFamily) == -1){
+            uniqueJobFamilies.push(jobRoles.data[x].jobFamily)
+            uniqueJobFamiliesObjects[counter] = {
+                name: jobRoles.data[x].jobFamily,
+                id: counter
+            }
+            counter++
+        }
+    }
+
+
+
+
+  res.render('jobroles', { jobRoles: jobRoles.data, capabilities: capabilities.data, bands: bands.data, user: req.user, capabilitiesFromJobRoles: capabilitiesFromJobRoles, uniqueJobFamiliesObjects: uniqueJobFamiliesObjects })
 })
 
 router.get('/jobroles/:roleID', permit('Admin', 'Employee'), async (req, res) => {

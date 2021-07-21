@@ -13,26 +13,38 @@ Job Roles
 <link rel="stylesheet" href="public/stylesheets/jobroles.css">
 {% endblock %}
 
-
 {% block content %}
+{% set emptyString = "" %}
+{% set whiteSpace = " " %}
 
-<!--<div class="checkboxes">
-    <div class="table">
-        <ul id="horizontal-list">
-            <li><input name="entry1" type="checkbox" value="entry4" id="entry1"/>
-            <label>Entry 1</label><br/></li>
-            <li><input name="entry2" type="checkbox" value="entry4"  id="entry2"/>
-            <label>Entry 2</label><br/></li>
-            <li><input name="entry3" type="checkbox" value="entry4"  id="entry3"/>
-            <label>Entry 3</label><br/></li>
-            <li><input name="entry4" type="checkbox" value="entry4"  id="entry4"/>
-            <label>Entry 4</label></li>
-        </ul>
-    </div>
-</div>-->
+{% if capabilitiesFromJobRoles %}
+<label for="capFilterButton" id="capFilterButtonLabel">&darr; Capabilities Filters:</label>
+<input id="capFilterButton" type="checkbox" checked>
+<br>
+{% for capability in capabilitiesFromJobRoles %}
+<input class="form-check-input capFilters capFiltersInput" type="checkbox" id="{{ capability | truncate(2, true, emptyString) | lower }}TypeSwitch" checked>
+<label class="form-check-label capFilters text-center" id="{{ capability | truncate(2, true, emptyString) | lower }}TypeSwitchLabel" for="{{ capability | truncate(2, true, emptyString) | lower }}TypeSwitch">{{ capability }}</label>
+{% endfor %}
+{% endif %}
 
-<noscript><h5 class="text-center" style="color: red">If you are not using JavaScript,you can see Full job summary in the "Role Name" link</h5></noscript>
-<table class="table table-striped table-hover table-secondary">
+<br>
+
+{% if uniqueJobFamiliesObjects %}
+<label for="jobFamilyFilterButton" id="jobFamilyFilterButtonLabel">&darr; Job Families Filters:</label>
+<input id="jobFamilyFilterButton" type="checkbox" checked>
+<br>
+{% for jobFamily in uniqueJobFamiliesObjects %}
+{% if jobFamily.id % 4 == 0 and jobFamily.id != 0%}
+<br>
+{% endif %}
+<input class="form-check-input jobFamilyFilters jobFamilyFiltersInput" type="checkbox" id="familyID{{ jobFamily.id }}Switch" checked>
+<label class="form-check-label jobFamilyFilters text-center" id="familyID{{ jobFamily.id }}SwitchLabel" for="familyID{{ jobFamily.id }}Switch">{{ jobFamily.name }}</label>
+{% endfor %}
+{% endif %}
+
+<noscript><h5 class="text-center" style="color: red">If you are not using JavaScript,you can see Full job summary in the
+    "Role Name" link</h5></noscript>
+<table class="table table-striped table-hover table-secondary" id="mainTable">
     <thead class="table table-striped table-hover table-primary table-bordered" id="jobRolesTable">
     <tr class="table-bordered">
         <th id="roleName" scope="col">Role Name</th>
@@ -43,52 +55,49 @@ Job Roles
         <th id="specification" scope="col">Specification</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="mainBody">
     {% if jobRoles %}
     {% for jobRole in jobRoles %}
+    {% for jobFamily in uniqueJobFamiliesObjects %}
+        {% if jobFamily.name == jobRole.jobFamily %}
+    <tr class="{{ jobRole.capability | truncate(2, true, emptyString) | lower }}Type familyID{{ jobFamily.id }}">
+        {% endif %}
+    {% endfor %}
 
-    <tr>
-        <td id="roleName {{jobRole.roleID}}" scope="row"><a href="/role/{{jobRole.roleID}}">{{ jobRole.roleName }}</a></td>
-        <td id="capability{{ jobRole.roleID }}"><a href="/capability/{{jobRole.capability}}">{{ jobRole.capability }}</a></td>
-        <td id="jobFamily{{ jobRole.roleID }}" >{{ jobRole.jobFamily }}</td>
-        <td id="band{{ jobRole.roleID }}" >{{ jobRole.band }}</td>
+        <td id="roleName {{jobRole.roleID}}" scope="row"><a href="/role/{{jobRole.roleID}}">{{ jobRole.roleName }}</a>
+        </td>
+        <td id="capability{{ jobRole.roleID }}"><a href="/capability/{{jobRole.capability}}">{{ jobRole.capability
+            }}</a></td>
+        <td id="jobFamily{{ jobRole.roleID }}">{{ jobRole.jobFamily }}</td>
+        <td id="band{{ jobRole.roleID }}">{{ jobRole.band }}</td>
         <td>
-        <div class="accordion accordion-flush" id="accordionFlushExample{{ jobRole.roleID }}">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-heading{{ jobRole.roleID }}">
-                    <button id="accordionButtonId{{ jobRole.roleID }}" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse{{ jobRole.roleID }}" aria-expanded="false" aria-controls="flush-collapse{{ jobRole.roleID }}">
-                        {{ jobRole.roleSummary | truncate(42, true, "...") }}
-                    </button>
-                </h2>
-                <div id="flush-collapse{{ jobRole.roleID }}" class="accordion-collapse collapse" aria-labelledby="flush-heading{{ jobRole.roleID }}" data-bs-parent="#accordionFlushExample{{ jobRole.roleID }}">
-                    <div class="accordion-body" id="accordionBodyId{{ jobRole.roleID }}">{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}</div>
+            <div class="accordion accordion-flush" id="accordionFlushExample{{ jobRole.roleID }}">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-heading{{ jobRole.roleID }}">
+                        <button id="accordionButtonId{{ jobRole.roleID }}" class="accordion-button collapsed"
+                                type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse{{ jobRole.roleID }}" aria-expanded="false"
+                                aria-controls="flush-collapse{{ jobRole.roleID }}">
+                            {{ jobRole.roleSummary | truncate(42, true, "...") }}
+                        </button>
+                    </h2>
+                    <div id="flush-collapse{{ jobRole.roleID }}" class="accordion-collapse collapse"
+                         aria-labelledby="flush-heading{{ jobRole.roleID }}"
+                         data-bs-parent="#accordionFlushExample{{ jobRole.roleID }}">
+                        <div class="accordion-body" id="accordionBodyId{{ jobRole.roleID }}">{{ jobRole.roleSummary }}{{
+                            jobRole.roleSummary }}{{ jobRole.roleSummary }}{{ jobRole.roleSummary }}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
         </td>
-        <td id="specification{{ jobRole.roleID }}"><a href="{{ jobRole.specification }}" class="noUnderLine">Job Specification</a></td>
+        <td id="specification{{ jobRole.roleID }}"><a href="{{ jobRole.specification }}" class="noUnderLine">Job
+            Specification</a></td>
     </tr>
     {% endfor %}
     {% else %}
 
-    <tr>
-        <th scope="row">1</th>
-        <td>Senior Software Engineer</td>
-        <td>3</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Lead Tech</td>
-        <td>3</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>Associate</td>
-        <td>3</td>
-    </tr>
-
     {% endif %}
-
     </tbody>
 </table>
 {% endblock %}
