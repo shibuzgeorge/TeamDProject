@@ -60,8 +60,9 @@ API Route available:
   * http://localhost:8080/api/training/getTrainings
   * http://localhost:8080/api/training/getTrainingByBand/{bandID}
 * Job Family
-  * http://localhost:8080/api//jobFamily/getJobFamily
-  * http://localhost:8080/api//jobFamilyFromCapability/{capability}
+  * http://localhost:8080/api/jobFamily/getJobFamily
+  * http://localhost:8080/api/jobFamilyFromCapability/{capability}
+  * http://localhost:8080/api/newJobFamily
 
 ### Frontend
 

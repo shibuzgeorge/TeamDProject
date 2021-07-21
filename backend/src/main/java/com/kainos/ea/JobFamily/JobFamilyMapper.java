@@ -17,4 +17,5 @@ public class JobFamilyMapper implements RowMapper<JobFamily> {
         JobFamily jobFamily = new JobFamily(rs.getInt(ID), rs.getString(CAPABILITY), rs.getString(NAME), rs.getString(LEAD));
         return jobFamily;
     }
+
 }

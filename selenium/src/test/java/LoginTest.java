@@ -61,7 +61,7 @@ public class LoginTest extends FunctionalTest {
 
         loginAsA("Admin", driver);
         driver.get("http://localhost:3000/addjobfamily");
-        assertEquals("Add job family", driver.findElement(By.cssSelector("h1")).getText());
+        assertEquals("Add New Job Family", driver.findElement(By.cssSelector("h1")).getText());
     }
 
 }
