@@ -6,8 +6,7 @@
 
 The backend uses Dropwizard and Java.
 
-Dropwizard is a Java framework for developing ops-friendly, high-performance, RESTful web services
-
+Dropwizard is a Java framework for developing ops-friendly, high-performance, RESTful web services. Basic Authentication is used for this application and you must login to access API routes.
 #### Database connection
 
 Database Management System: `MySQL`
@@ -39,7 +38,16 @@ You'll need to create a database name and populate the data by using the script 
 Dropwizard is used to perform GET, POST, PUT and DELETE requests. The `Resource` includes all the API path and methods to get data.
 The `DAO` interface includes all the SQL queries and this is mapped to the `Mapper` to output the result set from the database.
 
+All API routes are protected except for `/api/login`. You must log in using user credentials to access the API routes. 
+
+There are 2 users in the `User` database with different roles => `Admin` or `Employee`. Example user credentials you can use is available in the `DatabaseSetup.sql` file. You can insert your own user with a `username`, `password` and `role`. The passwords are hashed and salted using BCrypt, read more [here](https://www.mindrot.org/projects/jBCrypt/). 
+
+If you want to protect an API for a certain role e.g. Admin you can use this annotation => `@RolesAllowed({ "Admin" })` to the method.
+
 API Route available:
+* User:
+  * http://localhost:8080/api/login
+  * http://localhost:8080/api/user/getUsers
 * Role:
   * http://localhost:8080/api/role/getRoles
   * http://localhost:8080/api/role/{roleID}
@@ -71,6 +79,8 @@ The front end is handled by Node.js and Nunjunks.
 Node. js is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node. js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient.  Nunjucks is a full featured templating engine for javascript.
 
 Data is provided by the API layer and passed down to the HTML templates to be rendered to the page.
+
+Login credentials are required once you started the project which should be in your `User` database. Middleware is used to prevent a user from accessing a page they do not have access to. E.g. if you want to protect a route for only Admins you can add this to your route parameters => `permit('Admin')`. For multiple roles you can comma separate => `permit('Admin', 'Employee')` 
 
 ### Selenium 
 
