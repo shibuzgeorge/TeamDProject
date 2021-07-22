@@ -28,7 +28,7 @@ module.exports = function permit(...permittedRoles) {
         response.render("error", {error: "You do not have the permission to view this page!", user: user});
       }
     }, (error) => {
-      response.render("error", {error: "You do not have the permission to view this page!"});
+      response.render("login")
     })
   }
 }

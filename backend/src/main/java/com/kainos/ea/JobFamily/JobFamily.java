@@ -20,6 +20,11 @@ public class JobFamily {
         this.setDisciplineLead(disciplineLead);
     }
 
+    public JobFamily(String capability, String jobFamilyName) {
+        this.setCapability(capability);
+        this.setJobFamilyName(jobFamilyName);
+    }
+
     public JobFamily(){
     }
 

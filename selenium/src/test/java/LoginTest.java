@@ -42,4 +42,26 @@ public class LoginTest extends FunctionalTest {
         assertEquals("Welcome employee", driver.findElement(By.cssSelector("h1")).getText());
     }
 
+    @Test
+    public void loginAsEmployeeVisitAnAdminOnlyPage() {
+        //Log out first
+        driver.get("http://localhost:3000/home");
+        driver.findElement(By.id("logout")).click();
+
+        loginAsA("Employee", driver);
+        driver.get("http://localhost:3000/addjobfamily");
+        assertEquals("You do not have the permission to view this page!", driver.findElement(By.cssSelector("h3")).getText());
+    }
+
+    @Test
+    public void loginAsAdminVisitAnAdminOnlyPage() {
+        //Log out first
+        driver.get("http://localhost:3000/home");
+        driver.findElement(By.id("logout")).click();
+
+        loginAsA("Admin", driver);
+        driver.get("http://localhost:3000/addjobfamily");
+        assertEquals("Add New Job Family", driver.findElement(By.cssSelector("h1")).getText());
+    }
+
 }
