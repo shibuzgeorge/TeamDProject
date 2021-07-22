@@ -117,3 +117,24 @@
     text-decoration: line-through;
     background-color: lightgray;
 }
+
+.careerLattice-tableRow{
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+a{
+    color: #339933 !important;
+}
+
+.careerLattice-tableColumn {
+    text-align: center;
+    vertical-align: middle;
+    width : 15%;
+    background-color: #339933 !important;
+    color: white;
+}
+
+table, th, td, tr {
+    border: 1px solid #339933;
+}

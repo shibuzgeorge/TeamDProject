@@ -31,4 +31,8 @@ public interface JobFamilyDAO {
 
     @SqlUpdate("UPDATE JobFamily SET capabilityID = (SELECT capabilityID FROM Capability WHERE capabilityName = :capability) WHERE jobFamilyID = :id;")
     boolean editJobFamilyCapability(@Bind("capability") String capability, @Bind("id") int id);
+
+    @SqlUpdate("DELETE FROM JobFamily WHERE jobFamilyName = :jobFamilyName;")
+    boolean deleteJobFamily(@Bind("jobFamilyName") String jobFamilyName);
+
 }
