@@ -25,7 +25,7 @@ Home
 <h1 class="text-center mb-5">Welcome {{user.username}}</h1>
 <div class="container">
     <div class="row row-cols-4">
-        <div class="col mb-4">
+        <div class="col m-4" id="jobroles">
             <a href="/jobroles">
             <div class="card homeNavigationButton" style="width: 16rem;">
                 <img src="/public/images/homePageImages/jobs.png"
@@ -41,7 +41,7 @@ Home
             </div>
             </a>
         </div>
-        <div class="col mb-4">
+        <div class="col m-4" id="capabilityleaders">
             <a href="/capabilityleaders">
             <div class="card homeNavigationButton" style="width: 16rem;">
                 <img src="/public/images/homePageImages/leaders.png"
@@ -57,7 +57,7 @@ Home
             </div>
             </a>
         </div>
-        <div class="col mb-4">
+        <div class="col m-4" id="bands">
             <a href="/bands">
                 <div class="card homeNavigationButton" style="width: 16rem;">
                     <img src="/public/images/homePageImages/bands.png"
@@ -73,7 +73,7 @@ Home
                 </div>
             </a>
         </div>
-        <div class="col mb-4">
+        <div class="col m-4" id="training">
             <a href="/training">
                 <div class="card homeNavigationButton" style="width: 16rem;">
                     <img src="/public/images/homePageImages/training.png"
@@ -91,7 +91,7 @@ Home
         </div>
 
         {% if user.role === 'Admin' %}
-        <div class="col mb-4">
+        <div class="col m-4" id="addjobfamily">
             <a href="/addjobfamily">
                 <div class="card homeNavigationButton" style="width: 16rem;">
                     <img src="/public/images/homePageImages/jobfamilies.png"
@@ -107,7 +107,7 @@ Home
                 </div>
             </a>
         </div>
-        <div class="col mb-4">
+        <div class="col m-4" id="jobfamily">
             <a href="/jobfamily">
                 <div class="card homeNavigationButton" style="width: 16rem;">
                     <img src="/public/images/homePageImages/jobfamilies.png"
