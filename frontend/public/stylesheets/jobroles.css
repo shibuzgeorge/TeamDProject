@@ -9,3 +9,111 @@
 .noUnderLine:visited {
     color: rgb(0, 101, 171);
 }
+
+/*Filter Switches*/
+
+#plTypeSwitch:checked ~ #mainTable > .mainBody > .plType,
+#cyTypeSwitch:checked ~ #mainTable > .mainBody > .cyType,
+#arTypeSwitch:checked ~ #mainTable > .mainBody > .arType,
+#daTypeSwitch:checked ~ #mainTable > .mainBody > .daType,
+#enTypeSwitch:checked ~ #mainTable > .mainBody > .enType,
+#familyID0Switch:checked ~ #mainTable > .mainBody > .familyID0,
+#familyID1Switch:checked ~ #mainTable > .mainBody > .familyID1,
+#familyID2Switch:checked ~ #mainTable > .mainBody > .familyID2,
+#familyID3Switch:checked ~ #mainTable > .mainBody > .familyID3,
+#familyID4Switch:checked ~ #mainTable > .mainBody > .familyID4,
+#familyID5Switch:checked ~ #mainTable > .mainBody > .familyID5,
+#familyID6Switch:checked ~ #mainTable > .mainBody > .familyID6,
+#familyID7Switch:checked ~ #mainTable > .mainBody > .familyID7,
+#familyID8Switch:checked ~ #mainTable > .mainBody > .familyID8 {
+    display: table-row !important;
+}
+
+#plTypeSwitch:not(:checked) ~ #mainTable > .mainBody > .plType,
+#cyTypeSwitch:not(:checked) ~ #mainTable > .mainBody > .cyType,
+#arTypeSwitch:not(:checked) ~ #mainTable > .mainBody > .arType,
+#daTypeSwitch:not(:checked) ~ #mainTable > .mainBody > .daType,
+#enTypeSwitch:not(:checked) ~ #mainTable > .mainBody > .enType,
+#familyID0Switch:not(:checked) ~ #mainTable > .mainBody > .familyID0,
+#familyID1Switch:not(:checked) ~ #mainTable > .mainBody > .familyID1,
+#familyID2Switch:not(:checked) ~ #mainTable > .mainBody > .familyID2,
+#familyID3Switch:not(:checked) ~ #mainTable > .mainBody > .familyID3,
+#familyID4Switch:not(:checked) ~ #mainTable > .mainBody > .familyID4,
+#familyID5Switch:not(:checked) ~ #mainTable > .mainBody > .familyID5,
+#familyID6Switch:not(:checked) ~ #mainTable > .mainBody > .familyID6,
+#familyID7Switch:not(:checked) ~ #mainTable > .mainBody > .familyID7,
+#familyID8Switch:not(:checked) ~ #mainTable > .mainBody > .familyID8 {
+    display: none !important;
+}
+
+
+/*Filter Button*/
+
+#capFilterButton, #jobFamilyFilterButton{
+    opacity: 0;
+}
+
+.capFiltersInput, .jobFamilyFiltersInput{
+    opacity: 0;
+    size: 1px;
+    width: 0%;
+    height: 0%;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+#capFilterButton:checked ~ .capFilters, #jobFamilyFilterButton:checked ~ .jobFamilyFilters{
+    display: none;
+}
+
+#capFilterButton:not(:checked) ~ .capFilters, #jobFamilyFilterButton:not(:checked) ~ .jobFamilyFilters{
+    display: inline;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1px 1px 1px 1px;
+    width: 13%;
+}
+
+#capFilterButtonLabel, #jobFamilyFilterButtonLabel{
+    font-size: 24px;
+}
+
+/*Rest of control*/
+
+#enTypeSwitch:checked ~ #enTypeSwitchLabel,
+#daTypeSwitch:checked ~ #daTypeSwitchLabel,
+#cyTypeSwitch:checked ~ #cyTypeSwitchLabel,
+#plTypeSwitch:checked ~ #plTypeSwitchLabel,
+#arTypeSwitch:checked ~ #arTypeSwitchLabel,
+#familyID0Switch:checked ~ #familyID0SwitchLabel,
+#familyID1Switch:checked ~ #familyID1SwitchLabel,
+#familyID2Switch:checked ~ #familyID2SwitchLabel,
+#familyID3Switch:checked ~ #familyID3SwitchLabel,
+#familyID4Switch:checked ~ #familyID4SwitchLabel,
+#familyID5Switch:checked ~ #familyID5SwitchLabel,
+#familyID6Switch:checked ~ #familyID6SwitchLabel,
+#familyID7Switch:checked ~ #familyID7SwitchLabel,
+#familyID8Switch:checked ~ #familyID8SwitchLabel
+{
+    text-decoration: none;
+    background-color: #fff;
+}
+
+#enTypeSwitch:not(:checked) ~ #enTypeSwitchLabel,
+#daTypeSwitch:not(:checked) ~ #daTypeSwitchLabel,
+#cyTypeSwitch:not(:checked) ~ #cyTypeSwitchLabel,
+#plTypeSwitch:not(:checked) ~ #plTypeSwitchLabel,
+#arTypeSwitch:not(:checked) ~ #arTypeSwitchLabel,
+#familyID0Switch:not(:checked) ~ #familyID0SwitchLabel,
+#familyID1Switch:not(:checked) ~ #familyID1SwitchLabel,
+#familyID2Switch:not(:checked) ~ #familyID2SwitchLabel,
+#familyID3Switch:not(:checked) ~ #familyID3SwitchLabel,
+#familyID4Switch:not(:checked) ~ #familyID4SwitchLabel,
+#familyID5Switch:not(:checked) ~ #familyID5SwitchLabel,
+#familyID6Switch:not(:checked) ~ #familyID6SwitchLabel,
+#familyID7Switch:not(:checked) ~ #familyID7SwitchLabel,
+#familyID8Switch:not(:checked) ~ #familyID8SwitchLabel
+{
+    text-decoration: line-through;
+    background-color: lightgray;
+}

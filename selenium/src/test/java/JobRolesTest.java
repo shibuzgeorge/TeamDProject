@@ -56,4 +56,56 @@ public class JobRolesTest extends FunctionalTest {
         assertEquals(driver.findElement(By.id("band3")).getText(), "Apprentice");
     }
 
+    @Test
+    public void assertCapabilitiesFilterShows(){
+        driver.get("http://localhost:3000/jobroles");
+        assertEquals(driver.findElement(By.id("capFilterButtonLabel")).getText(), "↓ Capabilities Filters:");
+    }
+
+    @Test
+    public void assertJobFamiliesFilterShows(){
+        driver.get("http://localhost:3000/jobroles");
+        assertEquals(driver.findElement(By.id("jobFamilyFilterButtonLabel")).getText(), "↓ Job Families Filters:");
+    }
+
+    @Test
+    public void assertFirstCapabilitiesFilterIsShowing(){
+        driver.get("http://localhost:3000/jobroles");
+        driver.findElement(By.id("capFilterButtonLabel")).click();
+        assertEquals(driver.findElement(By.id("arTypeSwitchLabel")).getText(), "Artificial Intelligence");
+    }
+
+    @Test
+    public void assertFirstJobFamiliesFilterIsShowing(){
+        driver.get("http://localhost:3000/jobroles");
+        driver.findElement(By.id("jobFamilyFilterButtonLabel")).click();
+        assertEquals(driver.findElement(By.id("familyID0SwitchLabel")).getText(), "Artificial Intelligence (AI) Engineering");
+    }
+
+    @Test
+    public void whenFilteringAllCapabilitiesButCybersecurityExpectExactJobRole(){
+        driver.get("http://localhost:3000/jobroles");
+        driver.findElement(By.id("capFilterButtonLabel")).click();
+        driver.findElement(By.id("arTypeSwitchLabel")).click();
+        driver.findElement(By.id("daTypeSwitchLabel")).click();
+        driver.findElement(By.id("enTypeSwitchLabel")).click();
+        driver.findElement(By.id("plTypeSwitchLabel")).click();
+        assertEquals(driver.findElement(By.linkText("Security Architect")).getText(), "Security Architect");
+    }
+
+    @Test
+    public void whenFilteringAllJobFamiliesButSecurityEngineeringExpectExactJobRole(){
+        driver.get("http://localhost:3000/jobroles");
+        driver.findElement(By.id("jobFamilyFilterButtonLabel")).click();
+        driver.findElement(By.id("familyID0SwitchLabel")).click();
+        driver.findElement(By.id("familyID2SwitchLabel")).click();
+        driver.findElement(By.id("familyID3SwitchLabel")).click();
+        driver.findElement(By.id("familyID4SwitchLabel")).click();
+        driver.findElement(By.id("familyID5SwitchLabel")).click();
+        driver.findElement(By.id("familyID6SwitchLabel")).click();
+        driver.findElement(By.id("familyID7SwitchLabel")).click();
+        driver.findElement(By.id("familyID8SwitchLabel")).click();
+        assertEquals(driver.findElement(By.id("jobFamily7")).getText(), "Security Engineering");
+    }
+
 }
