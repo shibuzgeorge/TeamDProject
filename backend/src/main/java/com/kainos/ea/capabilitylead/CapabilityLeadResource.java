@@ -1,5 +1,6 @@
 package com.kainos.ea.capabilitylead;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -11,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+@Api(value="/capabilityLeader")
 @Path("/api")
 public class CapabilityLeadResource {
 
