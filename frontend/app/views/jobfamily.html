@@ -20,7 +20,6 @@ Edit job family
     <th id="jobFamilyName" scope="col">Job Family</th>
     <th id="capabilityName" scope="col">Capability</th>
     <th id="edit" scope="col">Edit</th>
-    <th id="delete" scope="col">Delete</th>
   </tr>
   </thead>
   <tbody>
@@ -30,7 +29,6 @@ Edit job family
     <td id="jobFamilyName{{jobFamily.jobFamilyID}}" scope="row">{{ jobFamily.jobFamilyName }}</td>
     <td id="capability{{jobFamily.jobFamilyID }}" scope="row">{{ jobFamily.capability }}</td>
     <td id="edit{{ jobFamily.jobFamilyID }}"><a href="/editJobFamily/{{jobFamily.jobFamilyID}}"><button type="button" class="btn btn-warning">Edit</button></a></td>
-    <td id="delete{{ jobFamily.jobFamilyID }}"><button type="button" class="btn btn-warning">Delete</button></td>
   </tr>
   {% endfor %}
   {% endif %}
