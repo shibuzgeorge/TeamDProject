@@ -78,6 +78,85 @@ router.get("/addjobfamily", permit('Admin'), async (req, res) => {
     res.render('addjobfamily', {capabilities: capabilities.data, jobFamily: jobFamily.data, user: req.user});
 });
 
+router.get("/jobfamily", permit('Admin'), async (req, res) => {
+
+    const jobFamily = await axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/jobFamily/getJobFamily',
+        headers: {
+            'Authorization': localStorage.getItem("auth")
+        },
+        responseType: 'json'
+    })
+
+    res.render('jobfamily', {jobFamilies: jobFamily.data, user: req.user});
+});
+
+router.get("/editjobfamily/:id", permit('Admin'), async (req, res) => {
+
+    const capabilities = await axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/capability/getCapability',
+        headers: {
+            'Authorization': localStorage.getItem("auth")
+        },
+        responseType: 'json'
+    })
+
+    const jobFamily = await axios({
+        method: 'get',
+        url: 'http://localhost:8080/api/jobFamily/getJobFamily/'+ req.params.id,
+        headers: {
+            'Authorization': localStorage.getItem("auth")
+        },
+        responseType: 'json'
+    })
+
+    res.render('editjobfamily', {jobFamily: jobFamily.data, capabilities: capabilities.data, user: req.user});
+});
+
+router.post('/editjobfamily/:id', permit(`Admin`), (req, res) => {
+    let capabilities = '';
+    let jobFamily = '';
+    axios({
+        method: 'put',
+        url: 'http://localhost:8080/api/editJobFamily/' + req.params.id,
+        headers: {
+            'Authorization': localStorage.getItem("auth"),
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        params: {
+            jobFamilyName: req.body.jobFamilyName,
+            capability: req.body.capability,
+        },
+        responseType: 'json'
+    }).then(async (response) => {
+        capabilities = await axios({
+            method: 'get',
+            url: 'http://localhost:8080/api/capability/getCapability',
+            headers: {
+                'Authorization': localStorage.getItem("auth")
+            },
+            responseType: 'json'
+        })
+
+        jobFamily = await axios({
+            method: 'get',
+            url: 'http://localhost:8080/api/jobFamily/getJobFamily/'+ req.params.id,
+            headers: {
+                'Authorization': localStorage.getItem("auth")
+            },
+            responseType: 'json'
+        })
+        if(!response.data){
+            return res.render('editjobfamily', {error: "Job Family already exists within this capability please select another capability or enter a different job family name", capabilities: capabilities.data, jobFamily: jobFamily.data, user: req.user})
+        }
+        res.render('editjobfamily', {message: "Updated successfully", capabilities: capabilities.data, jobFamily: jobFamily.data, user: req.user})
+    }, (error) => {
+        return res.render('editjobfamily', {error: error.message, capabilities: capabilities.data, jobFamily: jobFamily.data, user: req.user})
+    })
+})
+
 router.post('/addjobfamily', permit(`Admin`), (req, res) => {
     // const bodyFormData = new FormData();
     // bodyFormData.append('jobFamilyName', req.body.jobFamilyName);

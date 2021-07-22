@@ -36,6 +36,14 @@ public class JobFamilyResource {
 
     @GET
     @RolesAllowed({ "Admin", "Employee" })
+    @Path("/jobFamily/getJobFamily/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public JobFamily getJobFamilyByID(@PathParam("id") int id) {
+        return jobFamilyDAO.getJobFamilyByID(id);
+    }
+
+    @GET
+    @RolesAllowed({ "Admin", "Employee" })
     @Path("/jobFamilyFromCapability/{capability}")
     @ApiOperation(
             value = "Gets a job family using an input capability",
@@ -71,6 +79,20 @@ public class JobFamilyResource {
             return false;
         }else{
         return jobFamilyDAO.insertNewJobFamily(jobFamilyName, capability);
+        }
+    }
+
+    @PUT
+    @RolesAllowed({ "Admin" })
+    @Timed
+    @Path("/editJobFamily/{id}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public boolean editJobFamily(@FormParam("jobFamilyName")String jobFamilyName, @FormParam("capability") String capability,
+                                 @PathParam("id") int id){
+        if(jobFamilyDAO.checkIfJobFamilyNameAndCapabilityComboExist(jobFamilyName, capability) != null){
+            return false;
+        }else{
+            return jobFamilyDAO.editJobFamilyName(jobFamilyName, id) && jobFamilyDAO.editJobFamilyCapability(capability, id);
         }
     }
 }
