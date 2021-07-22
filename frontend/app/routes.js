@@ -102,15 +102,19 @@ router.get("/editjobfamily/:id", permit('Admin'), async (req, res) => {
         },
         responseType: 'json'
     })
-
-    const jobFamily = await axios({
-        method: 'get',
-        url: 'http://localhost:8080/api/jobFamily/getJobFamily/'+ req.params.id,
-        headers: {
-            'Authorization': localStorage.getItem("auth")
-        },
-        responseType: 'json'
-    })
+    let jobFamily = '';
+    try {
+        jobFamily = await axios({
+            method: 'get',
+            url: 'http://localhost:8080/api/jobFamily/getJobFamily/' + req.params.id,
+            headers: {
+                'Authorization': localStorage.getItem("auth")
+            },
+            responseType: 'json'
+        })
+    } catch (err) {
+        console.log(err.message)
+    }
 
     res.render('editjobfamily', {jobFamily: jobFamily.data, capabilities: capabilities.data, user: req.user});
 });

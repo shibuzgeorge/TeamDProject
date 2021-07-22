@@ -44,7 +44,7 @@ There are 2 users in the `User` database with different roles => `Admin` or `Emp
 
 If you want to protect an API for a certain role e.g. Admin you can use this annotation => `@RolesAllowed({ "Admin" })` to the method.
 
-####API Documentation
+#### API Documentation
 
 API documentation is provided for every single API route listed below.
 The documentation contains the URL, HTTP verb, parameters, responses and the expected payload
@@ -60,31 +60,36 @@ At the bottom of the page, there is a models section - this contains the expecte
 
 API Routes available:
 * User:
-  * http://localhost:8080/api/login
-  * http://localhost:8080/api/user/getUsers
+  * http://localhost:8080/api/login (POST)
+  * http://localhost:8080/api/user/getUsers (GET)
 * Role:
-  * http://localhost:8080/api/role/getRoles
-  * http://localhost:8080/api/role/{roleID}
-  * http://localhost:8080/api/roleFromCapability/{capability}
+  * http://localhost:8080/api/role/getRoles (GET)
+  * http://localhost:8080/api/role/{roleID} (GET)
+  * http://localhost:8080/api/roleFromCapability/{capability} (GET)
 * Responsibility:
-  * http://localhost:8080/api/responsibility/getResponsibilityByID/{roleID}
-* Capability:    
-  * http://localhost:8080/api/capability/getCapabilityLeads
-  * http://localhost:8080/api/capability/{capability}
-  * http://localhost:8080/api/capability/getCapability
+  * http://localhost:8080/api/responsibility/getResponsibilityByID/{roleID} (GET)
+* Capability:
+  * http://localhost:8080/api/capability/getCapabilityLeads (GET)
+  * http://localhost:8080/api/capability/{capability} (GET)
+  * http://localhost:8080/api/capability/getCapability (GET)
 * Employee:    
-  * http://localhost:8080/api/employee/getEmployees
+  * http://localhost:8080/api/employee/getEmployees (GET)
 * Band:    
-  * http://localhost:8080/api/band/getBands
+  * http://localhost:8080/api/band/getBands (GET)
 * Competency
-  * http://localhost:8080/api/competency/getCompetencyByBand/{bandID}
+  * http://localhost:8080/api/competency/getCompetencyByBand/{bandID} (GET)
+  * http://localhost:8080/api/competency/{competencyID} (GET)
+  * http://localhost:8080/api/competency/getCompetencies (GET)
+
 * Training
-  * http://localhost:8080/api/training/getTrainings
-  * http://localhost:8080/api/training/getTrainingByBand/{bandID}
+  * http://localhost:8080/api/training/getTrainings (GET)
+  * http://localhost:8080/api/training/getTrainingByBand/{bandID} (GET)
 * Job Family
-  * http://localhost:8080/api/jobFamily/getJobFamily
-  * http://localhost:8080/api/jobFamilyFromCapability/{capability}
-  * http://localhost:8080/api/newJobFamily
+  * http://localhost:8080/api/jobFamily/getJobFamily (GET)
+  * http://localhost:8080/api/jobFamilyFromCapability/{capability} (GET)
+  * http://localhost:8080/api/newJobFamily (GET)
+  * http://localhost:8080/api/editJobFamily/1 (PUT)
+  * http://localhost:8080/api/newJobFamily (POST)
 
 ### Frontend
 

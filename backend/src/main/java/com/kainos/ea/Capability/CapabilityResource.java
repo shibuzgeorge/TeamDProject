@@ -27,7 +27,7 @@ public class CapabilityResource {
     @RolesAllowed({ "Admin", "Employee" })
     @Path("/capability/getCapability")
     @ApiOperation(
-            value = "Get a specific capability",
+            value = "Get alll capabilities",
             notes = "Returns a list of all the capabilities",
             response = Capability.class)
     @ApiResponses(value = {

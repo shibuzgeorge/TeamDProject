@@ -30,10 +30,10 @@ Edit job family
   {% if jobFamilies %}
   {% for jobFamily in jobFamilies %}
   <tr>
-    <td class="careerLattice-tableRow" id="jobFamilyName{{jobFamily.jobFamilyName}}" scope="row">{{ jobFamily.jobFamilyName }}</td>
-    <td class="careerLattice-tableRow" id="capability{{ jobFamily.capability }}" scope="row">{{ jobFamily.capability }}</td>
-    <td class="careerLattice-tableRow" id="edit{{ jobFamily.jobFamilyID }}"><a href="/editJobFamily/{{jobFamily.jobFamilyID}}"><button type="button" class="kainos-button">Edit</button></a></td>
-    <td class="careerLattice-tableRow" id="delete{{ jobFamily.jobFamilyID }}"><button type="button" class="kainos-button">Delete</button></td>
+    <td class="careerLattice-tableRow" id="jobFamilyName{{jobFamily.jobFamilyID}}" scope="row">{{ jobFamily.jobFamilyName }}</td>
+    <td class="careerLattice-tableRow" id="capability{{jobFamily.jobFamilyID }}" scope="row">{{ jobFamily.capability }}</td>
+    <td class="careerLattice-tableRow" id="edit{{ jobFamily.jobFamilyID }}"><a href="/editJobFamily/{{jobFamily.jobFamilyID}}"><button type="button" class="btn btn-warning">Edit</button></a></td>
+    <td class="careerLattice-tableRow" id="delete{{ jobFamily.jobFamilyID }}"><button type="button" class="btn btn-warning">Delete</button></td>
   </tr>
   {% endfor %}
   {% endif %}

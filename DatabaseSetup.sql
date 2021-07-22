@@ -153,7 +153,7 @@ INSERT INTO `Capability` (`capabilityID`,`capabilityName`,`capabilityLeadID`,`ca
 INSERT INTO `Capability` (`capabilityID`,`capabilityName`,`capabilityLeadID`,`capabilityLeadMessage`) VALUES (4,'Data',4,'Come join the Data team');
 INSERT INTO `Capability` (`capabilityID`,`capabilityName`,`capabilityLeadID`,`capabilityLeadMessage`) VALUES (5,'Cyber Security',5,'Come join the Cyber Security team');
 
-INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, 'Testing And Quality Assurance', 1);
+INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, 'Testing and Quality Assurance', 1);
 INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (1, 'Engineering', 2);
 INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (2, 'Artificial Intelligence (AI) Engineering', 3);
 INSERT INTO JobFamily (capabilityID, jobFamilyName, disciplineLeadID) VALUES (3, 'Platform Architecture', 4);
