@@ -1,6 +1,7 @@
 package com.kainos.ea.user;
 
 import io.dropwizard.auth.Auth;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -10,6 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+@Api(value="/user")
 @Path("/api")
 public class UserResource {
 
