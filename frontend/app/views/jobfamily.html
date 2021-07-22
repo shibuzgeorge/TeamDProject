@@ -27,8 +27,8 @@ Edit job family
   {% if jobFamilies %}
   {% for jobFamily in jobFamilies %}
   <tr>
-    <td id="jobFamilyName{{jobFamily.jobFamilyName}}" scope="row">{{ jobFamily.jobFamilyName }}</td>
-    <td id="capability{{ jobFamily.capability }}" scope="row">{{ jobFamily.capability }}</td>
+    <td id="jobFamilyName{{jobFamily.jobFamilyID}}" scope="row">{{ jobFamily.jobFamilyName }}</td>
+    <td id="capability{{jobFamily.jobFamilyID }}" scope="row">{{ jobFamily.capability }}</td>
     <td id="edit{{ jobFamily.jobFamilyID }}"><a href="/editJobFamily/{{jobFamily.jobFamilyID}}"><button type="button" class="btn btn-warning">Edit</button></a></td>
     <td id="delete{{ jobFamily.jobFamilyID }}"><button type="button" class="btn btn-warning">Delete</button></td>
   </tr>
