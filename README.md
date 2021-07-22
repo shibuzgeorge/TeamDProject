@@ -142,3 +142,18 @@ Selenium is used to test the UI elements of our frontend.
 ##### Run test
 
 1. Run `mvn test -B`
+
+### Performance testing
+
+Performance Testing for the application is handled with JMeter. To configure and run performance
+tests for the application, JMeter must be installed on your machine.
+
+#### How to run performance tests
+1. Ensure the latest version of the "Project Test Plan.jmx" file is saved locally on your machine.
+2. Open terminal and enter `jmeter` to open JMeter
+3. Navigate to directory containing your Project Test Plan.jmx file and open it
+4. Configure number of Threads and loops to run in the "Users" Thread Group
+5. Hit save button to save configuration, then hit start.
+6. View results in "View Results in table" or "Graph results"
+
+
