@@ -32,12 +32,9 @@ public class ResponsibilityResource {
             notes = "Returns the responsibility based on the role ID received",
             response = Responsibility.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "There are no responsibilities belonging to that Role ID")
-    })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Produces(MediaType.APPLICATION_JSON)
     public Responsibility getResponsibility(@PathParam ("roleID") @NotNull @Valid int roleID) {
         return responsibilityDAO.getResponsibility(roleID);

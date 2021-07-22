@@ -28,7 +28,7 @@ public class JobFamilyResource {
             notes = "Returns a list of all job families in the database",
             response = JobFamily.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
             @ApiResponse(code = 404, message = "Job family list not found") })
     @Produces(MediaType.APPLICATION_JSON)
@@ -44,11 +44,9 @@ public class JobFamilyResource {
             notes = "Returns the job family record with the matching ID",
             response = JobFamily.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "Job family list not found") })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Produces(MediaType.APPLICATION_JSON)
     public JobFamily getJobFamilyByID(@PathParam("id") int id) {
         return jobFamilyDAO.getJobFamilyByID(id);
@@ -62,11 +60,9 @@ public class JobFamilyResource {
             notes = "Returns a single job family record with the matching capability",
             response = JobFamily.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "There are no job families with that capability") })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Produces(MediaType.APPLICATION_JSON)
     public List<JobFamily> getJobFamilyByCapability(@PathParam("capability") String capability) {
         return jobFamilyDAO.getJobFamilyByCapability(capability);
@@ -81,10 +77,8 @@ public class JobFamilyResource {
             notes = "This is used to create a new job family in the system",
             response = JobFamily.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 409, message = "Confict: Job family with the same name already exists"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
             @ApiResponse(code = 500, message = "Internal server error")})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public boolean insertJobFamily(@FormParam("jobFamilyName")String jobFamilyName, @FormParam("capability")String capability){
@@ -104,11 +98,9 @@ public class JobFamilyResource {
             notes = "Replaces the job family name, capability of the job family record with the matching ID",
             response = JobFamily.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "There are no job families with that ID") })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public boolean editJobFamily(@FormParam("jobFamilyName")String jobFamilyName, @FormParam("capability") String capability,
                                  @PathParam("id") int id){

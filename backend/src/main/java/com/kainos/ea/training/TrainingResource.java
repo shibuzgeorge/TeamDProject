@@ -31,11 +31,9 @@ public class TrainingResource {
             notes = "Returns a list of all the different trainings in the database",
             response = Training.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "Training list not found") })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Produces(MediaType.APPLICATION_JSON)
     public List<Training> getTrainings() {
         return trainingDAO.getTrainings();
@@ -49,11 +47,9 @@ public class TrainingResource {
             notes = "Returns the training record using the Band ID received",
             response = Training.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "No training found in that Band") })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Produces(MediaType.APPLICATION_JSON)
     public List<Training> getTrainingByBandID(@PathParam("bandID") int bandID) {
         return trainingDAO.getTrainingByBandID(bandID);

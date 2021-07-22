@@ -31,11 +31,9 @@ public class CapabilityResource {
             notes = "Returns a list of all the capabilities",
             response = Capability.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
-            @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "Capability list not found") })
+            @ApiResponse(code = 500, message = "Internal server error")})
     @Produces(MediaType.APPLICATION_JSON)
     public List<Capability> getCapability() {
         return capabilityDAO.getCapability();
@@ -49,11 +47,9 @@ public class CapabilityResource {
             notes = "Return a specific capability based on the URL",
             response = Capability.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "No capability with that ID") })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Produces(MediaType.APPLICATION_JSON)
     public Capability getCapabilityByName(@PathParam("capability") String capability) {
         return capabilityDAO.getCapabilityByName(capability);
