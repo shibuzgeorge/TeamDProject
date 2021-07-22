@@ -35,10 +35,6 @@ public class AdminEmployeeVIewTest extends FunctionalTest {
             assert(elements.size() == 1);
         }
         {
-            List<WebElement> elements = driver.findElements(By.cssSelector("#addjobfamily .card-img-top"));
-            assert(elements.size() == 0);
-        }
-        {
             List<WebElement> elements = driver.findElements(By.cssSelector("#jobfamily .card-img-top"));
             assert(elements.size() == 0);
         }
@@ -68,10 +64,6 @@ public class AdminEmployeeVIewTest extends FunctionalTest {
         }
         {
             List<WebElement> elements = driver.findElements(By.cssSelector("#training .card-img-top"));
-            assert(elements.size() == 1);
-        }
-        {
-            List<WebElement> elements = driver.findElements(By.cssSelector("#addjobfamily .card-img-top"));
             assert(elements.size() == 1);
         }
         {
