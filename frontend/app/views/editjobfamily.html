@@ -1,0 +1,51 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+Edit Job Family
+{% endblock %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<a href="/jobfamily">
+<button type="button" class="btn btn-outline-secondary">&#8592;</button></a><p>
+{% if jobFamily %}
+    {% if error %}
+<div class="alert alert-danger">
+    <strong>Error!</strong> {{error}}.
+</div>
+{% endif %}
+{% if message %}
+<div class="alert alert-success">
+    <strong>Success!</strong> {{message}}
+</div>
+{% endif %}
+
+<form action="/editjobfamily/{{jobFamily.jobFamilyID}}" method="POST">
+    <div class="form-group">
+        <h3><label for="jobFamilyName">Job Family Name:</label></h3>
+        <input type="text" class="form-control form-control-lg" value="{{jobFamily.jobFamilyName}}" name="jobFamilyName" id="jobFamilyName" placeholder="Job Family Name" required>
+    </div>
+
+    <div class="form-group">
+        <h3><label for="capability">Job Family Name:</label></h3>
+        <select id="capability" class="form-control form-control-lg" name="capability">
+            {% for capability in capabilities %}
+            {% if capability.capabilityName == jobFamily.capability %}
+            <option value="{{capability.capabilityName}}" selected="selected">{{capability.capabilityName}}</option>
+            {% else %}
+            <option value="{{capability.capabilityName}}">{{capability.capabilityName}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+<p></p>
+    <button type="submit" class="btn btn-success">Edit</button>
+</form>
+{% else %}
+<h1>Job family not found</h1>
+{% endif %}
+
+{% endblock %}

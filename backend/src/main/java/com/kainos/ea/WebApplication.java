@@ -31,6 +31,8 @@ import io.dropwizard.configuration.SubstitutingSourceProvider;
 import io.dropwizard.jdbi3.JdbiFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.federecio.dropwizard.swagger.SwaggerBundle;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 import org.jdbi.v3.core.Jdbi;
 
@@ -45,7 +47,15 @@ public class WebApplication extends Application<WebApplicationConfiguration> {
         bootstrap.setConfigurationSourceProvider(
                 new SubstitutingSourceProvider(bootstrap.getConfigurationSourceProvider(),
                         new EnvironmentVariableSubstitutor(false))
+
         );
+        bootstrap.addBundle(new SwaggerBundle<WebApplicationConfiguration>() {
+
+            @Override
+            protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(WebApplicationConfiguration configuration) {
+                return configuration.swaggerBundleConfiguration;
+            }
+        });
     }
 
     @Override

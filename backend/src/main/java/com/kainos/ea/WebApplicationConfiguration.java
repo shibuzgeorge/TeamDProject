@@ -3,6 +3,7 @@ package com.kainos.ea;
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.db.DataSourceFactory;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 
 import javax.sql.DataSource;
 import javax.validation.Valid;
@@ -23,5 +24,6 @@ public class WebApplicationConfiguration extends Configuration {
         this.database = database;
     }
 
-
+    @JsonProperty("swagger")
+    public SwaggerBundleConfiguration swaggerBundleConfiguration;
 }
