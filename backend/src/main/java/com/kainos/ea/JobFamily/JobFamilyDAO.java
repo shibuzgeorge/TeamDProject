@@ -23,4 +23,7 @@ public interface JobFamilyDAO {
     @SqlQuery("SELECT * FROM JobFamilyFull WHERE jobFamilyName = :jobFamilyName AND capabilityName = :capability;")
     JobFamily checkIfJobFamilyNameAndCapabilityComboExist(@Bind("jobFamilyName") String jobFamilyName, @Bind("capability") String capability);
 
+    @SqlUpdate("DELETE FROM JobFamily WHERE jobFamilyName = :jobFamilyName;")
+    boolean deleteJobFamily(@Bind("jobFamilyName") String jobFamilyName);
+
 }

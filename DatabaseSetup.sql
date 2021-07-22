@@ -98,7 +98,7 @@ FROM `Role` R
                 ON R.bandID = B.bandID
          LEFT JOIN `JobFamily` JF
                 ON R.jobFamilyID = JF.jobFamilyID
-ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
+ORDER BY C.capabilityName, JF.jobFamilyName, B.bandPosition;
 
 CREATE VIEW `RoleListWithoutID` AS
     SELECT R.roleName, C.capabilityName, JF.jobFamilyName, B.bandName, R.specification
@@ -109,7 +109,7 @@ CREATE VIEW `RoleListWithoutID` AS
                 ON R.bandID = B.bandID
          LEFT JOIN `JobFamily` JF
                 ON R.jobFamilyID = JF.jobFamilyID
-ORDER BY C.capabilityName, JF.jobFamilyName, B.bandID;
+ORDER BY C.capabilityName, JF.jobFamilyName, B.bandPosition;
 
 CREATE VIEW `CapabilityLeads` AS
     SELECT C.capabilityName, C.capabilityLeadMessage, E.employeeID, E.employeeName, E.employeeIDPhoto
