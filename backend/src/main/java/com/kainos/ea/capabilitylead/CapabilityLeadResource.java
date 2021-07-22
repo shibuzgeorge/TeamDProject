@@ -30,11 +30,9 @@ public class CapabilityLeadResource {
             notes = "Returns a list of all the capability leads",
             response = CapabilityLead.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "No capability leader with that ID") })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Produces(MediaType.APPLICATION_JSON)
     public List<CapabilityLead> getCapabilityLeads() {
         return capabilityLeadDAO.getCapabilityLead();

@@ -32,11 +32,9 @@ public class CompetencyResource {
             notes = "Returns a list of all the competencies in the database",
             response = Competency.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "Competency list not found") })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Produces(MediaType.APPLICATION_JSON)
     public List<Competency> getCompetencies() { return competencyDAO.getCompetencies(); }
 
@@ -47,11 +45,9 @@ public class CompetencyResource {
             notes = "Returns a list of all the competencies in the database",
             response = Competency.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "No competency with that ID exists") })
+            @ApiResponse(code = 500, message = "Internal server error")})
     @Produces(MediaType.APPLICATION_JSON)
     public Competency getCompetencyByID(@PathParam("competencyID") int compID) { return competencyDAO.getCompetencyByID(compID);}
 
@@ -62,11 +58,9 @@ public class CompetencyResource {
             notes = "Returns a competency based on the BandID input",
             response = Competency.class)
     @ApiResponses(value = {
-            @ApiResponse(code = 400, message = "Invalid URL, double check your parameters match the API documentation in the README"),
+            @ApiResponse(code = 401, message = "User is not authorised for this request"),
             @ApiResponse(code = 403, message = "Forbidden: This user does not have authorisation for this request"),
-            @ApiResponse(code = 503, message = "This service is not currently available"),
-            @ApiResponse(code = 500, message = "Internal server error"),
-            @ApiResponse(code = 404, message = "No competency with that Band ID exists") })
+            @ApiResponse(code = 500, message = "Internal server error") })
     @Produces(MediaType.APPLICATION_JSON)
     public List<Competency> getCompetencyByBandID(@PathParam("bandID") int bandID) { return competencyDAO.getCompetencyByBandID(bandID);}
 
